@@ -1,5 +1,6 @@
 {
     "name": "ssm/theme-boilerplate",
+    "type": "wordpress-theme",
     "license": "MIT",
     "description": "Theme boilerplate which contains a collection of basic theme modules for SSM projects",
     "homepage": "https://www.secretstache.com/",
@@ -19,6 +20,7 @@
         }
     },
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "composer/installers": "~1.0"
     }
 }
