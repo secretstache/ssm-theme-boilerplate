@@ -1,0 +1,119 @@
+[
+    {
+        "name": "Advanced Custom Fields PRO",
+        "slug": "advanced-custom-fields-pro",
+        "source": "https://www.secretstache.com/required-plugins/advanced-custom-fields-pro.zip",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Advanced Custom Fields: Phone",
+        "slug": "acf-field-phone",
+        "source": "https://www.secretstache.com/required-plugins/acf-field-phone.zip",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Advanced Custom Fields: Address",
+        "slug": "acf-field-address",
+        "source": "https://www.secretstache.com/required-plugins/acf-field-address.zip",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "ACF Code Field",
+        "slug": "acf-code-field",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Admin Menu Editor Pro",
+        "slug": "admin-menu-editor-pro",
+        "source": "https://www.secretstache.com/required-plugins/admin-menu-editor-pro.zip",
+        "required": false,
+        "force_activation": false
+    },
+    {
+        "name": "Advanced Custom Fields: Gravityforms Add-on",
+        "slug": "acf-gravityforms-add-on",
+        "required": false,
+        "force_activation": false
+    },
+    {
+        "name": "Customizer Remove All Parts",
+        "slug": "customizer-remove-all-parts",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Classic Editor",
+        "slug": "classic-editor",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Gravity Forms",
+        "slug": "gravityforms",
+        "source": "https://www.secretstache.com/required-plugins/gravityforms.zip",
+        "required": false,
+        "force_activation": false
+    },
+    {
+        "name": "reGenerate Thumbnails Advanced",
+        "slug": "regenerate-thumbnails-advanced",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Roots/Soil",
+        "slug": "roots-soil",
+        "source": "https://www.secretstache.com/required-plugins/roots-soil.zip",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Safe SVG",
+        "slug": "safe-svg",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "User Switcher",
+        "slug": "userswitcher",
+        "required": false,
+        "force_activation": false
+    },
+    {
+        "name": "Yoast SEO",
+        "slug": "wordpress-seo",
+        "required": false,
+        "force_activation": false
+	},
+	{
+        "name": "Query Monitor",
+        "slug": "query-monitor",
+        "required": false,
+        "force_activation": false
+	},
+	{
+    	"name": "WP Rocket",
+    	"slug": "wp-rocket",
+    	"source": "https://www.secretstache.com/required-plugins/wp-rocket.zip",
+    	"required": false,
+    	"force_activation": false
+    },
+    {
+        "name": "WP Migrate DB Pro",
+        "slug": "wp-migrate-db-pro",
+        "source": "https://www.secretstache.com/required-plugins/wp-migrate-db-pro.zip",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "WP Migrate DB Pro Media Files",
+        "slug": "wp-migrate-db-pro-media-files",
+        "source": "https://www.secretstache.com/required-plugins/wp-migrate-db-pro-media-files.zip",
+        "required": true,
+        "force_activation": true
+    }
+]
