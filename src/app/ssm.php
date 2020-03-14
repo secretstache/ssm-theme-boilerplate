@@ -54,3 +54,10 @@ add_action( 'init', function() {
     }
     
 });
+
+/**
+ * Register Objects
+ */
+foreach ( glob( get_template_directory( __FILE__ ) . '/app/Objects/*.php') as $file) {    
+	require_once( $file );
+}
