@@ -61,3 +61,25 @@ add_action( 'init', function() {
 foreach ( glob( get_template_directory( __FILE__ ) . '/app/Objects/*.php') as $file) {    
 	require_once( $file );
 }
+
+/**
+ * Register ACF
+ */
+foreach( glob( get_template_directory( __FILE__ ) . '/app/Fields/*', GLOB_ONLYDIR ) as $dir ) {
+
+	$namespace = last( explode( "/", $dir ) ); // "Objects"
+
+	if( count(scandir($dir)) > 2 ) {
+
+		foreach ( glob( $dir . '/*.php' ) as $file) {
+
+			$filename = basename( $file, '.php' ); // "Article"
+			$class = "App\\Fields\\{$namespace}\\{$filename}"; // "App\Fields\Objects\Article"
+			
+			$$filename = new $class(); // $Article = new App\Fields\Objects\Article
+		
+		}
+	
+	}
+
+}
