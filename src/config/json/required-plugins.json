@@ -21,6 +21,12 @@
         "force_activation": true
     },
     {
+        "name": "Advanced Custom Fields: Table",
+        "slug": "advanced-custom-fields-table-field",
+        "required": false,
+        "force_activation": false
+    },
+    {
         "name": "ACF Code Field",
         "slug": "acf-code-field",
         "required": true,
@@ -48,6 +54,12 @@
     {
         "name": "Classic Editor",
         "slug": "classic-editor",
+        "required": true,
+        "force_activation": true
+    },
+    {
+        "name": "Disable Comments",
+        "slug": "disable-comments",
         "required": true,
         "force_activation": true
     },
