@@ -35,8 +35,8 @@ class Modules {
                 ->addLayout(Form::getFields())
                 ->addLayout(Accordion::getFields())
                 ->addLayout(Gallery::getFields())
-                ->addLayout(Table::getFields())
-                ->addLayout(DataDisplay::getFields())
+                // ->addLayout(Table::getFields())
+                // ->addLayout(DataDisplay::getFields())
             ->endFlexibleContent();
 
 		return $modulesList;
