@@ -27,13 +27,13 @@ add_action( 'init', function() {
         ),
 
         "admin_cols"    => array( // admin posts list columns
-            "custom_team_headshot" => array(
+            "default_team_headshot" => array(
                 'title'          => "Headshot",
                 'featured_image' => 'thumbnail',
                 'width'          => 100,
                 'height'         => 100,
             ),
-            "role" => array(
+            "default_team_role" => array(
                 "taxonomy" => "ssm_team_member_role"
             ),
             "title"
