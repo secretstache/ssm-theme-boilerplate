@@ -225,41 +225,6 @@ class BrandSettings {
 			acf_add_local_field_group($globalInlineStyles->build());
 		});
 
-		// ------ Testing ------
-
-		/**
-		 * Global Fonts
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
-		 */
-		$globalFonts = new FieldsBuilder('global_fonts', [
-			'menu_order'	=>	7
-		]);
-		$globalFonts
-			->addSelect('global_font_headline', [
-				'label' => 'Headline',
-				'ui' => 1,
-				'ajax' => 1,
-				'wrapper' => [
-					'width' => '50',
-				]
-			])
-			->addSelect('global_font_body_copy', [
-				'label'	=> 'Body Copy',
-				'ui' => 1,
-				'ajax' => 1,
-				'wrapper' => [
-					'width' => '50',
-				]
-			])
-			->setLocation('options_page', '==', 'acf-options-brand-settings');
-
-		// Register Logo Assets
-		add_action('acf/init', function() use ($globalFonts) {
-			acf_add_local_field_group($globalFonts->build());
-		});
-
 	}
 
 }
