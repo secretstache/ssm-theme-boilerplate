@@ -30,7 +30,7 @@ class Shared {
 		$heroUnit
 			->addTab('Content')
 				->addFields(Header::getFields())
-				->addFields(Buttons::getFields())
+				// ->addFields(Buttons::getFields())
 			->addTab('Options')
 				->addFields(Background::getFields())
 				->addFields(HtmlAttributes::getFields())
