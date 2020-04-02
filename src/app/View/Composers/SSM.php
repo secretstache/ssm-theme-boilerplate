@@ -24,7 +24,8 @@ class SSM extends Composer
     public function with()
     {
         return [
-            'builder' => $this->getBuilder()
+            'builder' => $this->getBuilder(),
+            'is_landing_page' => is_page_template('template-landing-page.blade.php')
         ];
     }
 
@@ -42,7 +43,7 @@ class SSM extends Composer
 
         $response = "";
 
-        $inline_id = $args->option_html_id;
+        $inline_id = $args['option_html_id'];
         $response .= ( $inline_id ) ? " id=\"" . sanitize_html_class( strtolower( $inline_id ) ) . "\"" : "";
 
         return $response;
@@ -54,7 +55,7 @@ class SSM extends Composer
 
         $response = "";
 
-        $inline_classes = $args->option_html_classes;
+        $inline_classes = $args['option_html_classes'];
         $column_index++;
         $odd = ( !empty( $column_index ) && $column_index % 2 == 0 ) ? "even" : "odd";
 
@@ -69,14 +70,14 @@ class SSM extends Composer
                 break;
 
             case "module":
-                $response .= " class=\"module " . $args->acf_fc_layout;
+                $response .= " class=\"module " . $args['acf_fc_layout'];
                 break;
 
         }
-        switch ( $args->option_background ) {
+        switch ( $args['option_background'] ) {
 
             case "color":
-                $response .= " bg-dark " . sanitize_html_class( $args->option_background_color );
+                $response .= " bg-dark " . sanitize_html_class( $args['option_background_color'] );
                 break;
 
             case "image":
@@ -89,8 +90,8 @@ class SSM extends Composer
 
         }
 
-        if ( $context == "module" && !is_null( $args->option_text_alignment ) ) {
-            $response .= " " . $args->option_text_alignment;
+        if ( $context == "module" && !is_null( $args['option_text_alignment'] ) ) {
+            $response .= " " . $args['option_text_alignment'];
         }
 
         $response .= ( !empty( $custom_classes ) ) ? " " . $custom_classes : "";
