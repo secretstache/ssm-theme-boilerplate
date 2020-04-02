@@ -22,7 +22,7 @@ class Columns {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $columnsTemplate = new FieldsBuilder('columns_template', [
+        $columnsTemplate = new FieldsBuilder('columns', [
             'title'	=>	'Column(s)'
         ]);
 

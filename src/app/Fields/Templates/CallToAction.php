@@ -19,7 +19,7 @@ class CallToAction {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $callToActionTemplate = new FieldsBuilder('call_to_action_template', [
+        $callToActionTemplate = new FieldsBuilder('call-to-action', [
             'title'	=>	'Call To Action'
         ]);
         $callToActionTemplate

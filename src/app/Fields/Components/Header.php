@@ -14,7 +14,7 @@ class Header {
 		 * @since 3.0.0
 		 * @todo Link to Team Snippet Code
 		 */
-		$headerComponent = new FieldsBuilder('header_component');
+		$headerComponent = new FieldsBuilder('header');
 		$headerComponent
 			->addText('headline', [
 				'label' => 'Headline'

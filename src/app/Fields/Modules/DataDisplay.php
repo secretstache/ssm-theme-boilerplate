@@ -16,7 +16,7 @@ class DataDisplay {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $dataDisplayModule = new FieldsBuilder('data_display_module', [
+        $dataDisplayModule = new FieldsBuilder('data-display', [
             'title'	=>	'Data Display'
         ]);
         $dataDisplayModule

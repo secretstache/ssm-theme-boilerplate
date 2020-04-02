@@ -14,7 +14,7 @@ class TextEditor {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $textEditorComponent = new FieldsBuilder('text_editor_component');
+        $textEditorComponent = new FieldsBuilder('text-editor');
 
         $toolbar = ( $type && $type == 'simple' ) ? 'basic' : 'full';
         $media_upload = ( $type && $type == 'simple' ) ? 0 : 1;

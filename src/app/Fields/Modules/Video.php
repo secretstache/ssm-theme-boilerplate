@@ -16,7 +16,7 @@ class Video {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $videoModule = new FieldsBuilder('video_module', [
+        $videoModule = new FieldsBuilder('video', [
             'title'	=>	'Video'
         ]);
         $videoModule

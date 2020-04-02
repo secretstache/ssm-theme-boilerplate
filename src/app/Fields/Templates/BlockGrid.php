@@ -22,7 +22,7 @@ class BlockGrid {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $blockGridTemplate = new FieldsBuilder('block_grid_template', [
+        $blockGridTemplate = new FieldsBuilder('block-grid', [
             'label'	=> 'Block Grid'
         ]);
         $blockGridTemplate

@@ -16,7 +16,7 @@ class Accordion {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $accordionModule = new FieldsBuilder('accordion_module', [
+        $accordionModule = new FieldsBuilder('accordion', [
             'title'	=>	'Accordion'
         ]);
         $accordionModule

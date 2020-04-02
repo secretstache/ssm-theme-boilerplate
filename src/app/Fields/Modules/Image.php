@@ -17,7 +17,7 @@ class Image {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $imageModule = new FieldsBuilder('image_module', [
+        $imageModule = new FieldsBuilder('image', [
             'title'	=>	'Image'
         ]);
         $imageModule

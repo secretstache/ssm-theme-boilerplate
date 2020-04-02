@@ -57,10 +57,10 @@ class Shared {
 			])
 				->addLayout(Columns::getFields())
 				->addLayout(CallToAction::getFields())
-				->addLayout(RelatedContent::getFields())
-				->addLayout(BlockGrid::getFields())
-				->addLayout(SplitContent::getFields())
-				->addLayout(Gallery::getFields())
+				// ->addLayout(RelatedContent::getFields())
+				// ->addLayout(BlockGrid::getFields())
+				// ->addLayout(SplitContent::getFields())
+				// ->addLayout(Gallery::getFields())
 			->setLocation('post_type', '==', 'page')
 				->or('post_type', '==', 'ssm_article');
 

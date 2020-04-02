@@ -16,7 +16,7 @@ class TextEditor {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $textEditorModule = new FieldsBuilder('text_editor_module', [
+        $textEditorModule = new FieldsBuilder('text-editor', [
             'title'	=>	'Text Editor'
         ]);
         $textEditorModule

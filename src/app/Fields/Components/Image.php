@@ -14,7 +14,7 @@ class Image {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $imageComponent = new FieldsBuilder('image_component');
+        $imageComponent = new FieldsBuilder('image');
         $imageComponent
             ->addImage('image', [
                 'label'					=>	'Upload Image',

@@ -14,7 +14,7 @@ class Button {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $buttonComponent = new FieldsBuilder('button_component');
+        $buttonComponent = new FieldsBuilder('button');
 
         $condition_html = '';
 

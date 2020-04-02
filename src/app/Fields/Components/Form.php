@@ -14,7 +14,7 @@ class Form {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $formComponent = new FieldsBuilder('form_component');
+        $formComponent = new FieldsBuilder('form');
         $formComponent
             ->addField('form', 'forms', [
                 'wrapper'	=> [

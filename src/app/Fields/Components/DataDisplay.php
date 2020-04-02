@@ -14,7 +14,7 @@ class DataDisplay {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $dataDisplayComponent = new FieldsBuilder('data_display_component');
+        $dataDisplayComponent = new FieldsBuilder('data-display');
         $dataDisplayComponent
             ->addRepeater('data', [
                 'layout'				=>	'block',

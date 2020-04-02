@@ -14,7 +14,7 @@ class Table {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $tableComponent = new FieldsBuilder('table_component');
+        $tableComponent = new FieldsBuilder('table');
         $tableComponent
             ->addTrueFalse('first_row_is_table_header', [
                 'label'		=>	'The first row is the table header',

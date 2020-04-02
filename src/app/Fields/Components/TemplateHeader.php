@@ -15,7 +15,7 @@ class TemplateHeader {
          * @todo Extract Headline / Subheadline into a Header Snippet
          * @todo Link to Team Snippet Code
          */
-        $templateHeaderOptions = new FieldsBuilder('template_header_options');
+        $templateHeaderOptions = new FieldsBuilder('template-header');
         $templateHeaderOptions
             ->addTrueFalse('option_include_template_header', [
                 'message'	=> 'Include Template Header',

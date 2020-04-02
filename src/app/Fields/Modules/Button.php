@@ -17,7 +17,7 @@ class Button {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $buttonModule = new FieldsBuilder('button_module', [
+        $buttonModule = new FieldsBuilder('button', [
             'title'	=>	'Button'
         ]);
         $buttonModule

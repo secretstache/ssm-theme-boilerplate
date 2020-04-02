@@ -16,7 +16,7 @@ class Table {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $tableModule = new FieldsBuilder('table_module', [
+        $tableModule = new FieldsBuilder('table', [
             'title'	=>	'Table'
         ]);
         $tableModule

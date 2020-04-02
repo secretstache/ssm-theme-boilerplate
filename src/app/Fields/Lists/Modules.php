@@ -31,10 +31,10 @@ class Modules {
                 ->addLayout(TextEditor::getFields())
                 ->addLayout(Image::getFields())
                 ->addLayout(Video::getFields())
-                ->addLayout(Button::getFields())
+                // ->addLayout(Button::getFields())
                 ->addLayout(Form::getFields())
-                ->addLayout(Accordion::getFields())
-                ->addLayout(Gallery::getFields())
+                // ->addLayout(Accordion::getFields())
+                // ->addLayout(Gallery::getFields())
                 // ->addLayout(Table::getFields())
                 // ->addLayout(DataDisplay::getFields())
             ->endFlexibleContent();

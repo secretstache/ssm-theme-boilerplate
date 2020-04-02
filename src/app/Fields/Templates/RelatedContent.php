@@ -18,7 +18,7 @@ class RelatedContent {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $relatedContentTemplate = new FieldsBuilder('related_content_template', [
+        $relatedContentTemplate = new FieldsBuilder('related-content', [
             'title'	=>	'Related Content'
         ]);
         $relatedContentTemplate

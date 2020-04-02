@@ -14,7 +14,7 @@ class Accordion {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $accordionComponent = new FieldsBuilder('accordion_component');
+        $accordionComponent = new FieldsBuilder('accordion');
         $accordionComponent
             ->addRepeater('accordion', [
                 'layout'				=>	'block',

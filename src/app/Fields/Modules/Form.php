@@ -16,7 +16,7 @@ class Form {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $formModule = new FieldsBuilder('form_module', [
+        $formModule = new FieldsBuilder('form', [
             'title'	=>	'Form'
         ]);
         $formModule
