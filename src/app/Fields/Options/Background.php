@@ -37,7 +37,8 @@ class Background {
             ->addImage('option_background_image', [
                 'wrapper' => [
                     'class'	=> 'hide-label'
-                ]
+                ],
+                'preview_size' => 'medium'
             ])
                 ->conditional('option_background', '==', 'image')
             ->addFile('option_background_video', [

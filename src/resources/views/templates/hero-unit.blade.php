@@ -1,4 +1,8 @@
-<section {!! $classes !!}>
+<section {!! $id !!} {!! $classes !!} {!! $style !!} >
+
+    @if ( $template["option_background"] == "image" || $template["option_background"] == "video" )
+        <div class="overlay"></div>
+    @endif
 
     <div class="grid-container">
 

@@ -35,7 +35,7 @@ class ColumnAlignment {
             ])
                 ->addChoice('left', 'Left')
                 ->addChoice('center', 'Center')
-                ->addChoice('Right', 'Right');
+                ->addChoice('right', 'Right');
 
 		return $columnAlignmentOptions;
 

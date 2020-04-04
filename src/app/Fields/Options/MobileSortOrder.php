@@ -20,8 +20,8 @@ class MobileSortOrder {
                 'label'		=>	'Mobile Sort Order',
                 'layout'	=>	'horizontal'
             ])
-                ->addChoice('medium-order-1', 'First')
-                ->addChoice('medium-order-2', 'Last');
+                ->addChoice('small-order-1', 'First')
+                ->addChoice('small-order-2', 'Last');
 
 		return $mobileSortOrderOptions;
 
