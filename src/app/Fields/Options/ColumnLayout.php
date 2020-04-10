@@ -26,6 +26,14 @@ class ColumnLayout {
                 ->addChoice(8, '8')
                 ->addChoice(10, '10');
 
+		$columnLayoutOptions
+			->addField('option_columns_mobile_order', "text", [
+				'label'		=> 'Mobile Order',
+				'wrapper'	=> [
+					'class'	=> 'column-layout-mobile-order'
+				]
+			]);
+
 		return $columnLayoutOptions;
 
 	}

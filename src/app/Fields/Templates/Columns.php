@@ -32,7 +32,7 @@ class Columns {
                 ->addRepeater('columns', [
                     'layout'				=>	'block',
                     'min'						=> 	1,
-                    'max'						=>	2,
+                    'max'						=>	4,
                     'button_label'	=>	'Add Column',
                     'wrapper'				=> 	[
                         'class'		=>	'hide-label'
@@ -43,7 +43,6 @@ class Columns {
                     ])
                         ->addFields(Modules::getFields())
                     ->addTab('Options')
-                        ->addFields(MobileSortOrder::getFields())
                         ->addFields(HtmlAttributes::getFields())
                     ->endRepeater()
             ->addTab('Options')

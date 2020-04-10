@@ -23,9 +23,10 @@
 							$id = ( $column['option_html_id'] ) ? 'id="' . $column['option_html_id'] . '"' : '';
 							$custom_classes = ( $column['option_html_classes'] ) ? " " . $column['option_html_classes'] : '';
 							$column_i = $key+1;
+							$columns_mobile_order = explode( '_', $template['option_columns_mobile_order'] );
 						@endphp
 
-                        <div {!! $id !!} class="cell small-11 medium-{{ $width }} medium-order-{!! $column_i !!} {!! $column["option_mobile_sort_order"] !!} {{ $custom_classes }}" >
+                        <div {!! $id !!} class="cell small-11 medium-{{ $width }} medium-order-{!! $column_i !!} small-order-{!! $columns_mobile_order[$key] ?: 1 !!} {{ $custom_classes }}" >
 
                             <div class="inner">
 
