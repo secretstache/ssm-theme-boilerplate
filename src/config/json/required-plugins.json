@@ -21,6 +21,13 @@
         "force_activation": true
     },
     {
+        "name": "Advanced Custom Fields: Get nav menus",
+        "slug": "acf-get-nav-menus",
+        "source": "https://www.secretstache.com/required-plugins/acf-get-nav-menus.zip",
+        "required": false,
+        "force_activation": false
+    },
+    {
         "name": "Advanced Custom Fields: Table",
         "slug": "advanced-custom-fields-table-field",
         "required": false,
@@ -48,8 +55,9 @@
     {
         "name": "Customizer Remove All Parts",
         "slug": "customizer-remove-all-parts",
-        "required": true,
-        "force_activation": true
+        "source": "https://www.secretstache.com/required-plugins/customizer-remove-all-parts.zip",
+        "required": false,
+        "force_activation": false
     },
     {
         "name": "Classic Editor",
