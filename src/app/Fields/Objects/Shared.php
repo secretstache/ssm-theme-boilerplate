@@ -52,8 +52,7 @@ class Shared {
 				'theme'	=> 'monokai'
 			])
 			->setLocation('post_type', '==', 'page')
-				->or('post_type', '==', 'post')
-				->or('post_type', '==', 'ssm_article');
+				->or('post_type', '==', 'post');
 
 		// Register Inline Styles
 		add_action('acf/init', function() use ($inlineStyles) {
@@ -76,8 +75,7 @@ class Shared {
 				'theme'	=> 'monokai',
 			])
 			->setLocation('post_type', '==', 'page')
-				->or('post_type', '==', 'post')
-				->or('post_type', '==', 'ssm_article');
+				->or('post_type', '==', 'post');
 
 		// Register Inline Scripts
 		add_action('acf/init', function() use ($inlineScripts) {
@@ -107,8 +105,7 @@ class Shared {
 				->addChoice('fbq("track", "AddPaymentInfo");', 'Added Payment Info')
 				->addChoice('fbq("track", "Purchase");', 'Made a Purchase')
 			->setLocation('post_type', '==', 'page')
-				->or('post_type', '==', 'post')
-				->or('post_type', '==', 'ssm_article');
+				->or('post_type', '==', 'post');
 
 		// Register Facebook Conversion Pixel
 		add_action('acf/init', function() use ($facebookConversionPixel) {

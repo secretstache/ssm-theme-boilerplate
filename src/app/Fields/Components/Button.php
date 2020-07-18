@@ -36,11 +36,25 @@ class Button {
             $buttonComponent
                 ->addRadio('button_source', [
                     'label'		=> 'Source',
-                    'layout' 	=> 'horizontal'
+                    'layout' 	=> 'horizontal',
+                    'wrapper'	=> [
+                        'width'	=> '50'
+                    ]
                 ])
-                    ->addChoice('Internal Page')
-                    ->addChoice('External URL')
-                    ->setDefaultValue('Internal Page')
+                    ->addChoice( 'internal', 'Internal Page')
+                    ->addChoice( 'external', 'External URL')
+                    ->setDefaultValue( 'internal' )
+                ->conditional('include_button', '==', 1)
+
+                ->addRadio('option_button_target', [
+                        'label'		=> 'Target',
+                        'layout'	=> 'horizontal',
+                        'wrapper'	=> [
+                            'width'	=> '50'
+                        ]
+                    ])
+                    ->addChoice('_self', 'Default')
+                    ->addChoice('_blank', 'New Tab')
                 ->conditional('include_button', '==', 1);
         
         } else {
@@ -48,11 +62,25 @@ class Button {
             $buttonComponent
                 ->addRadio('button_source', [
                     'label'		=> 'Source',
-                    'layout' 	=> 'horizontal'
+                    'layout' 	=> 'horizontal',
+                    'wrapper'	=> [
+                        'width'	=> '50'
+                    ]
+                    
                 ])
-                    ->addChoice('Internal Page')
-                    ->addChoice('External URL')
-                    ->setDefaultValue('Internal Page');
+                    ->addChoice( 'internal', 'Internal Page')
+                    ->addChoice( 'external', 'External URL')
+                    ->setDefaultValue( 'internal' )
+
+                ->addRadio('option_button_target', [
+                        'label'		=> 'Target',
+                        'layout'	=> 'horizontal',
+                        'wrapper'	=> [
+                            'width'	=> '50'
+                        ]
+                    ])
+                    ->addChoice('_self', 'Default')
+                    ->addChoice('_blank', 'New Tab');
         }
 
         if( $is_conditional ) {
@@ -82,22 +110,24 @@ class Button {
             $buttonComponent
                 ->addPostObject('button_page_id', [
                     'label'		=> 'Select a Page',
+                    'post_type' => ['page'],
                     'wrapper'	=> [
                         'width'	=> '50'
                     ]
                 ])
-                    ->conditional('button_source', '==', 'Internal Page')
+                    ->conditional('button_source', '==',  'internal')
                         ->and( 'include_button', '==', 1 );
         } else {
 
             $buttonComponent
                 ->addPostObject('button_page_id', [
                     'label'		=> 'Select a Page',
+                    'post_type' => ['page'],
                     'wrapper'	=> [
                         'width'	=> '50'
                     ]
                 ])
-                    ->conditional('button_source', '==', 'Internal Page');
+                    ->conditional('button_source', '==',  'internal');
 
         }
 
@@ -110,7 +140,7 @@ class Button {
                         'width'	=> '50'
                     ]
                 ])
-                    ->conditional('button_source', '==', 'External URL')
+                    ->conditional('button_source', '==', 'external')
                         ->and('include_button', '==', 1);
                     
         } else {
@@ -122,7 +152,7 @@ class Button {
                         'width'	=> '50'
                     ]
                 ])
-                    ->conditional('button_source', '==', 'External URL');
+                    ->conditional('button_source', '==', 'external');
 
         }
         
