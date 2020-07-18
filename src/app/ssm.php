@@ -56,6 +56,19 @@ add_action( 'init', function() {
 });
 
 /**
+ * Assign custom Page Post States
+ */
+add_filter( 'display_post_states', function( $post_states, $post ) {
+
+    if( get_page_template_slug( $post ) == 'template-landing-page.blade.php' ) {
+        $post_states[] = 'Landing Page';
+    }
+
+    return $post_states;
+
+ }, 10, 2 );
+
+/**
  * Register Objects
  */
 foreach ( glob( get_template_directory( __FILE__ ) . '/app/Objects/*.php') as $file) {    
