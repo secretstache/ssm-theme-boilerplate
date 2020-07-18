@@ -14,7 +14,7 @@ add_action( 'init', function() {
         "menu_position"		=> 5,
         "supports" 			=> array( "title", "thumbnail" ),
         "show_in_menu"      => "ssm",
-        "has_archive"       => "articles",
+        "has_archive"       => "team",
         "public"            => false,
         "show_ui"           => true,
 
