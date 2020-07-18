@@ -28,12 +28,6 @@
         "force_activation": false
     },
     {
-        "name": "Advanced Custom Fields: Table",
-        "slug": "advanced-custom-fields-table-field",
-        "required": false,
-        "force_activation": false
-    },
-    {
         "name": "ACF Code Field",
         "slug": "acf-code-field",
         "required": true,
