@@ -24,7 +24,7 @@
 
 	@if( $data['templates'] )
 
-		@include( 'switches.templates', ['templates' => $data['templates']->toArray() ] )
+		@include( 'switches.templates', ['templates' => $data['templates'] ] )
 
 	@endif
 
