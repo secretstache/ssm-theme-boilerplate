@@ -23,8 +23,8 @@ class LayoutBuilder {
         $layoutBuilder
         
 			->addFlexibleContent('templates', [
-				'label'					=>	'Layout Builder',
-				'button_label'	=>	'Add Template'
+				'label'			=> 'Layout Builder',
+				'button_label'	=> 'Add Template'
             ])
             
                 ->addLayout(Columns::getFields())

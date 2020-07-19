@@ -29,12 +29,12 @@ class BlockGrid {
             ->addTab('Content')
                 ->addFields(TemplateHeader::getFields())
                 ->addRepeater('block_grid_items', [
-                    'layout'				=>	'block',
-                    'button_label'	=>	'Add Item',
-                    'min'						=>	1,
-                    'collapsed'			=>	'block_grid_title',
-                    'wrapper'				=>	[
-                        'class'	=>	'hide-label'
+                    'layout'	    => 'block',
+                    'button_label'	=> 'Add Item',
+                    'min'			=> 1,
+                    'collapsed'	    => 'block_grid_title',
+                    'wrapper'		=> [
+                        'class'	    => 'hide-label'
                     ]
                 ])
                     ->addImage('block_grid_icon', [

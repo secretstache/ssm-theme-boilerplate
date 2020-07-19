@@ -30,13 +30,13 @@ class Columns {
             ->addTab('Content')
                 ->addFields(TemplateHeader::getFields())
                 ->addRepeater('columns', [
-                    'layout'				=>	'block',
-                    'min'						=> 	1,
-                    'max'						=>	4,
-                    'button_label'	=>	'Add Column',
-                    'wrapper'				=> 	[
-                        'class'		=>	'hide-label'
-                        ]
+                    'layout'		=> 'block',
+                    'min'			=> 1,
+                    'max'			=> 4,
+                    'button_label'	=> 'Add Column',
+                    'wrapper'		=> [
+                        'class'		=> 'hide-label'
+                    ]
                     ])
                     ->addTab('Content', [
                         'placement'	=>	'left'

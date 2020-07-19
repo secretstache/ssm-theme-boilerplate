@@ -49,7 +49,7 @@ class BrandSettings {
 		 */
 		$businessInformation = new FieldsBuilder('business_information', [
 			'title'			=> 'Business Information',
-			'menu_order'	=>	2
+			'menu_order'	=>	5
 		]);
 
 		$businessInformation
@@ -98,7 +98,7 @@ class BrandSettings {
 		 */
 		$socialNetworks = new FieldsBuilder('social_networks', [
 			'title'			=> 'Social Networks',
-			'menu_order'	=>	3
+			'menu_order'	=>	10
 		]);
 
 		$socialNetworks
@@ -133,7 +133,7 @@ class BrandSettings {
 		 */
 		$globalFooter = new FieldsBuilder('global_footer', [
 			'title'			=> 'Footer',
-			'menu_order'	=>	4
+			'menu_order'	=>	15
 		]);
 
 		$globalFooter
@@ -158,7 +158,7 @@ class BrandSettings {
 		 */
 		$analytics = new FieldsBuilder('analytics', [
 			'title'			=> 'Analytics',
-			'menu_order'	=>	5
+			'menu_order'	=>	20
 		]);
 
 		$analytics
@@ -209,7 +209,7 @@ class BrandSettings {
 		 */
 		$globalInlineStyles = new FieldsBuilder('global_inline_styles', [
 			'title'			=> 'Global Inline Styles',
-			'menu_order'	=>	6
+			'menu_order'	=>	25
 		]);
 
 		$globalInlineStyles

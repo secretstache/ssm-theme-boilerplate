@@ -21,7 +21,7 @@ class TextEditor {
         ]);
         $textEditorModule
             ->addTab('Content')
-                ->addFields(TextEditorComponent::getFields( $type = 'simple', $label = 'Short Description' ))
+                ->addFields(TextEditorComponent::getFields( $type = 'simple', $label = '' ) )
             ->addTab('Options')
                 ->addFields(HtmlAttributes::getFields());
 

@@ -17,7 +17,7 @@ class Image {
         $imageComponent = new FieldsBuilder('image');
         $imageComponent
             ->addImage('image', [
-                'label'					=>	'Upload Image',
+                'label'			=>	'Upload Image',
                 'preview_size'	=> 'large',
             ]);
 

@@ -25,16 +25,7 @@ class ButtonDefaults {
             ])
                 ->addChoice('align-left', 'Left')
                 ->addChoice('align-center', 'Center')
-                ->addChoice('align-right', 'Right')
-            ->addRadio('option_button_target', [
-                'label'		=> 'Target',
-                'layout'	=> 'horizontal',
-                'wrapper'	=> [
-                    'width'	=> '50'
-                ]
-                ])
-                    ->addChoice('_self', 'Default')
-                    ->addChoice('_blank', 'New Tab');
+                ->addChoice('align-right', 'Right');
 
         return $defaultButtonOptions;
 

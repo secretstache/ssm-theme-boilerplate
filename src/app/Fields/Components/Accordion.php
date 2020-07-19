@@ -17,12 +17,12 @@ class Accordion {
         $accordionComponent = new FieldsBuilder('accordion');
         $accordionComponent
             ->addRepeater('accordion', [
-                'layout'				=>	'block',
-                'min'						=>	1,
-                'collapsed'			=>	'title',
+                'layout'		=> 'block',
+                'min'			=> 1,
+                'collapsed'		=> 'title',
                 'button_label'	=> 'Add Item',
-                'wrapper'				=>	[
-                    'class'		=>	'hide-label'
+                'wrapper'		=> [
+                    'class'		=> 'hide-label'
                 ]
             ])
                 ->addText('title')

@@ -17,9 +17,7 @@ class Form {
         $formComponent = new FieldsBuilder('form');
         $formComponent
             ->addField('form', 'forms', [
-                'wrapper'	=> [
-                    'classes'	=> 'hide-label'
-                ]
+                'label'     => 'Choose Form',
             ]);
 
 		return $formComponent;
