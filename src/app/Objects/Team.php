@@ -3,7 +3,7 @@
 namespace App\Objects;
 
 /**
- * Add Article CPT
+ * Add Team CPT
  */
 add_action( 'init', function() {
 
@@ -56,7 +56,7 @@ add_action( 'init', function() {
 });
 
 /**
- * Add Article Category taxonomy
+ * Add Team Category taxonomy
  */
 add_action( 'init', function() {
 

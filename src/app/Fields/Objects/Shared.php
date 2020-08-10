@@ -23,14 +23,19 @@ class Shared {
 		]);
 		
 		$heroUnit
-			->addTab('Content')
-				->addFields(Header::getFields())
-				// ->addFields(Buttons::getFields())
-			->addTab('Options')
-				->addFields(Background::getFields())
-				->addFields(HtmlAttributes::getFields())
-			->setLocation('post_type', '==', 'page');
 
+			->addTab('Content')
+
+				->addFields(Header::getFields())
+
+			->addTab('Options')
+
+				->addFields(Background::getFields())
+
+				->addFields(HtmlAttributes::getFields())
+
+			->setLocation('post_type', '==', 'page');
+			
 		// Register Hero Unit
 		add_action('acf/init', function() use ($heroUnit) {
 			acf_add_local_field_group($heroUnit->build());
@@ -45,12 +50,15 @@ class Shared {
 		$inlineStyles = new FieldsBuilder('inline_styles', [
 			'menu_order'	=>	5
 		]);
+
 		$inlineStyles
+
 			->addField('page_inline_styles', 'acf_code_field', [
 				'label'	=>	'CSS Editor',
 				'mode' 	=> 'css',
 				'theme'	=> 'monokai'
 			])
+
 			->setLocation('post_type', '==', 'page')
 				->or('post_type', '==', 'post');
 
@@ -66,14 +74,17 @@ class Shared {
 		 * @todo Link to Team Snippet Code
 		 */
 		$inlineScripts = new FieldsBuilder('inline_scripts', [
-			'menu_order'	=>	6
+			'menu_order'	=>	10
 		]);
+
 		$inlineScripts
+
 			->addField('page_inline_scripts', 'acf_code_field', [
 				'label'	=>	'JS Editor',
 				'mode' 	=> 'javascript',
 				'theme'	=> 'monokai',
 			])
+
 			->setLocation('post_type', '==', 'page')
 				->or('post_type', '==', 'post');
 
@@ -92,12 +103,15 @@ class Shared {
 			'menu_order'	=>	99,
 			'position'		=>	'side'
 		]);
+
 		$facebookConversionPixel
+		
 			->addSelect('facebook_standard_event', [
 				'label'	=>	'Standard Event',
 				'default_value' => array(),
 				'allow_null' => 1
 			])
+
 				->addChoice('fbq("track", "ViewContent");', 'Key Page View')
 				->addChoice('fbq("track", "Lead");', 'Lead')
 				->addChoice('fbq("track", "CompleteRegistration");', 'Completed Registration')
