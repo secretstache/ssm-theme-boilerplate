@@ -3,7 +3,7 @@
 namespace App\Fields\Lists;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use App\Fields\Modules\Button;
+use App\Fields\Lists\Button;
 use App\Fields\Modules\Header;
 use App\Fields\Modules\TextEditor;
 use App\Fields\Modules\Image;
@@ -25,16 +25,27 @@ class Modules {
          * @todo Link to Team Snippet Code
          */
         $modulesList = new FieldsBuilder('modules_list');
+
         $modulesList
+
             ->addFlexibleContent('modules')
+
                 ->addLayout(Header::getFields())
+
                 ->addLayout(TextEditor::getFields())
+
+                ->addLayout(Buttons::getFields())
+
                 ->addLayout(Image::getFields())
+
                 ->addLayout(Video::getFields())
+
                 ->addLayout(Form::getFields())
-                // ->addLayout(Button::getFields())
+
                 // ->addLayout(Accordion::getFields())
+                
                 // ->addLayout(Gallery::getFields())
+
             ->endFlexibleContent();
 
 		return $modulesList;
