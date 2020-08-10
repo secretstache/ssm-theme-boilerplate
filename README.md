@@ -22,9 +22,10 @@
 2. **cd** to theme’s folder
 3. **Run** *composer update && composer install*
 4. **Run** *yarn install && yarn static-install*
-5. **Run** *yarn build:theme*
-6. **Activate** the theme
-7. **Install** required plugins
+5. **Remove** *static/* and *theme-boilerplate/* folders
+6. **Run** *yarn build:theme*
+7. **Activate** the theme
+8. **Install** required plugins
 
 
 ## Folders Walkthrough
