@@ -20,6 +20,7 @@ class Team {
 		]);
 
 		$teamMemberInfo
+
 			->addTaxonomy('taxonomy_field', [
 				'label' 	=> 'Role',
 				'taxonomy'	=> 'ssm_team_member_role',
@@ -28,7 +29,9 @@ class Team {
         		'save_terms' => 1,
 		        'load_terms' => 1
 			])
+			
 			->addFields(TextEditor::getFields( $type = 'simple', $label = 'Short Bio' ))
+			
 			->setLocation('post_type', '==', 'ssm_team_member');
 
 		// Register Team Member Info

@@ -33,7 +33,7 @@ class LayoutBuilder {
                 
 			->setLocation('post_type', '==', 'page')
 				->or('post_type', '==', 'post')
-				->or('post_type', '==', 'ssm_team');
+				->or('post_type', '==', 'ssm_team_member');
 
 		// Register Layout Builder
 		add_action('acf/init', function() use ($layoutBuilder) {

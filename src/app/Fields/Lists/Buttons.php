@@ -18,13 +18,16 @@ class Buttons {
         $buttonsList = new FieldsBuilder('buttons-list', [
             'title'	=>	'Button(s)'
         ]);
+
         $buttonsList
+
             ->addRepeater('buttons', [
-                'layout'				=>	'block',
-                'min'						=> 	1,
-                'max'						=>	2,
-                'button_label'	=>	'Add Button'
+                'layout'	    => 'block',
+                'min'			=> 1,
+                'max'			=> 2,
+                'button_label'	=> 'Add Button'
             ])
+            
                 ->addFields(Button::getFields());
 
 		return $buttonsList;

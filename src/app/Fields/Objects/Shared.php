@@ -105,7 +105,7 @@ class Shared {
 		]);
 
 		$facebookConversionPixel
-		
+
 			->addSelect('facebook_standard_event', [
 				'label'	=>	'Standard Event',
 				'default_value' => array(),
@@ -118,6 +118,7 @@ class Shared {
 				->addChoice('fbq("track", "InitiateCheckout");', 'Initiated Checkout')
 				->addChoice('fbq("track", "AddPaymentInfo");', 'Added Payment Info')
 				->addChoice('fbq("track", "Purchase");', 'Made a Purchase')
+				
 			->setLocation('post_type', '==', 'page')
 				->or('post_type', '==', 'post');
 
