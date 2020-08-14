@@ -100,7 +100,7 @@ class Shared {
 		 * @todo Link to Team Snippet Code
 		 */
 		$facebookConversionPixel = new FieldsBuilder('facebook_conversion_pixel', [
-			'menu_order'	=>	99,
+			'menu_order'	=>	15,
 			'position'		=>	'side'
 		]);
 
