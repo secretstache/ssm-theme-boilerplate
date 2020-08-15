@@ -86,10 +86,10 @@ foreach( glob( get_template_directory( __FILE__ ) . '/app/Fields/*', GLOB_ONLYDI
 
 		foreach ( glob( $dir . '/*.php' ) as $file) {
 
-			$filename = basename( $file, '.php' ); // "Article"
-			$class = "App\\Fields\\{$namespace}\\{$filename}"; // "App\Fields\Objects\Article"
+			$filename = basename( $file, '.php' ); // "Team"
+			$class = "App\\Fields\\{$namespace}\\{$filename}"; // "App\Fields\Objects\Team"
 			
-			$$filename = new $class(); // $Article = new App\Fields\Objects\Article
+			$$filename = new $class(); // $Team = new App\Fields\Objects\Team
 		
 		}
 	
