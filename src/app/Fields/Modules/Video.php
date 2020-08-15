@@ -17,12 +17,17 @@ class Video {
          * @todo Link to Team Snippet Code
          */
         $videoModule = new FieldsBuilder('video', [
-            'title'	=>	'Video'
+            'title'	=> 'Video'
         ]);
+
         $videoModule
+
             ->addTab('Content')
+
                 ->addFields(VideoComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(HtmlAttributes::getFields());
                 
 		return $videoModule;

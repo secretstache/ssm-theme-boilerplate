@@ -15,7 +15,9 @@ class Gallery {
          * @todo Link to Team Snippet Code
          */
         $galleryComponent = new FieldsBuilder('gallery');
+
         $galleryComponent
+        
             ->addGallery('gallery', [
                 'label'	=> 'Image Gallery'
             ]);

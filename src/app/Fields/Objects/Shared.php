@@ -48,7 +48,7 @@ class Shared {
 		 * @todo Link to Team Snippet Code
 		 */
 		$inlineStyles = new FieldsBuilder('inline_styles', [
-			'menu_order'	=>	5
+			'menu_order' =>	5
 		]);
 
 		$inlineStyles
@@ -74,7 +74,7 @@ class Shared {
 		 * @todo Link to Team Snippet Code
 		 */
 		$inlineScripts = new FieldsBuilder('inline_scripts', [
-			'menu_order'	=>	10
+			'menu_order' =>	10
 		]);
 
 		$inlineScripts
@@ -107,9 +107,9 @@ class Shared {
 		$facebookConversionPixel
 
 			->addSelect('facebook_standard_event', [
-				'label'	=>	'Standard Event',
+				'label'			=> 'Standard Event',
 				'default_value' => array(),
-				'allow_null' => 1
+				'allow_null' 	=> 1
 			])
 
 				->addChoice('fbq("track", "ViewContent");', 'Key Page View')

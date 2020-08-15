@@ -17,12 +17,17 @@ class DataDisplay {
          * @todo Link to Team Snippet Code
          */
         $dataDisplayModule = new FieldsBuilder('data-display', [
-            'title'	=>	'Data Display'
+            'title'	=> 'Data Display'
         ]);
+
         $dataDisplayModule
+
             ->addTab('Content')
+
                 ->addFields(DataDisplayComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(HtmlAttributes::getFields());
 
 		return $dataDisplayModule;

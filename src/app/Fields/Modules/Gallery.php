@@ -19,10 +19,15 @@ class Gallery {
         $galleryModule = new FieldsBuilder('gallery', [
             'title'	=>	'Gallery'
         ]);
+
         $galleryModule
+
             ->addTab('Content')
+
                 ->addFields(GalleryComponent::getFields())
+                
             ->addTab('Options')
+            
                 ->addFields(HtmlAttributes::getFields());
 
 		return $galleryModule;

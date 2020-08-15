@@ -15,7 +15,9 @@ class Form {
          * @todo Link to Team Snippet Code
          */
         $formComponent = new FieldsBuilder('form');
+
         $formComponent
+        
             ->addField('form', 'forms', [
                 'label'     => 'Choose Form',
             ]);

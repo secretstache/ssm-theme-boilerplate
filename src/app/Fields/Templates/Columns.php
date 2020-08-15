@@ -23,12 +23,15 @@ class Columns {
          * @todo Link to Team Snippet Code
          */
         $columnsTemplate = new FieldsBuilder('columns', [
-            'title'	=>	'Column(s)'
+            'title'	=> 'Column(s)'
         ]);
 
         $columnsTemplate
+
             ->addTab('Content')
+
                 ->addFields(TemplateHeader::getFields())
+
                 ->addRepeater('columns', [
                     'layout'		=> 'block',
                     'min'			=> 1,
@@ -37,23 +40,36 @@ class Columns {
                     'wrapper'		=> [
                         'class'		=> 'hide-label'
                     ]
-                    ])
+                ])
+
                     ->addTab('Content', [
                         'placement'	=>	'left'
                     ])
+
                         ->addFields(Modules::getFields())
+
                     ->addTab('Options')
+
                         ->addFields(HtmlAttributes::getFields())
-                    ->endRepeater()
+
+                ->endRepeater()
+
             ->addTab('Options')
+
                 ->addFields(Background::getFields())
+
                 ->addFields(ColumnLayout::getFields())
+
                 ->addFields(ColumnAlignment::getFields())
+
                 ->addFields(HtmlAttributes::getFields())
+
             ->addTab('Admin')
+
                 ->addFields(Admin::getFields());
             
         return $columnsTemplate;
+
 	}
 
 }

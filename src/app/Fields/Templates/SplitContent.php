@@ -20,21 +20,31 @@ class SplitContent {
          * @todo Link to Team Snippet Code
          */
         $splitContentTemplate = new FieldsBuilder('split-content', [
-            'label'	=>	'Split Content'
+            'label'	=> 'Split Content'
         ]);
+
         $splitContentTemplate
+
             ->addTab('Content')
+
                 ->addFields(Modules::getFields())
+
                 ->addRadio('media_position', [
-                    'layout'	=>	'horizontal'
+                    'layout'	=> 'horizontal'
                 ])
                     ->addChoice('media-left', 'Left')
                     ->addChoice('media-Right', 'Right')
+
                 ->addFields(Image::getFields())
+
             ->addTab('Options')
+
                 ->addFields(Background::getFields())
+
                 ->addFields(HtmlAttributes::getFields())
+
             ->addTab('Admin')
+
                 ->addFields(Admin::getFields());
         
         return $splitContentTemplate;

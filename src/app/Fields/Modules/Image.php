@@ -18,13 +18,19 @@ class Image {
          * @todo Link to Team Snippet Code
          */
         $imageModule = new FieldsBuilder('image', [
-            'title'	=>	'Image'
+            'title'	=> 'Image'
         ]);
+
         $imageModule
+
             ->addTab('Content')
+
                 ->addFields(ImageComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(ImageLink::getFields())
+
                 ->addFields(HtmlAttributes::getFields());
                 
 		return $imageModule;

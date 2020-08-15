@@ -17,12 +17,17 @@ class Table {
          * @todo Link to Team Snippet Code
          */
         $tableModule = new FieldsBuilder('table', [
-            'title'	=>	'Table'
+            'title'	=> 'Table'
         ]);
+
         $tableModule
+
             ->addTab('Content')
+
                 ->addFields(TableComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(HtmlAttributes::getFields());
 
 		return $tableModule;

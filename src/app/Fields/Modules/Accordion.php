@@ -19,10 +19,15 @@ class Accordion {
         $accordionModule = new FieldsBuilder('accordion', [
             'title'	=>	'Accordion'
         ]);
+
         $accordionModule
+
             ->addTab('Content')
+
                 ->addFields(AccordionComponent::getFields())
+
             ->addTab('Options')
+            
                 ->addFields(HtmlAttributes::getFields());
         
 		return $accordionModule;

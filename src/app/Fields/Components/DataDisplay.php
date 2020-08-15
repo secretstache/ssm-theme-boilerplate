@@ -15,13 +15,15 @@ class DataDisplay {
          * @todo Link to Team Snippet Code
          */
         $dataDisplayComponent = new FieldsBuilder('data-display');
+
         $dataDisplayComponent
+        
             ->addRepeater('data', [
-                'layout'				=>	'block',
-                'min'						=>	1,
+                'layout'		=> 'block',
+                'min'			=> 1,
                 'button_label'	=> 'Add Data Item',
-                'wrapper'				=>	[
-                    'class'		=>	'hide-label'
+                'wrapper'		=> [
+                    'class'		=> 'hide-label'
                 ]
             ])
                 ->addText('value', [
@@ -29,12 +31,19 @@ class DataDisplay {
                         'width'	=> '50'
                     ]
                 ])
+
                 ->addText('unit', [
                     'wrapper'	=> [
                         'width'	=> '50'
                     ]
                 ])
-                ->addWysiwyg('explanation')
+
+                ->addWysiwyg('explanation', [
+                    'label'         => 'Explanation',
+                    'toolbar'       => 'basic',
+                    'media_upload' 	=> 0
+                ])
+
             ->endRepeater();
 
 		return $dataDisplayComponent;

@@ -20,9 +20,10 @@ class TextEditor {
         $media_upload = ( $type && $type == 'simple' ) ? 0 : 1;
         
         $textEditorComponent
+
             ->addWysiwyg('text_editor', [
-                'label' => $label,
-                'toolbar' => $toolbar,
+                'label'         => $label,
+                'toolbar'       => $toolbar,
                 'media_upload' 	=> $media_upload
             ]);
 

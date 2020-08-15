@@ -15,9 +15,11 @@ class Video {
          * @todo Link to Team Snippet Code
          */
         $videoComponent = new FieldsBuilder('video');
+
         $videoComponent
+
             ->addOembed('video', [
-                'wrapper' => [
+                'wrapper'   => [
                     'class'	=>	'hide-label'
                 ]
             ]);

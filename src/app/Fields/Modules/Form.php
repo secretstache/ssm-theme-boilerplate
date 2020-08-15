@@ -17,12 +17,17 @@ class Form {
          * @todo Link to Team Snippet Code
          */
         $formModule = new FieldsBuilder('form', [
-            'title'	=>	'Form'
+            'title'	=> 'Form'
         ]);
+
         $formModule
+
             ->addTab('Content')
+
                 ->addFields(FormComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(HtmlAttributes::getFields());
 
 		return $formModule;

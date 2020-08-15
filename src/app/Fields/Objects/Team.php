@@ -22,10 +22,10 @@ class Team {
 		$teamMemberInfo
 
 			->addTaxonomy('taxonomy_field', [
-				'label' 	=> 'Role',
-				'taxonomy'	=> 'ssm_team_member_role',
+				'label' 	 => 'Role',
+				'taxonomy'	 => 'ssm_team_member_role',
 				'field_type' => 'select',
-				'add_term' => 1,
+				'add_term' 	 => 1,
         		'save_terms' => 1,
 		        'load_terms' => 1
 			])

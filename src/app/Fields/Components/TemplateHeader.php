@@ -16,19 +16,23 @@ class TemplateHeader {
          * @todo Link to Team Snippet Code
          */
         $templateHeaderOptions = new FieldsBuilder('template-header');
+
         $templateHeaderOptions
+
             ->addTrueFalse('option_include_template_header', [
                 'message'	=> 'Include Template Header',
                 'wrapper'	=> [
-                    'class'	=>	'hide-label'
+                    'class'	=> 'hide-label'
                 ]
             ])
+
             ->addText('option_template_headline', [
-                'label'	=>	'Headline'
+                'label'	=> 'Headline'
             ])
                 ->conditional('option_include_template_header', '==', 1)
+
             ->addText('option_template_subheadline', [
-                'label'	=>	'Subheadline'
+                'label'	=> 'Subheadline'
             ])
                 ->conditional('option_include_template_header', '==', 1);
 

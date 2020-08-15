@@ -15,21 +15,24 @@ class ColumnAlignment {
          * @todo Link to Team Snippet Code
          */
         $columnAlignmentOptions = new FieldsBuilder('column_alignment_options');
+
         $columnAlignmentOptions
+
             ->addRadio('option_y_alignment', [
                 'label'		=> 'Y Alignment',
                 'layout'	=> 'horizontal',
-                'wrapper' => [
+                'wrapper'   => [
                     'width'	=> '50'
                 ]
             ])
                 ->addChoice('top', 'Top')
                 ->addChoice('middle', 'Middle')
                 ->addChoice('bottom', 'Bottom')
+
             ->addRadio('option_x_alignment', [
                 'label'		=> 'X Alignment',
                 'layout'	=> 'horizontal',
-                'wrapper' => [
+                'wrapper'   => [
                     'width'	=> '50'
                 ]
             ])

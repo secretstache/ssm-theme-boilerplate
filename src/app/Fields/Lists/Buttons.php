@@ -16,7 +16,7 @@ class Buttons {
          * @todo Link to Team Snippet Code
          */
         $buttonsList = new FieldsBuilder('buttons-list', [
-            'title'	=>	'Button(s)'
+            'title'	=> 'Button(s)'
         ]);
 
         $buttonsList
@@ -25,6 +25,9 @@ class Buttons {
                 'layout'	    => 'block',
                 'min'			=> 1,
                 'max'			=> 2,
+                'wrapper'       => [
+                    'class'     => 'hide-label'
+                ],
                 'button_label'	=> 'Add Button'
             ])
             

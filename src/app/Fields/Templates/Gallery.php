@@ -20,16 +20,25 @@ class Gallery {
          * @todo Link to Team Snippet Code
          */
         $galleryTemplate = new FieldsBuilder('gallery', [
-            'label'	=>	'Image Gallery'
+            'label'	=> 'Image Gallery'
         ]);
+
         $galleryTemplate
+
             ->addTab('Content')
+
                 ->addFields(TemplateHeader::getFields())
+                
                 ->addFields(GalleryComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(Background::getFields())
+
                 ->addFields(HtmlAttributes::getFields())
+
             ->addTab('Admin')
+
                 ->addFields(Admin::getFields());
         
         return $galleryTemplate;

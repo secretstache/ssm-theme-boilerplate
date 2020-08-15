@@ -15,7 +15,9 @@ class ColumnsPerRow {
          * @todo Link to Team Snippet Code
          */
         $blockGridColumnsPerRowOptions = new FieldsBuilder('block_grid_columns_per_row_options');
+        
         $blockGridColumnsPerRowOptions
+        
             ->addRadio('columns_per_row', [
                 'label'		=>	'Columns Per Row',
                 'layout'	=>	'horizontal'

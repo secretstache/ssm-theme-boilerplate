@@ -20,18 +20,17 @@ class ImageLink {
         $imageLinkOptions
 
             ->addTrueFalse('option_add_image_link', [
-                'label'			=>	'Add Image Link',
-                'message'		=> 	'Add Image Link',
+                'message'		=> 'Add Image Link',
                 'wrapper'		=> [
                     'class'		=> 'hide-label'
                 ]
             ])
 
             ->addRadio('link_source', [
-                'label'			=> 	'Source',
-                'layout'		=>	'horizontal',
+                'label'			=> 'Source',
+                'layout'		=> 'horizontal',
                 'wrapper'		=> [
-                    'width'		=> 	'50'
+                    'width'		=> '50'
                 ]	
             ])
                 ->addChoice('internal', 'Internal Page')

@@ -20,11 +20,17 @@ class Button {
         $buttonModule = new FieldsBuilder('button', [
             'title'	=>	'Button'
         ]);
+        
         $buttonModule
+
             ->addTab('Content')
+
                 ->addFields(ButtonComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(ButtonDefaults::getFields())
+
                 ->addFields(HtmlAttributes::getFields());
 
 		return $buttonModule;

@@ -15,7 +15,9 @@ class Accordion {
          * @todo Link to Team Snippet Code
          */
         $accordionComponent = new FieldsBuilder('accordion');
+
         $accordionComponent
+
             ->addRepeater('accordion', [
                 'layout'		=> 'block',
                 'min'			=> 1,
@@ -25,8 +27,15 @@ class Accordion {
                     'class'		=> 'hide-label'
                 ]
             ])
+
                 ->addText('title')
-                ->addWysiwyg('Description')
+
+                ->addWysiwyg('description', [
+                    'label'         => 'Description',
+                    'toolbar'       => 'basic',
+                    'media_upload' 	=> 0
+                ])
+
             ->endRepeater();
 
 		return $accordionComponent;

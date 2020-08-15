@@ -20,16 +20,25 @@ class CallToAction {
          * @todo Link to Team Snippet Code
          */
         $callToActionTemplate = new FieldsBuilder('call-to-action', [
-            'title'	=>	'Call To Action'
+            'title'	=> 'Call To Action'
         ]);
+
         $callToActionTemplate
+
             ->addTab('Content')
+
                 ->addFields(Header::getFields())
+
                 ->addFields(Buttons::getFields())
+
             ->addTab('Options')
+
                 ->addFields(Background::getFields())
+
                 ->addFields(HtmlAttributes::getFields())
+
             ->addTab('Admin')
+
                 ->addFields(Admin::getFields());
         
         return $callToActionTemplate;

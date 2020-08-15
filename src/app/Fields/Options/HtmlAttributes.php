@@ -15,10 +15,13 @@ class HtmlAttributes {
          * @todo Link to Team Snippet Code
          */
         $htmlAttributesOptions = new FieldsBuilder('html_attributes_options');
+
         $htmlAttributesOptions
+
             ->addText('option_html_id', [
                 'label'	=> 'HTML ID'
             ])
+            
             ->addText('option_html_classes', [
                 'label'	=>	'HTML Classes'
             ]);

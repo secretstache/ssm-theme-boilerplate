@@ -15,19 +15,22 @@ class Admin {
          * @todo Link to Team Code Snippet
          */
         $adminOptions = new FieldsBuilder('admin_options');
+
         $adminOptions
+
             ->addText('option_section_label', [
-                'label'						=> 'Admin Label',
-                'instructions' 		=> 'Use this text field to override the template name that is shown on this metabox',
+                'label'			=> 'Admin Label',
+                'instructions' 	=> 'Use this text field to override the template name that is shown on this metabox',
             ])
+
             ->addTrueFalse('option_status', [
-                'label'						=> 'Status',
-                'instructions' 		=> 'Set to inactive to remove from the frontend without deleting from the Database',
-                'ui'							=> 1,
-                'default_value' 	=> 1,
-                'ui_on_text' 			=> 'Active',
-                'ui_off_text' 		=> 'Inactive',
-                ]);
+                'label'			=> 'Status',
+                'instructions' 	=> 'Set to inactive to remove from the frontend without deleting from the Database',
+                'ui'			=> 1,
+                'default_value' => 1,
+                'ui_on_text' 	=> 'Active',
+                'ui_off_text' 	=> 'Inactive',
+            ]);
 
 		return $adminOptions;
 

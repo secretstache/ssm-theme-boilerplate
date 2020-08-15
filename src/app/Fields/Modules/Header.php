@@ -18,13 +18,19 @@ class Header {
          * @todo Link to Team Snippet Code
          */
         $headerModule = new FieldsBuilder('header', [
-            'title'	=>	'Header'
+            'title'	=> 'Header'
         ]);
+
         $headerModule
+
             ->addTab('Content')
+
                 ->addFields(HeaderComponent::getFields())
+
             ->addTab('Options')
+
                 ->addFields(TextAlignment::getFields())
+
                 ->addFields(HtmlAttributes::getFields());
 
 		return $headerModule;

@@ -15,7 +15,9 @@ class TextAlignment {
          * @todo Link to Team Snippet Code
          */
         $textAlignmentOptions = new FieldsBuilder('text_alignment_options');
+        
         $textAlignmentOptions
+        
             ->addRadio('option_text_alignment', [
                 'label'		=>	'Text Alignment',
                 'layout' 	=> 'horizontal'

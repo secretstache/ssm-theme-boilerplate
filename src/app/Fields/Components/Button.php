@@ -21,6 +21,7 @@ class Button {
         if( $is_conditional ) {
 
             $buttonComponent
+
                 ->addTrueFalse('include_button', [
                     'label'		=>	'Include Button',
                     'message'	=>	'Include Button',
@@ -34,6 +35,7 @@ class Button {
         if( $is_conditional ) {
 
             $buttonComponent
+
                 ->addRadio('button_source', [
                     'label'		=> 'Source',
                     'layout' 	=> 'horizontal',
@@ -43,7 +45,6 @@ class Button {
                 ])
                     ->addChoice( 'internal', 'Internal Page')
                     ->addChoice( 'external', 'External URL')
-                    ->setDefaultValue( 'internal' )
                 ->conditional('include_button', '==', 1)
 
                 ->addRadio('option_button_target', [
@@ -60,6 +61,7 @@ class Button {
         } else {
 
             $buttonComponent
+
                 ->addRadio('button_source', [
                     'label'		=> 'Source',
                     'layout' 	=> 'horizontal',
@@ -70,15 +72,14 @@ class Button {
                 ])
                     ->addChoice( 'internal', 'Internal Page')
                     ->addChoice( 'external', 'External URL')
-                    ->setDefaultValue( 'internal' )
 
                 ->addRadio('option_button_target', [
-                        'label'		=> 'Target',
-                        'layout'	=> 'horizontal',
-                        'wrapper'	=> [
-                            'width'	=> '50'
-                        ]
-                    ])
+                    'label'		=> 'Target',
+                    'layout'	=> 'horizontal',
+                    'wrapper'	=> [
+                        'width'	=> '50'
+                    ]
+                ])
                     ->addChoice('_self', 'Default')
                     ->addChoice('_blank', 'New Tab');
         }
@@ -86,6 +87,7 @@ class Button {
         if( $is_conditional ) {
 
             $buttonComponent
+
                 ->addText('button_label', [
                     'label'		=> 'Label',
                     'wrapper'	=> [
@@ -97,6 +99,7 @@ class Button {
         } else {
 
             $buttonComponent
+
                 ->addText('button_label', [
                     'label'		=> 'Label',
                     'wrapper'	=> [
@@ -108,6 +111,7 @@ class Button {
         if( $is_conditional ) {
 
             $buttonComponent
+
                 ->addPostObject('button_page_id', [
                     'label'		=> 'Select a Page',
                     'post_type' => ['page'],
@@ -117,9 +121,11 @@ class Button {
                 ])
                     ->conditional('button_source', '==',  'internal')
                         ->and( 'include_button', '==', 1 );
+
         } else {
 
             $buttonComponent
+
                 ->addPostObject('button_page_id', [
                     'label'		=> 'Select a Page',
                     'post_type' => ['page'],
@@ -134,8 +140,9 @@ class Button {
         if( $is_conditional ) {
 
             $buttonComponent
+
                 ->addText('button_url', [
-                    'label'		=>	'URL',
+                    'label'		=> 'URL',
                     'wrapper'	=> [
                         'width'	=> '50'
                     ]
@@ -146,8 +153,9 @@ class Button {
         } else {
 
             $buttonComponent
+
                 ->addText('button_url', [
-                    'label'		=>	'URL',
+                    'label'		=> 'URL',
                     'wrapper'	=> [
                         'width'	=> '50'
                     ]

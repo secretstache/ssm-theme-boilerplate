@@ -15,7 +15,9 @@ class Table {
          * @todo Link to Team Snippet Code
          */
         $tableComponent = new FieldsBuilder('table');
+
         $tableComponent
+
             ->addTrueFalse('first_row_is_table_header', [
                 'label'		=>	'The first row is the table header',
                 'message'	=>	'The first row is the table header',
@@ -23,8 +25,9 @@ class Table {
                     'class'	=>	'hide-label'
                 ]	
             ])
+
             ->addField('table', 'table', [
-                'wrapper'	=> [
+                'wrapper'	    => [
                     'classes'	=> 'hide-label'
                 ]
             ]);
