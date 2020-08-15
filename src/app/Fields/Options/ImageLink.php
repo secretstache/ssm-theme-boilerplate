@@ -16,7 +16,9 @@ class ImageLink {
          * @todo Link to Team Snippet Code
          */
         $imageLinkOptions = new FieldsBuilder('image_link_options');
+
         $imageLinkOptions
+
             ->addTrueFalse('option_add_image_link', [
                 'label'			=>	'Add Image Link',
                 'message'		=> 	'Add Image Link',
@@ -24,6 +26,7 @@ class ImageLink {
                     'class'		=> 'hide-label'
                 ]
             ])
+
             ->addRadio('link_source', [
                 'label'			=> 	'Source',
                 'layout'		=>	'horizontal',
@@ -33,14 +36,17 @@ class ImageLink {
             ])
                 ->addChoice('internal', 'Internal Page')
                 ->addChoice('external', 'External URL')
-                ->conditional('option_add_image_link', '==', 1)
+                    ->conditional('option_add_image_link', '==', 1)
+
             ->addPostObject('option_image_link_page_id', [
                 'label'			=> 	'Select Page',
+                'post_type'     => ['page'],
                 'wrapper'		=> [
                     'width'		=> 	'50'
                 ]	
             ])
                 ->conditional('link_source', '==', 'internal')
+
             ->addText('option_image_link_url', [
                 'label'			=> 	'URL',
                 'wrapper'		=> [

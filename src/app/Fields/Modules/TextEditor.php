@@ -4,6 +4,7 @@ namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\TextEditor as TextEditorComponent;
+use App\Fields\Options\TextAlignment as TextAlignmentOptions;
 use App\Fields\Options\HtmlAttributes;
 
 class TextEditor {
@@ -19,10 +20,17 @@ class TextEditor {
         $textEditorModule = new FieldsBuilder('text-editor', [
             'title'	=>	'Text Editor'
         ]);
+
         $textEditorModule
+
             ->addTab('Content')
-                ->addFields(TextEditorComponent::getFields( $type = 'simple', $label = '' ) )
+
+                ->addFields(TextEditorComponent::getFields( $type = 'simple', $label = '' ))
+
             ->addTab('Options')
+
+                ->addFields(TextAlignmentOptions::getFields())
+
                 ->addFields(HtmlAttributes::getFields());
 
 		return $textEditorModule;
