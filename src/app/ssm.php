@@ -66,7 +66,7 @@ add_filter( 'display_post_states', function( $post_states, $post ) {
  */
 add_action('after_setup_theme', function () {
 
-    $requiredPlugins = new \App\Includes\RequiredPlugins();
+    $requiredPlugins = new \SSM\RequiredPlugins();
     $requiredPlugins->setup();
 
 });

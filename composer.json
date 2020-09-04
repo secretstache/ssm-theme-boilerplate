@@ -17,8 +17,8 @@
     "require": {
         "php": ">=7.1",
         "composer/installers": "~1.0",
-        "hassankhan/config": "^1.0",
         "johnbillion/extended-cpts": "^4.3",
-        "stoutlogic/acf-builder": "^1.9"
+        "stoutlogic/acf-builder": "^1.9",
+        "ssm/required-plugins": "dev-master"
     }
 }
