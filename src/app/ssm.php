@@ -7,6 +7,13 @@
 namespace App;
 
 /**
+ * Add Required Plugins
+ */
+add_filter( 'sober/bundle/file', function () {
+    return get_template_directory( __FILE__ ) . '/config/json/required-plugins.json';
+});
+
+/**
  * Add SSM menu item
  */
 add_action( 'admin_menu', function () {
@@ -60,23 +67,6 @@ add_filter( 'display_post_states', function( $post_states, $post ) {
     return $post_states;
 
  }, 10, 2 );
-
-/**
- * Activate Required Plugins lib
- */
-add_action('after_setup_theme', function () {
-
-    $requiredPlugins = new \SSM\RequiredPlugins();
-    $requiredPlugins->setup();
-
-});
-
-/**
- * Add Required Plugins config
- */
-add_filter( 'ssm/required_plugins/config_path', function () {
-    return get_template_directory( __FILE__ ) . '/config/json/required-plugins.json';
-});
 
 /**
  * Register Objects
