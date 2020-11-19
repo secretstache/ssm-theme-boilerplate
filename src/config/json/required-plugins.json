@@ -73,6 +73,13 @@
         "force_activation": false
     },
     {
+        "name": "Rank Math",
+        "slug": "rank-math",
+        "source": "https://www.secretstache.com/required-plugins/seo-by-rank-math-pro.zip",
+        "required": true,
+        "force_activation": true
+    },
+    {
         "name": "reGenerate Thumbnails Advanced",
         "slug": "regenerate-thumbnails-advanced",
         "required": true,
@@ -97,12 +104,6 @@
         "required": false,
         "force_activation": false
     },
-    {
-        "name": "Yoast SEO",
-        "slug": "wordpress-seo",
-        "required": false,
-        "force_activation": false
-	},
 	{
         "name": "Query Monitor",
         "slug": "query-monitor",
