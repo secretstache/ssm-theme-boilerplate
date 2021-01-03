@@ -2,9 +2,9 @@
 
 	<section {!! $id !!} {!! $classes !!} {!! $style !!} >
 
-        @if( $template['option_include_template_header'] )
+        @if( $template['include_template_header'] )
 
-			@include( 'partials.template-header', [ 'headline' => $template['option_template_headline'], 'subheadline' => $template['option_template_subheadline'] ] )
+			@include( 'partials.template-header', [ 'headline' => $template['template_headline'], 'subheadline' => $template['template_subheadline'] ] )
 
         @endif
 

@@ -1,6 +1,6 @@
 @if( $template['option_status'] )
 
-    <section {!! $id !!} {!! $classes !!} {!! $style !!} >
+    <section {!! $id !!} {!! $classes !!} {!! $style !!}>
 
         @if ( $template["option_background"] == "image" || $template["option_background"] == "video" )
             <div class="overlay"></div>

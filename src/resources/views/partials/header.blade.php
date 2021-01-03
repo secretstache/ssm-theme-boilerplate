@@ -14,15 +14,8 @@
 					<a href="{{home_url()}}">
 				@endif
 
-					@if ($logo = get_field('brand_logo', 'options'))
-
-						@if ($icon = get_field('brand_icon', 'options'))
-							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo show-for-medium">
-							<img src="{{ $icon['url'] }}" alt="{{ $icon['alt'] }}" class="icon hide-for-medium">
-						@else
-							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo">
-						@endif
-
+					@if ( $logo = get_field( 'brand_logo', 'options' ) )
+						<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="editable-svg logo">
 					@else
 						<span class="site-title">{{ $siteName }}</span>
 					@endif

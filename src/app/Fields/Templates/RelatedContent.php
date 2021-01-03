@@ -39,10 +39,12 @@ class RelatedContent {
                     ->conditional('post_query', '==', 'most_recent')
 
                 ->addRelationship('posts_to_show', [
-                    'filters'	=> '',
-                    'post_type' => array(
-                        0 => 'post',
-                    )
+                    'label'     => 'Posts to show',
+                    'post_type' => ['post'],
+                    'filters'   => [
+                        0       => 'search',
+                    ],
+                    'return_format' => 'id',
                 ])
                     ->conditional('post_query', '==', 'curated')
 

@@ -4,7 +4,7 @@
 
         @php
 
-            $template = array(
+            $args = array(
 				"option_background"	=> $data['option_background'],
 				"option_background_image" => $data['option_background_image'],
 				"option_background_color" => $data['option_background_color'],
@@ -12,13 +12,13 @@
 				"option_html_id" => $data['option_html_id'],
 			);
 
-            $classes = $builder->getCustomClasses( "template", 'hero-unit', '', $template );
-            $id = $builder->getCustomID( $template );
-            $style = ( $template['option_background'] == 'image' && !is_null( $template['option_background_image'] ) ) ? ' style="background-image: url(' . $template['option_background_image']['url'] . ')" ' : '';
+            $classes = $builder->getCustomClasses( 'hero-unit', '', '', $args );
+            $id = $builder->getCustomID( $args );
+            $style = ( $data['option_background'] == 'image' && !is_null( $data['option_background_image'] ) ) ? ' style="background-image: url(' . $data['option_background_image']['url'] . ')" ' : '';
         
         @endphp
 
-        @include( 'templates.hero-unit', ['classes' => $classes, 'id' => $id, 'style' => $style, 'template' => $template, 'headline' => $data['headline'], 'subheadline' => $data['subheadline'] ] )
+        @include( 'templates.hero-unit', ['classes' => $classes, 'id' => $id, 'style' => $style, 'headline' => $data['headline'], 'subheadline' => $data['subheadline'] ] )
 
     @endif
 
@@ -26,6 +26,10 @@
 
 		@include( 'switches.templates', ['templates' => $data['templates'] ] )
 
-	@endif
+    @endif
+    
+@else 
+
+    @include( 'partials.password-form' )
 
 @endif

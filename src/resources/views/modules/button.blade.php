@@ -15,7 +15,7 @@
 
 					@if ( $button['button_label'] && $button['button_page_id'] )
 
-						<a {!! $inner_id !!} class="button {!! $button['option_button_size'] !!}{!! $inner_classes !!}" href="{!! get_permalink( $button['button_page_id'] ) !!}" target="{!! $button['option_button_target'] !!}"> {!! $button['button_label'] !!} </a>
+						<a {!! $inner_id !!} class="button{!! $inner_classes !!}" href="{!! get_permalink( $button['button_page_id'] ) !!}" target="{!! $button['option_button_target'] !!}">{!! $button['button_label'] !!}</a>
 
 					@endif
 
@@ -23,7 +23,7 @@
 
 					@if ( $button['button_label'] && $button['button_url'] )
 
-						<a {!! $inner_id !!} class="button {!! $button['option_button_size'] !!}{!! $inner_classes !!}" href="{!! $button['button_url'] !!}" target="{!! $button['option_button_target'] !!}"> {!! $button['button_label'] !!} </a>
+						<a {!! $inner_id !!} class="button{!! $inner_classes !!}" href="{!! $button['button_url'] !!}" target="{!! $button['option_button_target'] !!}">{!! $button['button_label'] !!}</a>
 
 					@endif
 
