@@ -7,7 +7,7 @@
 			<div class="button-wrap">
 
 				@php
-					$inner_classes = ( $button->option_html_classes ) ? " " . $button->option_html_classes : '';
+					$inner_classes = ( $button['option_html_classes'] ) ? " " . $button['option_html_classes'] : '';
 					$inner_id = $builder->getCustomID( $button );
 				@endphp
 
