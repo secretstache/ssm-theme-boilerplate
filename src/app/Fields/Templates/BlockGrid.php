@@ -43,11 +43,11 @@ class BlockGrid {
                 ])
 
                     ->addImage('block_grid_icon', [
-                        'label'	=>	'Icon'
+                        'label'	=> 'Icon'
                     ])
 
                     ->addText('block_grid_title', [
-                        'label'	=>	'Title'
+                        'label'	=> 'Title'
                     ])
 
                     ->addFields(TextEditor::getFields( $type = 'simple', $label = 'Short Description' ))

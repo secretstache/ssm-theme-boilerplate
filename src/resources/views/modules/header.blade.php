@@ -5,7 +5,7 @@
     @endif
 
 	@if ($subheadline)
-        <h3 class="subheadline">{!! $subheadline !!}</h2>
+        <h3 class="subheadline">{!! $subheadline !!}</h3>
     @endif
 
 </header>

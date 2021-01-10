@@ -19,22 +19,22 @@ class TemplateHeader {
 
         $templateHeaderOptions
 
-            ->addTrueFalse('option_include_template_header', [
+            ->addTrueFalse('include_template_header', [
                 'message'	=> 'Include Template Header',
                 'wrapper'	=> [
                     'class'	=> 'hide-label'
                 ]
             ])
 
-            ->addText('option_template_headline', [
+            ->addText('template_headline', [
                 'label'	=> 'Headline'
             ])
-                ->conditional('option_include_template_header', '==', 1)
+                ->conditional('include_template_header', '==', 1)
 
-            ->addText('option_template_subheadline', [
+            ->addText('template_subheadline', [
                 'label'	=> 'Subheadline'
             ])
-                ->conditional('option_include_template_header', '==', 1);
+                ->conditional('include_template_header', '==', 1);
 
 		return $templateHeaderOptions;
 

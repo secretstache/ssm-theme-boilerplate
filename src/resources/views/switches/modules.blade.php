@@ -45,7 +45,7 @@
 
         @case( 'form' )
 
-            @include( 'modules.form', [ 'classes' => $classes, 'id' => $id, 'form_id' => $module['form'] ] )
+            @include( 'modules.form', [ 'classes' => $classes, 'id' => $id, 'form_id' => $module['form']['id'] ] )
             @break
 
         @endswitch

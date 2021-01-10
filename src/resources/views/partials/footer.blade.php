@@ -8,10 +8,10 @@
 
 				<div class="cell small-11 medium-4">
 
-					<p><img src="@asset('images/logo.png')" alt="" class="footer-logo"></p>
+					@if ( $logo = get_field( 'brand_logo', 'options' ) )
 
-					@if ($footer_summary = get_field('footer_summary', 'options'))
-						{!! $footer_summary !!}
+						<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="editable-svg logo">
+						
 					@endif
 
 				</div>
@@ -28,11 +28,9 @@
 
 			<div class="grid-x grid-margin-x align-justify align-center">
 
-				@if ( $copyright = get_field('copyright', 'options') )
+				@if ( $copyright = get_field('footer_copyright', 'options') )
 
-					<div class="cell shrink">
-						{!! $copyright !!}
-					</div>
+					<div class="cell shrink">{!! wpautop( $copyright ) !!}</div>
 
 				@endif
 

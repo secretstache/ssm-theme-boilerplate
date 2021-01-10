@@ -42,9 +42,7 @@ class Modules {
 
                 ->addLayout(Form::getFields())
 
-                // ->addLayout(Accordion::getFields())
-                
-                // ->addLayout(Gallery::getFields())
+                ->addLayout(Accordion::getFields())
 
             ->endFlexibleContent();
 
