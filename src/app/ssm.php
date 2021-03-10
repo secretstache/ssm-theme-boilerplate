@@ -68,6 +68,25 @@ add_filter( 'display_post_states', function( $post_states, $post ) {
 
  }, 10, 2 );
 
+/*
+* Append the template name to the label of a layout builder template
+*/
+add_filter('acf/fields/flexible_content/layout_title/name=templates', function( $title, $field, $layout, $i ) {
+
+    $label = $layout['label'];
+
+    if ( $admin_label = get_sub_field("option_section_label") ) {
+        $label = $admin_label . " - " . $label;
+    }
+
+    if ( get_sub_field("option_status") == false ) {
+        $label = "<span class=\"template-inactive\">Inactive</span> - " . $label;
+    }
+
+    return $label;
+
+}, 999, 4 );
+
 /**
  * Register Objects
  */
