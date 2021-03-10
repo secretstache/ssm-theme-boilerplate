@@ -76,7 +76,7 @@ add_filter('acf/fields/flexible_content/layout_title/name=templates', function( 
     $label = $layout['label'];
 
     if ( $admin_label = get_sub_field("option_section_label") ) {
-        $label = $admin_label . " - " . $label;
+        $label = stripslashes( $admin_label ) . " - " . $label;
     }
 
     if ( get_sub_field("option_status") == false ) {
