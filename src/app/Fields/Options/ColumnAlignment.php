@@ -32,6 +32,7 @@ class ColumnAlignment {
             ->addRadio('option_x_alignment', [
                 'label'		=> 'X Alignment',
                 'layout'	=> 'horizontal',
+                'default_value' => 'center',
                 'wrapper'   => [
                     'width'	=> '50'
                 ]
