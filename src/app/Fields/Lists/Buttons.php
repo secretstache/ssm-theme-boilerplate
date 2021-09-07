@@ -15,7 +15,7 @@ class Buttons {
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
-        $buttonsList = new FieldsBuilder('buttons-list', [
+        $buttonsList = new FieldsBuilder('buttons', [
             'title'	=> 'Button(s)'
         ]);
 

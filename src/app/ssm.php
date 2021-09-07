@@ -88,6 +88,27 @@ add_filter('acf/fields/flexible_content/layout_title/name=templates', function( 
 }, 999, 4 );
 
 /**
+ * Remove Console Error - "SyntaxError: Unexpected number."
+ */
+add_action('init', function () {
+    remove_filter('script_loader_tag', 'Roots\\Soil\\CleanUp\\clean_script_tag');
+});
+
+/**
+* Disable Removing P tags on images
+*/
+add_filter( 'ssm_disable_image_tags', function( $content ) {
+    return false;
+}, 10 );
+
+/**
+ * Remove Block Library Styles
+ */
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_style( 'wp-block-library' ); // WordPress core
+}, 100 );
+
+/**
  * Register Objects
  */
 foreach ( glob( get_template_directory( __FILE__ ) . '/app/Objects/*.php') as $file) {    
