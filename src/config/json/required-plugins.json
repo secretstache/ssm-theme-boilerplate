@@ -120,14 +120,14 @@
         "name": "WP Migrate DB Pro",
         "slug": "wp-migrate-db-pro",
         "source": "https://www.secretstache.com/required-plugins/wp-migrate-db-pro.zip",
-        "required": true,
-        "force_activation": true
+        "required": false,
+        "force_activation": false
     },
     {
         "name": "WP Migrate DB Pro Media Files",
         "slug": "wp-migrate-db-pro-media-files",
         "source": "https://www.secretstache.com/required-plugins/wp-migrate-db-pro-media-files.zip",
-        "required": true,
-        "force_activation": true
+        "required": false,
+        "force_activation": false
     }
 ]
