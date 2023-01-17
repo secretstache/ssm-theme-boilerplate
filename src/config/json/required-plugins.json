@@ -30,6 +30,7 @@
     {
         "name": "ACF Code Field",
         "slug": "acf-code-field",
+        "source": "https://www.secretstache.com/required-plugins/acf-code-field.zip",
         "required": true,
         "force_activation": true
     },
@@ -73,10 +74,10 @@
         "force_activation": false
     },
     {
-        "name": "reGenerate Thumbnails Advanced",
-        "slug": "regenerate-thumbnails-advanced",
-        "required": true,
-        "force_activation": true
+        "name": "Regenerate Thumbnails",
+        "slug": "regenerate-thumbnails",
+        "required": false,
+        "force_activation": false
     },
     {
         "name": "Roots/Soil",
@@ -120,13 +121,6 @@
         "name": "WP Migrate DB Pro",
         "slug": "wp-migrate-db-pro",
         "source": "https://www.secretstache.com/required-plugins/wp-migrate-db-pro.zip",
-        "required": false,
-        "force_activation": false
-    },
-    {
-        "name": "WP Migrate DB Pro Media Files",
-        "slug": "wp-migrate-db-pro-media-files",
-        "source": "https://www.secretstache.com/required-plugins/wp-migrate-db-pro-media-files.zip",
         "required": false,
         "force_activation": false
     }
