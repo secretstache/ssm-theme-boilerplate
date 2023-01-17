@@ -8,10 +8,10 @@
 
             @php
 
-                $classes = $builder->getCustomClasses( "template", 'template-columns', '', $template );
+                $classes = $builder->getCustomClasses( "template", 'template-free-form', '', $template );
                 $id = $builder->getCustomID( $template );
                 $style = ( $template['option_background'] == 'image' && !is_null( $template['option_background_image'] ) ) ? ' style="background-image: url(' . $template['option_background_image']['url'] . ')" ' : '';
-                $columns_width = $builder->getColumnsWidth( $column_index );
+                $columns_width = $builder->getColumnsWidth( $column_index, $template_page_id );
 
                 $column_index++;
 
@@ -31,6 +31,11 @@
             @endphp
 
             @include( 'templates.call-to-action', [ 'classes' => $classes, 'id' => $id, 'style' => $style ] )
+            @break
+
+        @case('content-block-template')
+
+            @include( 'templates.content-block-template' )
             @break
 
     @endswitch

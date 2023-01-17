@@ -102,15 +102,18 @@ class SSM extends Composer
 
     }
 
-	public static function getColumnsWidth( $column_index )
+    public static function getColumnsWidth( $column_index, $template_page_id )
 	{
 
         global $post;
-        return get_post_meta( $post->ID, "custom_columns_width_" . $column_index, true);
+
+        $post_id = ( $template_page_id ) ? $template_page_id : $post->ID;
+
+        return get_post_meta( $post_id, "custom_columns_width_" . $column_index, true);
 
     }
 
-	public static function getMenuArgs( $context )
+	public static function getMenuArgs( $context, $menu_id = null )
 	{
 
         $response = array();
@@ -139,6 +142,15 @@ class SSM extends Composer
                 "theme_location" => "footer_navigation",
                 "container" => FALSE,
                 "items_wrap" => '<ul class="menu vertical">%3$s</ul>',
+                "walker" => new Walker()
+            );
+
+        } elseif ( $menu_id ) {
+
+            $response = array(
+                "menu" => $menu_id,
+                "container" => FALSE,
+                "items_wrap" => '<ul>%3$s</ul>',
                 "walker" => new Walker()
             );
 
