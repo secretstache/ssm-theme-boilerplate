@@ -22,12 +22,10 @@ class Buttons {
         $buttonsList
 
             ->addRepeater('buttons', [
+                'label'         => false,
                 'layout'	    => 'block',
                 'min'			=> 1,
                 'max'			=> 2,
-                'wrapper'       => [
-                    'class'     => 'hide-label'
-                ],
                 'button_label'	=> 'Add Button'
             ])
             

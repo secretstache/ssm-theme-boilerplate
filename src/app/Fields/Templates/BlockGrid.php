@@ -3,11 +3,9 @@
 namespace App\Fields\Templates;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use App\Fields\Components\Header;
 use App\Fields\Components\TemplateHeader;
 use App\Fields\Components\TextEditor;
 use App\Fields\Components\Button;
-use App\Fields\Options\ColumnsPerRow;
 use App\Fields\Options\Background;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\Admin;
@@ -32,25 +30,27 @@ class BlockGrid {
 
                 ->addFields(TemplateHeader::getFields())
 
-                ->addRepeater('block_grid_items', [
+                ->addRepeater('grid_items', [
+                    'label'         => false,
                     'layout'	    => 'block',
                     'button_label'	=> 'Add Item',
                     'min'			=> 1,
-                    'collapsed'	    => 'block_grid_title',
-                    'wrapper'		=> [
-                        'class'	    => 'hide-label'
-                    ]
+                    'collapsed'	    => 'title',
                 ])
 
-                    ->addImage('block_grid_icon', [
+                    ->addImage('icon', [
                         'label'	=> 'Icon'
                     ])
 
-                    ->addText('block_grid_title', [
+                    ->addText('title', [
                         'label'	=> 'Title'
                     ])
 
-                    ->addFields(TextEditor::getFields( $type = 'simple', $label = 'Short Description' ))
+                    ->addWysiwyg('editor', [
+                        'label'        => 'Description',
+                        'toolbar'      => 'basic', // basic, full
+                        'media_upload' => '0', // 0, 1
+                    ])
 
                     ->addFields(Button::getFields( $is_conditional = true ))
 
@@ -59,8 +59,6 @@ class BlockGrid {
             ->addTab('Options')
 
                 ->addFields(Background::getFields())
-
-                ->addFields(ColumnsPerRow::getFields())
 
                 ->addFields(HtmlAttributes::getFields())
 

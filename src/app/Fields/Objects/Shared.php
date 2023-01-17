@@ -19,7 +19,9 @@ class Shared {
 		 * @todo Link to Team Snippet Code
 		 */
 		$heroUnit = new FieldsBuilder('hero_unit', [
-			'position' => 'acf_after_title'
+			'title'		 => 'Hero Unit',
+			'position' 	 => 'acf_after_title',
+			'menu_order' =>	1
 		]);
 		
 		$heroUnit

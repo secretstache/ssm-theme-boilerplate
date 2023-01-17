@@ -17,13 +17,13 @@ class Columns {
 	public static function getFields() {
 
         /**
-         * [Template] - Columns
+         * [Template] - Free Form
          * @author Rich Staats <rich@secretstache.com>
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
         $columnsTemplate = new FieldsBuilder('columns', [
-            'title'	=> 'Column(s)'
+            'title'	=> 'Free Form'
         ]);
 
         $columnsTemplate
@@ -33,13 +33,11 @@ class Columns {
                 ->addFields(TemplateHeader::getFields())
 
                 ->addRepeater('columns', [
+                    'label'         => false,
                     'layout'		=> 'block',
                     'min'			=> 1,
-                    'max'			=> 4,
+                    'max'			=> 2,
                     'button_label'	=> 'Add Column',
-                    'wrapper'		=> [
-                        'class'		=> 'hide-label'
-                    ]
                 ])
 
                     ->addTab('Content', [

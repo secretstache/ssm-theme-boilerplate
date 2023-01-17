@@ -12,13 +12,13 @@ class TextEditor {
 	public static function getFields() {
 
 		/**
-         * [Module] - Text Edtior
+         * [Module] - Text Editor
          * @author Rich Staats <rich@secretstache.com>
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
         $textEditorModule = new FieldsBuilder('text-editor', [
-            'title'	=>	'Text Editor'
+            'title'	=> 'Text Editor'
         ]);
 
         $textEditorModule

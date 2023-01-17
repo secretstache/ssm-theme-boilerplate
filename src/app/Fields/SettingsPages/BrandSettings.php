@@ -21,11 +21,6 @@ class BrandSettings {
 
 		$logoAssets
 
-			->addImage('brand_icon', [
-				'label' 		=> 'Icon',
-				'preview_size'	=> 'medium'
-			])
-
 			->addImage('brand_logo', [
 				'label'			=> 'Full Logo',
 				'preview_size'	=> 'medium'
@@ -63,23 +58,14 @@ class BrandSettings {
 				'initial_country' 	=> 'US',
 				'return_format'		=> 'array',
 				'wrapper'			=> [
-					'width'			=> '33'
-				]
-			])
-
-			->addField('primary_fax_number', 'phone', [
-				'label' 			=> 'Primary Fax Number',
-				'initial_country' 	=> 'US',
-				'return_format' 	=> 'array',
-				'wrapper'			=> [
-					'width'			=>	'34'
+					'width'			=> '50'
 				]
 			])
 
 			->addEmail('primary_email_address', [
 				'label' 	=> 'Primary Email Address',
 				'wrapper'	=> [
-					'width'	=> '33'
+					'width'	=> '50'
 				]
 			])
 			
