@@ -1,6 +1,6 @@
 @if( $template['option_status'] )
 
-	<section {!! $id !!} {!! $classes !!} {!! $style !!} >
+	<section {!! $id !!} {!! $classes !!} {!! $style !!}>
 
         @if( $template['include_template_header'] )
 
@@ -12,7 +12,7 @@
 
             <div class="grid-container">
 
-                <div class="grid-x grid-margin-x {{ "align-" . $template['option_x_alignment'] . " align-" . $template['option_y_alignment'] . " has-" . count( $template['columns'] ) . "-cols" }} ">
+                <div class="grid-x grid-margin-x {!! "align-" . $template['option_x_alignment'] . " align-" . $template['option_y_alignment'] . " has-" . count( $template['columns'] ) . "-cols" !!}">
 
                     @foreach( $template['columns'] as $key => $column )
 
@@ -26,7 +26,7 @@
 							$columns_mobile_order = explode( '_', $template['option_columns_mobile_order'] );
 						@endphp
 
-                        <div {!! $id !!} class="cell small-11 medium-{{ $width }} medium-order-{!! $column_i !!} small-order-{!! $columns_mobile_order[$key] ?: 1 !!} {{ $custom_classes }}" >
+                        <div {!! $id !!} class="cell small-12 medium-{!! $width !!} medium-order-{!! $column_i !!} small-order-{!! $columns_mobile_order[$key] ?: 1 !!}{!! $custom_classes !!}">
 
                             <div class="inner">
 

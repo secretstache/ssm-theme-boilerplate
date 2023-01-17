@@ -10,21 +10,67 @@
 
                     @php
 
-                        if ( $template['post_query'] == 'most_recent' ) {
+                        if ( $template['query'] == 'latest' ) {
+
+                            $args = [
+                                'post_type'      => 'post',
+                                'posts_per_page' => -1,
+                                'status'         => 'publish',
+                                'fields' 	     => 'ids',
+                            ];
+
+                            $posts = get_posts( $args );
+
+                        } elseif ( $template['query'] == 'type' && $template['type'] ) {
+
+                            $args = [
+                                'post_type'      => 'post',
+                                'posts_per_page' => -1,
+                                'status'         => 'publish',
+                                'fields' 	     => 'ids',
+                                'tax_query'      => [
+                                    [
+                                        'taxonomy'		=> 'mrm_resource_type',
+                                        'field'         => 'slug',
+                                        'terms'			=> [ $template['type']->slug ],
+                                    ]
+                                ]
+                            ];
+
+                            $posts = get_posts( $args );
+
+                        } elseif ( $template['query'] == 'solution' && $template['resource_solution'] ) {
+
+                            $meta_queries['relation'] = 'OR';
+
+                            foreach( $template['resource_solution'] as $key => $value ) {
+                                $meta_queries[] = [
+                                    'key'       => 'resource_solutions',
+                                    'value'     => $value,
+                                    'compare'   => 'LIKE',
+                                ];
+                            }
 
                             $args = array(
-                                'post_type' => 'post',
-                                'posts_per_page' => $template['number_of_posts_to_show'],
-                                'orderby'   => "date",
-                                "order"     => "desc",
-                                "fields"    => 'ids'
+                                'post_type'     => 'post',
+                                'posts_per_page' => -1,
+                                'status'        => 'publish',
+                                'fields' 	    => 'ids',
+                                'meta_query'    => $meta_queries
                             );
 
                             $posts = get_posts( $args );
 
-                        } else {
+                        } elseif ( $template['query'] == 'curated' ) {
 
-                            $posts = $template['posts_to_show'];
+                            $args = [
+                                'post_type'     => 'post',
+                                'status'        => 'publish',
+                                'fields'        => 'ids',
+                                'post__in'      => $template['resources_to_show']
+                            ];
+
+                            $posts = get_posts( $args );
 
                         }
 
@@ -44,10 +90,9 @@
             
                                 <div class="cell small-12 medium-6">
             
-                                    <h2><b>{!! get_the_title( $post_id ) !!}</b></h2>
+                                    <h2>{!! get_the_title( $post_id ) !!}</h2>
             
-                                    {!! wpautop( get_post_field( 'post_content', $post_id ) ) !!}
-                                    <hr>
+                                    {!! get_post_field( 'post_content', $post_id ) !!}
             
                                     <a href="{!! get_permalink( $post_id ) !!}" class="button">Read More</a>
 

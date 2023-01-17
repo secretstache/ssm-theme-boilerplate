@@ -1,4 +1,4 @@
-<div {!! $wrapper_id !!} {!! $wrapper_classes !!} >
+<div {!! $wrapper_id !!} {!! $wrapper_classes !!}>
 
 	@if ( $buttons )
 
@@ -11,21 +11,13 @@
 					$inner_id = $builder->getCustomID( $button );
 				@endphp
 
-				@if ( $button['button_source'] == 'internal' )
+				@if ( $button['button_source'] == 'internal' && $button['button_label'] && $button['button_page_id'] )
 
-					@if ( $button['button_label'] && $button['button_page_id'] )
+					<a {!! $inner_id !!} class="button{!! $inner_classes !!}" href="{!! get_permalink( $button['button_page_id'] ) !!}" target="{!! $button['option_button_target'] !!}">{!! $button['button_label'] !!}</a>
 
-						<a {!! $inner_id !!} class="button{!! $inner_classes !!}" href="{!! get_permalink( $button['button_page_id'] ) !!}" target="{!! $button['option_button_target'] !!}">{!! $button['button_label'] !!}</a>
+				@elseif ( $button['button_source'] == 'external' && $button['button_label'] && $button['button_url'] )
 
-					@endif
-
-				@else
-
-					@if ( $button['button_label'] && $button['button_url'] )
-
-						<a {!! $inner_id !!} class="button{!! $inner_classes !!}" href="{!! $button['button_url'] !!}" target="{!! $button['option_button_target'] !!}">{!! $button['button_label'] !!}</a>
-
-					@endif
+					<a {!! $inner_id !!} class="button{!! $inner_classes !!}" href="{!! $button['button_url'] !!}" target="{!! $button['option_button_target'] !!}">{!! $button['button_label'] !!}</a>
 
 				@endif
 
