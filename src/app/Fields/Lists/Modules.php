@@ -11,8 +11,7 @@ use App\Fields\Modules\Video;
 use App\Fields\Modules\Form;
 use App\Fields\Modules\Gallery;
 use App\Fields\Modules\Accordion;
-use App\Fields\Modules\DataDisplay;
-use App\Fields\Modules\Table;
+use App\Fields\Modules\ModuleTemplate;
 
 class Modules {
 
@@ -43,6 +42,8 @@ class Modules {
                 ->addLayout(Form::getFields())
 
                 ->addLayout(Accordion::getFields())
+
+                ->addLayout(ModuleTemplate::getFields())
 
             ->endFlexibleContent();
 

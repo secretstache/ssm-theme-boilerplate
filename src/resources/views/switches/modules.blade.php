@@ -22,15 +22,14 @@
 
         @case( 'buttons' )
 
-				@php
+            @php
 
-					$wrapper_id = $builder->getCustomID( $module );
-					$wrapper_classes = $builder->getCustomClasses( "module", $module['buttons'][0]['option_button_alignment'], $key, $module );
+                $wrapper_id = $builder->getCustomID( $module );
+                $wrapper_classes = $builder->getCustomClasses( "module", $module['buttons'][0]['option_button_alignment'], $key, $module );
 
-				@endphp
+            @endphp
 
-                @include( 'modules.button', [ 'buttons' => $module['buttons'], 'wrapper_id' => $wrapper_id, 'wrapper_classes' => $wrapper_classes ] )
-
+            @include( 'modules.button', [ 'buttons' => $module['buttons'], 'wrapper_id' => $wrapper_id, 'wrapper_classes' => $wrapper_classes ] )
             @break
 
         @case( 'image' )
@@ -46,6 +45,13 @@
         @case( 'form' )
 
             @include( 'modules.form', [ 'classes' => $classes, 'id' => $id, 'form_id' => $module['form']['id'] ] )
+            @break
+
+        @case('module-template')
+
+            @php $modules_template = get_field( 'modules', $module['module_id'] ); @endphp
+
+            @include( 'switches.modules', [ 'modules' => $modules_template ] )
             @break
 
         @endswitch
