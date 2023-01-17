@@ -23,7 +23,7 @@ class HtmlAttributes {
             ])
             
             ->addText('option_html_classes', [
-                'label'	=>	'HTML Classes'
+                'label'	=> 'HTML Classes'
             ]);
 
         return $htmlAttributesOptions;

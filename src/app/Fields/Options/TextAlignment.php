@@ -19,7 +19,7 @@ class TextAlignment {
         $textAlignmentOptions
         
             ->addRadio('option_text_alignment', [
-                'label'		=>	'Text Alignment',
+                'label'		=> 'Text Alignment',
                 'layout' 	=> 'horizontal'
             ])
                 ->addChoice('align-left', 'Left')

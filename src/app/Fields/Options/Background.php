@@ -23,33 +23,30 @@ class Background {
                 'label'		=> 'Background Options',
                 'layout'	=> 'horizontal'
             ])
-                ->addChoice('none', 'None')
                 ->addChoice('color', 'Color')
                 ->addChoice('image', 'Image')
                 ->addChoice('video', 'Video')
 
             ->addRadio('option_background_color', [
+                'label'     => 'Background Color',
                 'layout'    => 'horizontal',
                 'wrapper'   => [
-                    'class' => 'hide-label'
+                    'class' => 'swatches'
                 ]
             ])
+                ->addChoice('bg-white', 'White')
                 ->addChoice('bg-grey-light', 'Light Grey')
                 ->addChoice('bg-grey-dark', 'Dark Grey')
                 ->conditional('option_background', '==', 'color')
 
             ->addImage('option_background_image', [
-                'wrapper'       => [
-                    'class'	    => 'hide-label'
-                ],
-                'preview_size'  => 'medium'
+                'label'         => 'Background Image',
+                'preview_size'  => 'medium',
             ])
                 ->conditional('option_background', '==', 'image')
 
             ->addFile('option_background_video', [
-                'wrapper'   => [
-                    'class'	=> 'hide-label'
-                ]
+                'label'         => false,
             ])
                 ->conditional('option_background', '==', 'video');
 

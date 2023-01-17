@@ -20,10 +20,8 @@ class ImageLink {
         $imageLinkOptions
 
             ->addTrueFalse('option_add_image_link', [
+                'label'         => false,
                 'message'		=> 'Add Image Link',
-                'wrapper'		=> [
-                    'class'		=> 'hide-label'
-                ]
             ])
 
             ->addRadio('link_source', [
@@ -35,21 +33,21 @@ class ImageLink {
             ])
                 ->addChoice('internal', 'Internal Page')
                 ->addChoice('external', 'External URL')
-                    ->conditional('option_add_image_link', '==', 1)
+            ->conditional('option_add_image_link', '==', 1)
 
             ->addPostObject('option_image_link_page_id', [
-                'label'			=> 	'Select Page',
+                'label'			=> 'Select Page',
                 'post_type'     => ['page'],
                 'wrapper'		=> [
-                    'width'		=> 	'50'
+                    'width'		=> '50'
                 ]	
             ])
                 ->conditional('link_source', '==', 'internal')
 
             ->addText('option_image_link_url', [
-                'label'			=> 	'URL',
+                'label'			=> 'URL',
                 'wrapper'		=> [
-                    'width'		=> 	'50'
+                    'width'		=> '50'
                 ]	
             ])
                 ->conditional('link_source', '==', 'external');
