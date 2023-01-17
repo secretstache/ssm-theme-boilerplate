@@ -46,8 +46,8 @@ add_action( 'init', function() {
 
         // Add Brand Settings Page
         acf_add_options_sub_page( array(
-            "page_title" => "Brand Settings",
-            "menu_title" => "Brand Settings",
+            "page_title"  => "Brand Settings",
+            "menu_title"  => "Brand Settings",
             "parent_slug" => "ssm",
 		));
 
@@ -56,36 +56,29 @@ add_action( 'init', function() {
 });
 
 /**
+ * Modified Post Excerpt
+ */
+add_filter('excerpt_more', function( $more ) {
+    global $post;
+    return '…';
+});
+
+add_filter( 'excerpt_length', function( $length ) {
+	return 25;
+});
+
+/**
  * Assign custom Page Post States
  */
 add_filter( 'display_post_states', function( $post_states, $post ) {
 
-    if( get_page_template_slug( $post ) == 'template-landing-page.blade.php' ) {
-        $post_states[] = 'Landing Page';
+    if( get_page_template_slug( $post ) == 'template-legal-page.blade.php' ) {
+        $post_states[] = 'Legal Page';
     }
 
     return $post_states;
 
  }, 10, 2 );
-
-/*
-* Append the template name to the label of a layout builder template
-*/
-add_filter('acf/fields/flexible_content/layout_title/name=templates', function( $title, $field, $layout, $i ) {
-
-    $label = $layout['label'];
-
-    if ( $admin_label = get_sub_field("option_section_label") ) {
-        $label = stripslashes( $admin_label ) . " - " . $label;
-    }
-
-    if ( get_sub_field("option_status") == false ) {
-        $label = "<span class=\"template-inactive\">Inactive</span> - " . $label;
-    }
-
-    return $label;
-
-}, 999, 4 );
 
 /**
  * Remove Console Error - "SyntaxError: Unexpected number."
@@ -107,6 +100,47 @@ add_filter( 'ssm_disable_image_tags', function( $content ) {
 add_action( 'wp_enqueue_scripts', function() {
     wp_dequeue_style( 'wp-block-library' ); // WordPress core
 }, 100 );
+
+/**
+ * Remove unnecessary item from Admin Bar Menu
+ */
+add_action( 'admin_bar_menu', function( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node( 'wpengine_adminbar' );
+}, 999 );
+
+/**
+ * Modified Sitemap - Yoast SEO 
+ */
+add_filter( 'wpseo_sitemap_exclude_taxonomy', function( $value, $taxonomy ) {
+
+    $exclude = []; // Taxonomy Slug;
+
+    if( in_array( $taxonomy, $exclude ) ) return true;
+
+}, 10, 2 );
+
+add_filter( 'wpseo_sitemap_exclude_author', function( $value ) {
+    return [];
+});
+
+/**
+ * Append the template name to the label of a layout builder template
+ */ 
+add_filter('acf/fields/flexible_content/layout_title/name=templates', function( $title, $field, $layout, $i ) {
+
+    $label = $layout['label'];
+
+    if ( $admin_label = get_sub_field("option_section_label") ) {
+        $label = stripslashes( $admin_label ) . " - " . $label;
+    }
+
+    if ( get_sub_field("option_status") == false ) {
+        $label = "<span class=\"template-inactive\">Inactive</span> - " . $label;
+    }
+
+    return $label;
+
+}, 999, 4 );
 
 /**
  * Register Objects
