@@ -19,7 +19,7 @@ class Gallery {
         $galleryComponent
         
             ->addGallery('gallery', [
-                'label'	=> 'Image Gallery'
+                'label'	=> false
             ]);
 
 		return $galleryComponent;

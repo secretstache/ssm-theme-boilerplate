@@ -23,11 +23,8 @@ class Button {
             $buttonComponent
 
                 ->addTrueFalse('include_button', [
-                    'label'		=>	'Include Button',
-                    'message'	=>	'Include Button',
-                    'wrapper'	=>	[
-                        'class'	=>	'hide-label'
-                    ]	
+                    'label'		=> false,
+                    'message'	=> 'Include Button',
                 ]);
 
         }
@@ -48,12 +45,12 @@ class Button {
                 ->conditional('include_button', '==', 1)
 
                 ->addRadio('option_button_target', [
-                        'label'		=> 'Target',
-                        'layout'	=> 'horizontal',
-                        'wrapper'	=> [
-                            'width'	=> '50'
-                        ]
-                    ])
+                    'label'		=> 'Target',
+                    'layout'	=> 'horizontal',
+                    'wrapper'	=> [
+                        'width'	=> '50'
+                    ]
+                ])
                     ->addChoice('_self', 'Default')
                     ->addChoice('_blank', 'New Tab')
                 ->conditional('include_button', '==', 1);

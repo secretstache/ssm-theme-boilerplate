@@ -20,10 +20,8 @@ class TemplateHeader {
         $templateHeaderOptions
 
             ->addTrueFalse('include_template_header', [
+                'label'     => false,
                 'message'	=> 'Include Template Header',
-                'wrapper'	=> [
-                    'class'	=> 'hide-label'
-                ]
             ])
 
             ->addText('template_headline', [

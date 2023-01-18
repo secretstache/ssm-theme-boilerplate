@@ -19,9 +19,7 @@ class Video {
         $videoComponent
 
             ->addOembed('video', [
-                'wrapper'   => [
-                    'class'	=>	'hide-label'
-                ]
+                'label'     => false
             ]);
 
 		return $videoComponent;

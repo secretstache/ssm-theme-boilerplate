@@ -18,18 +18,8 @@ class Table {
 
         $tableComponent
 
-            ->addTrueFalse('first_row_is_table_header', [
-                'label'		=>	'The first row is the table header',
-                'message'	=>	'The first row is the table header',
-                'wrapper'	=>	[
-                    'class'	=>	'hide-label'
-                ]	
-            ])
-
             ->addField('table', 'table', [
-                'wrapper'	    => [
-                    'classes'	=> 'hide-label'
-                ]
+                'label'     => false
             ]);
 
 		return $tableComponent;

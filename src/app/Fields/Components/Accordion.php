@@ -19,13 +19,11 @@ class Accordion {
         $accordionComponent
 
             ->addRepeater('accordion', [
+                'label'         => false,
                 'layout'		=> 'block',
                 'min'			=> 1,
                 'collapsed'		=> 'title',
                 'button_label'	=> 'Add Item',
-                'wrapper'		=> [
-                    'class'		=> 'hide-label'
-                ]
             ])
 
                 ->addText('title')
