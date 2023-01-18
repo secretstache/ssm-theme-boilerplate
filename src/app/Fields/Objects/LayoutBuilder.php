@@ -16,7 +16,6 @@ class LayoutBuilder {
 		/**
 		 * Layout Builder
 		 */
-        
 		$layoutBuilder = new FieldsBuilder('layout_builder', [
 			'style' 	 => 'seamless',
         ]);
@@ -31,6 +30,8 @@ class LayoutBuilder {
             
                 ->addLayout(Columns::getFields())
                 
+                ->addLayout(SplitContent::getFields())
+
                 ->addLayout(CallToAction::getFields())
 
 				->addLayout(ContentBlockTemplate::getFields())

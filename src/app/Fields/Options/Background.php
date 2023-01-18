@@ -46,7 +46,7 @@ class Background {
                 ->conditional('option_background', '==', 'image')
 
             ->addFile('option_background_video', [
-                'label'         => false,
+                'label'         => 'Background Video',
             ])
                 ->conditional('option_background', '==', 'video');
 

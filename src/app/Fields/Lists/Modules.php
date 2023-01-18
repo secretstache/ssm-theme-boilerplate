@@ -16,7 +16,7 @@ use App\Fields\Modules\ModuleTemplate;
 
 class Modules {
 
-	public static function getFields() {
+	public static function getFields( $media_modules = true ) {
 
 		/**
          * [List] - Modules
@@ -26,7 +26,35 @@ class Modules {
          */
         $modulesList = new FieldsBuilder('modules_list');
 
-        $modulesList
+        if ( $media_modules ) {
+
+            $modulesList
+
+                ->addFlexibleContent('modules')
+
+                    ->addLayout(Header::getFields())
+
+                    ->addLayout(TextEditor::getFields())
+
+                    ->addLayout(Buttons::getFields())
+
+                    ->addLayout(Image::getFields())
+
+                    ->addLayout(Video::getFields())
+
+                    ->addLayout(Form::getFields())
+
+                    ->addLayout(Accordion::getFields())
+
+                    ->addLayout(Html::getFields())
+
+                    ->addLayout(ModuleTemplate::getFields())
+
+                ->endFlexibleContent();
+
+        } else {
+
+            $modulesList
 
             ->addFlexibleContent('modules')
 
@@ -35,10 +63,6 @@ class Modules {
                 ->addLayout(TextEditor::getFields())
 
                 ->addLayout(Buttons::getFields())
-
-                ->addLayout(Image::getFields())
-
-                ->addLayout(Video::getFields())
 
                 ->addLayout(Form::getFields())
 
@@ -49,6 +73,8 @@ class Modules {
                 ->addLayout(ModuleTemplate::getFields())
 
             ->endFlexibleContent();
+
+        }
 
 		return $modulesList;
 

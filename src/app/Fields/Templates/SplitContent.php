@@ -4,7 +4,7 @@ namespace App\Fields\Templates;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Lists\Modules;
-use App\Fields\Components\Image;
+use App\Fields\Components\TemplateHeader;
 use App\Fields\Options\Background;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\Admin;
@@ -27,19 +27,49 @@ class SplitContent {
 
             ->addTab('Content')
 
-                ->addFields(Modules::getFields())
+                ->addFields(TemplateHeader::getFields())
 
-                ->addRadio('media_position', [
-                    'layout'	=> 'horizontal'
+                ->addRepeater('items', [
+                    'label'         => false,
+                    'layout'	    => 'block',
+                    'button_label'	=> 'Add Item',
+                    'min'			=> 1,
                 ])
-                    ->addChoice('media-left', 'Left')
-                    ->addChoice('media-Right', 'Right')
 
-                ->addFields(Image::getFields())
+                    ->addRadio('media_type', [
+                        'label'     => 'Media Type',
+                        'layout'    => 'horizontal'
+                    ])
+                        ->addChoice('image','Image')
+                        ->addChoice('video','Video')
+
+                    ->addImage('image', [
+                        'label'         => false,
+                        'preview_size'  => 'medium',
+                    ])
+                        ->conditional('media_type', '==', 'image')
+
+                    ->addOembed('oembed', [
+                        'label' 	=> false,
+                    ])
+                        ->conditional('media_type', '==', 'video')
+                    
+                    ->addFields(Modules::getFields( $media_modules = false ))
+                    
+                ->endRepeater()
 
             ->addTab('Options')
 
                 ->addFields(Background::getFields())
+
+                ->addRadio('media_position', [
+                    'label'        => 'Starting Media Position',
+                    'layout'       => 'horizontal',
+                    'choices'      => [
+                        'left'     => 'Left',
+                        'right'    => 'Right',
+                    ],
+                ])
 
                 ->addFields(HtmlAttributes::getFields())
 
