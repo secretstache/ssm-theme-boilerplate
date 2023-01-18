@@ -212,4 +212,9 @@ class SSM extends Composer
 
     }
 
+    public static function getPageTemplateID( $page_template ) 
+    {
+        if ($page_template) return array_shift( get_posts( [ 'post_type' => 'page', 'meta_key' => '_wp_page_template', 'meta_value' => $page_template ] ) )->ID;
+    }
+
 }
