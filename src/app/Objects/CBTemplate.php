@@ -13,7 +13,7 @@ add_action( 'init', function() {
         "menu_icon"         => "dashicons-image-filter",
         "menu_position"		=> 5,
         "supports" 			=> [ "title" ],
-        "show_in_menu"      => true,
+        "show_in_menu"      => 'ssm',
         "has_archive"       => false,
         "public"            => false,
         "show_ui"           => true,

@@ -38,6 +38,7 @@ class LayoutBuilder {
                 
 			->setLocation('post_type', '==', 'page')
 				->or('post_type', '==', 'post')
+				->or('post_type', '==', 'ssm_design_system')
 				->or('post_type', '==', 'cb_template');
 
 		// Register Layout Builder
