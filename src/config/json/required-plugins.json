@@ -7,6 +7,13 @@
         "force_activation": true
     },
     {
+        "name": "Advanced Custom Fields: Extended PRO",
+        "slug": "advanced-custom-fields-extended-pro",
+        "source": "https://www.secretstache.com/required-plugins/acf-extended-pro.zip",
+        "required": true,
+        "force_activation": true
+    },
+    {
         "name": "Advanced Custom Fields: Phone",
         "slug": "acf-field-phone",
         "source": "https://www.secretstache.com/required-plugins/acf-field-phone.zip",

@@ -43,7 +43,7 @@ add_action( 'init', function() {
  */
 add_action('template_redirect', function() {
 
-    if ( get_post_type() == 'mon_design_system' && ! is_user_logged_in() ) {
+    if ( get_post_type() == 'ssm_design_system' && ! is_user_logged_in() ) {
 
         wp_redirect( home_url( '/' ) );
 
