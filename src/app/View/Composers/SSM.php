@@ -160,56 +160,48 @@ class SSM extends Composer
 
     }
 
-	public static function getAddress( $address )
+    public static function getAddress( $address )
 	{
-
         $response = "";
 
-        $street1 = $address->street1;
-        $street2 = $address->street2;
-        $city = $address->city;
-        $state = $address->state;
-        $zip = $address->zip;
+        $street1 = $address['street1'];
+        $street2 = $address['street2'];
+        $city    = $address['city'];
+        $state   = $address['state'];
+        $zip     = $address['zip'];
 
         if ( $street1 || $street2 || $city || $state || $zip ) {
-            $response .= ( $street1 ) ? $street1 : "";
-            $response .= ( $street2 ) ? ", " . $street2 : "";
+            $response .= ( $street1 ) ? $street1 . ", " : "";
+            $response .= ( $street2 ) ? $street2 : "";
             $response .= ( $city ) ? "<br />" . $city : "";
             $response .= ( $state ) ? ", " . $state : "";
             $response .= ( $zip ) ? " " . $zip : "";
         }
 
         return $response;
-
     }
 
 	public static function getMapAddress( $address )
 	{
-
-        $prepared_url = $address->street1;
-        $prepared_url .= ( $address->street2 ) ? $address->street2 : "";
-        $prepared_url .= " " . $address->city;
-        $prepared_url .= " " . $address->state;
-        $prepared_url .= " " . $address->zip;
-        $prepared_url = urlencode($prepared_url);
+        $prepared_url  = $address['street1'];
+        $prepared_url .= $address['street2'] ?: "";
+        $prepared_url .= " " . $address['city'];
+        $prepared_url .= " " . $address['state'];
+        $prepared_url .= " " . $address['zip'];
+        $prepared_url  = urlencode($prepared_url);
 
         return $prepared_url;
-
     }
 
-	public static function getPhoneNumber( $number )
+    public static function getPhoneNumber( $phone )
 	{
+        $formatted = '';
 
-        $formatted = "";
-
-        $pieces = explode(" ", $number );
-
-        $formatted = "(" . $pieces[0] . ") " . $pieces[1];
-        $formatted .= ( isset( $pieces[2] ) ) ? $pieces[2] : "";
-        $formatted .= ( isset( $pieces[3] ) ) ? $pieces[3] : "";
+        if( preg_match( '/^\+\d(\d{3})(\d{3})(\d{4})$/', $phone['national'], $pieces ) ) {
+            return $pieces[1] . '-' . $pieces[2] . '-' . $pieces[3];
+        }
 
         return $formatted;
-
     }
 
     public static function getPageTemplateID( $page_template ) 

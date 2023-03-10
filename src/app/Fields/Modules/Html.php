@@ -23,10 +23,11 @@ class Html {
 
             ->addTab('Content')
 
-                ->addField('inline_html', 'acf_code_field', [
-                    'label'	    => false,
-                    'mode' 	    => 'htmlmixed',
-                    'theme'	    => 'monokai',
+                ->addField('inline_html', 'acfe_code_editor', [
+                    'label'		=> false,
+                    'mode' 		=> 'text/html',
+                    'rows' 		=> 2,
+                    'max_rows'  => 4
                 ])
 
             ->addTab('Options')

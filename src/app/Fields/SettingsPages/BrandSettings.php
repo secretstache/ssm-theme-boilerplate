@@ -53,10 +53,11 @@ class BrandSettings {
 
 		$businessInformation
 
-			->addField('primary_phone_number', 'phone', [
+			->addField('primary_phone_number', 'acfe_phone_number', [
 				'label' 			=> 'Primary Phone Number',
-				'initial_country' 	=> 'US',
+				'default_country' 	=> 'us',
 				'return_format'		=> 'array',
+				'placeholder'		=> '{placeholder}',
 				'wrapper'			=> [
 					'width'			=> '50'
 				]
@@ -69,12 +70,31 @@ class BrandSettings {
 				]
 			])
 			
-			->addField('physical_address', 'address', [
-				'label' 			=> 'Physical Address',
-				'output_type' 		=> 'object',
-				'address_layout' 	=> '[[{"id":"street1","label":"Street 1"}],[{"id":"street2","label":"Street 2"}],[],[{"id":"city","label":"City"},{"id":"state","label":"State"},{"id":"zip","label":"Postal Code"},{"id":"country","label":"Country"}],[]]',
-				'address_options'	=> '{"street1":{"id":"street1","label":"Street 1","defaultValue":"","enabled":true,"cssClass":"street1","separator":""},"street2":{"id":"street2","label":"Street 2","defaultValue":"","enabled":true,"cssClass":"street2","separator":""},"street3":{"id":"street3","label":"Street 3","defaultValue":"","enabled":false,"cssClass":"street3","separator":""},"city":{"id":"city","label":"City","defaultValue":"","enabled":true,"cssClass":"city","separator":","},"state":{"id":"state","label":"State","defaultValue":"","enabled":true,"cssClass":"state","separator":""},"zip":{"id":"zip","label":"Postal Code","defaultValue":"","enabled":true,"cssClass":"zip","separator":""},"country":{"id":"country","label":"Country","defaultValue":"","enabled":true,"cssClass":"country","separator":""}}',
+			->addGroup('physical_address', [
+				'label'		=> 'Physical Address',
 			])
+
+				->addText('street1', [
+					'label' => 'Street 1'
+				])
+
+				->addText('street2', [
+					'label' => 'Street 2'
+				])
+
+				->addText('city', [
+					'label' => 'City'
+				])
+
+				->addText('state', [
+					'label' => 'State'
+				])
+
+				->addText('zip', [
+					'label' => 'Postal Code'
+				])
+			
+			->endGroup()
 
 			->setLocation('options_page', '==', 'acf-options-brand-settings');
 
@@ -185,10 +205,11 @@ class BrandSettings {
 					'label' => 'Title'
 				])
 
-				->addField('script', 'acf_code_field', [
-					'label' => 'Script',
-					'mode'	=> 'htmlmixed',
-					'theme'	=> 'monokai',
+				->addField('script', 'acfe_code_editor', [
+					'label' 	=> 'Script',
+					'mode'		=> 'javascript',
+					'rows'		=> 4,
+					'max_rows' 	=> 4
 				])
 
 				->addRadio('location', [
@@ -223,10 +244,11 @@ class BrandSettings {
 
 		$globalInlineStyles
 
-			->addField('global_inline_styles', 'acf_code_field', [
-				'label'	=>	'CSS Editor',
-				'mode' 	=>	'css',
-				'theme' =>	'monokai'
+			->addField('global_inline_styles', 'acfe_code_editor', [
+				'label'		=> 'CSS Editor',
+				'mode' 		=> 'css',
+				'rows' 		=> 2,
+				'max_rows'  => 4
 			])
 			
 			->setLocation('options_page', '==', 'acf-options-brand-settings');

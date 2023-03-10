@@ -55,10 +55,11 @@ class Shared {
 
 		$inlineStyles
 
-			->addField('page_inline_styles', 'acf_code_field', [
-				'label'	=>	'CSS Editor',
-				'mode' 	=> 'css',
-				'theme'	=> 'monokai'
+			->addField('page_inline_styles', 'acfe_code_editor', [
+				'label'	   => 'CSS Editor',
+				'mode' 	   => 'css',
+				'rows'     => 2,
+				'max_rows' => 4
 			])
 
 			->setLocation('post_type', '==', 'page')
@@ -81,10 +82,11 @@ class Shared {
 
 		$inlineScripts
 
-			->addField('page_inline_scripts', 'acf_code_field', [
-				'label'	=>	'JS Editor',
-				'mode' 	=> 'javascript',
-				'theme'	=> 'monokai',
+			->addField('page_inline_scripts', 'acfe_code_editor', [
+				'label'		=> 'JS Editor',
+				'mode' 		=> 'javascript',
+				'rows'		=> 4,
+				'max_rows' 	=> 4
 			])
 
 			->setLocation('post_type', '==', 'page')
