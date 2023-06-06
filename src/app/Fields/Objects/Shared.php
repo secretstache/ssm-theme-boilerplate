@@ -97,40 +97,6 @@ class Shared {
 			acf_add_local_field_group($inlineScripts->build());
 		});
 
-		/**
-		 * Facebook Conversion Pixel
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
-		 */
-		$facebookConversionPixel = new FieldsBuilder('facebook_conversion_pixel', [
-			'menu_order'	=>	15,
-			'position'		=>	'side'
-		]);
-
-		$facebookConversionPixel
-
-			->addSelect('facebook_standard_event', [
-				'label'			=> 'Standard Event',
-				'default_value' => array(),
-				'allow_null' 	=> 1
-			])
-
-				->addChoice('fbq("track", "ViewContent");', 'Key Page View')
-				->addChoice('fbq("track", "Lead");', 'Lead')
-				->addChoice('fbq("track", "CompleteRegistration");', 'Completed Registration')
-				->addChoice('fbq("track", "InitiateCheckout");', 'Initiated Checkout')
-				->addChoice('fbq("track", "AddPaymentInfo");', 'Added Payment Info')
-				->addChoice('fbq("track", "Purchase");', 'Made a Purchase')
-				
-			->setLocation('post_type', '==', 'page')
-				->or('post_type', '==', 'post');
-
-		// Register Facebook Conversion Pixel
-		add_action('acf/init', function() use ($facebookConversionPixel) {
-			acf_add_local_field_group($facebookConversionPixel->build());
-		});
-
 	}
 
 }
