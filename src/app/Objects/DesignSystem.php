@@ -32,7 +32,7 @@ add_action( 'init', function() {
 
         "singular"  => "Design System Entry",
         "plural"    => "Design System",
-        "slug"      => "design-system"
+        "slug"      => "ds"
 
     ] );
 
@@ -43,11 +43,15 @@ add_action( 'init', function() {
  */
 add_action('template_redirect', function() {
 
-    if ( get_post_type() == 'ssm_design_system' && ! is_user_logged_in() ) {
+    if ( get_post_type() == 'ssm_design_system' ) {
 
-        wp_redirect( home_url( '/' ) );
-
-        exit();
+        if( ! current_user_can('administrator') ) {
+            $current_url = home_url( $_SERVER['REQUEST_URI'] );
+            $login_url   = wp_login_url( $current_url );
+            
+            wp_redirect( $login_url );
+            exit;
+        }
 
     }
 
