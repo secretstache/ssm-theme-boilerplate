@@ -25,7 +25,7 @@ class LayoutBuilder {
 			->addFlexibleContent('templates', [
 				'label'			=> 'Layout Builder',
 				'button_label'	=> 'Add Template',
-				'max'           => ( $_GET['post_type'] == 'cb_template' || get_post_type( $_GET['post'] ) == 'cb_template' ) ? 1 : ''
+				'max'           => ( $_GET && ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'cb_template' ) || ( isset( $_GET['post'] ) && get_post_type( $_GET['post'] ) == 'cb_template' ) ) ? 1 : ''
             ])
             
                 ->addLayout(Columns::getFields())
