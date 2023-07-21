@@ -123,6 +123,30 @@ add_filter( 'wpseo_sitemap_exclude_author', function( $value ) {
     return [];
 });
 
+add_action('wp_dashboard_setup', function() {
+    remove_meta_box('wpseo-wincher-dashboard-overview', 'dashboard', 'normal');
+});
+
+/**
+ * Manage Post Columns
+ */
+add_filter( 'manage_edit-ssm_design_system_columns', __NAMESPACE__ . '\\manage_admin_columns', 10);
+
+function manage_admin_columns( $columns ) {
+
+    unset($columns['wpseo-score']);
+    unset($columns['wpseo-score-readability']);
+    unset($columns['wpseo-title']);
+    unset($columns['wpseo-metadesc']);
+    unset($columns['wpseo-focuskw']);
+    unset($columns['wpseo-links']);
+    unset($columns['wpseo-linked']);
+    unset($columns['views']);
+
+    return $columns;
+
+}
+
 /**
  * Append the template name to the label of a layout builder template
  */ 

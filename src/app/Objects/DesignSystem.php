@@ -56,3 +56,10 @@ add_action('template_redirect', function() {
     }
 
 }, 10 );
+
+/**
+ * Remove Yoast SEO Metabox
+ */
+add_action( 'add_meta_boxes', function() {
+    remove_meta_box( 'wpseo_meta', 'ssm_design_system', 'normal' );
+}, 20 );
