@@ -119,6 +119,10 @@ add_filter( 'wpseo_sitemap_exclude_taxonomy', function( $value, $taxonomy ) {
 
 }, 10, 2 );
 
+add_filter( 'wpseo_sitemap_exclude_post_type', function( $value, $post_type ) {
+    if ( $post_type == 'ssm_design_system' ) return true;
+}, 10, 2 );
+
 add_filter( 'wpseo_sitemap_exclude_author', function( $value ) {
     return [];
 });
