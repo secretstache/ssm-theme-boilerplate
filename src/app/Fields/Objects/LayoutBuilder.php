@@ -25,7 +25,10 @@ class LayoutBuilder {
 			->addFlexibleContent('templates', [
 				'label'			=> 'Layout Builder',
 				'button_label'	=> 'Add Template',
-				'max'           => ( $_GET && ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'cb_template' ) || ( isset( $_GET['post'] ) && get_post_type( $_GET['post'] ) == 'cb_template' ) ) ? 1 : ''
+				'acfe_flexible_advanced' 	=> 1,
+				'acfe_flexible_add_actions' => ['copy'],
+				'acfe_flexible_async' 		=> ['layout'],
+				'max'           			=> ( $_GET && ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'cb_template' ) || ( isset( $_GET['post'] ) && get_post_type( $_GET['post'] ) == 'cb_template' ) ) ? 1 : ''
             ])
             
                 ->addLayout(Columns::getFields())

@@ -60,10 +60,10 @@
         "force_activation": false
     },
     {
-        "name": "Regenerate Thumbnails",
-        "slug": "regenerate-thumbnails",
-        "required": false,
-        "force_activation": false
+        "name": "Image Processing Queue",
+        "slug": "image-processing-queue",
+        "required": true,
+        "force_activation": true
     },
     {
         "name": "Roots/Soil",

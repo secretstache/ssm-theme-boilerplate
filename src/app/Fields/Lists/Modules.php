@@ -30,7 +30,11 @@ class Modules {
 
             $modulesList
 
-                ->addFlexibleContent('modules')
+                ->addFlexibleContent('modules', [
+                    'acfe_flexible_advanced' 	=> 1,
+                    'acfe_flexible_add_actions' => ['copy'],
+                    'acfe_flexible_async' 		=> ['layout'],
+                ])
 
                     ->addLayout(Header::getFields())
 
@@ -56,7 +60,11 @@ class Modules {
 
             $modulesList
 
-            ->addFlexibleContent('modules')
+            ->addFlexibleContent('modules', [
+                'acfe_flexible_advanced' 	=> 1,
+				'acfe_flexible_add_actions' => ['copy'],
+				'acfe_flexible_async' 		=> ['layout'],
+            ])
 
                 ->addLayout(Header::getFields())
 
