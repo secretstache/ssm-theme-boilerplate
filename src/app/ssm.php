@@ -76,6 +76,10 @@ add_filter( 'display_post_states', function( $post_states, $post ) {
         $post_states[] = 'Legal Page';
     }
 
+    if( get_page_template_slug( $post ) == 'template-design-system-archive-page.blade.php' ) {
+        $post_states[] = 'Design System Archive Page';
+    }
+
     return $post_states;
 
  }, 10, 2 );
