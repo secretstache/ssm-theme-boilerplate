@@ -51,6 +51,12 @@ add_action( 'init', function() {
             "parent_slug" => "ssm",
 		));
 
+        acf_add_options_sub_page(array(
+            "page_title"  => "Core Settings",
+            "menu_title"  => "Core",
+            "parent_slug" => "options-general.php",
+        ));
+
     }
     
 });
