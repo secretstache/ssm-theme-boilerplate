@@ -146,34 +146,38 @@ add_action('wp_dashboard_setup', function () {
  * Enqueue Core scripts
  *
  */
-add_action('wp_head', function () {
+if( class_exists('acf') ) {
 
-    if (is_user_logged_in()) {
+    add_action('wp_head', function () {
 
-        if (($core_scripts = get_field('core_scripts', 'options')) && !empty($core_scripts)) {
+        if (is_user_logged_in()) {
 
-            foreach ($core_scripts as $core_script) {
+            if (($core_scripts = get_field('core_scripts', 'options')) && !empty($core_scripts)) {
 
-                if (in_array('public', $core_script['locations']) && $core_script['script']) {
-                    echo $core_script['script'];
+                foreach ($core_scripts as $core_script) {
+
+                    if (in_array('public', $core_script['locations']) && $core_script['script']) {
+                        echo $core_script['script'];
+                    }
                 }
             }
         }
-    }
-}, 99);
+    }, 99);
 
-add_action('admin_head', function () {
+    add_action('admin_head', function () {
 
-    if (is_user_logged_in()) {
+        if (is_user_logged_in()) {
 
-        if (($core_scripts = get_field('core_scripts', 'options')) && !empty($core_scripts)) {
+            if (($core_scripts = get_field('core_scripts', 'options')) && !empty($core_scripts)) {
 
-            foreach ($core_scripts as $core_script) {
+                foreach ($core_scripts as $core_script) {
 
-                if (in_array('admin', $core_script['locations']) && $core_script['script']) {
-                    echo $core_script['script'];
+                    if (in_array('admin', $core_script['locations']) && $core_script['script']) {
+                        echo $core_script['script'];
+                    }
                 }
             }
         }
-    }
-}, 99);
+    }, 99);
+
+}
