@@ -172,47 +172,76 @@ class BrandSettings {
 		});
 
 		/**
-		 * Analytics
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
+		 * Script Manager
+		 * 
 		 */
-		$analytics = new FieldsBuilder('analytics', [
-			'title'			=> 'Analytics',
+		$scriptManager = new FieldsBuilder('script-manager', [
+			'title'			=> 'Script Manager',
 			'menu_order'	=>	20
 		]);
 
-		$analytics
+		$scriptManager
 
-			->addText('google_tag_manager_id', [
-				'label'	=> 'Google Tag Manager ID' 
-			])
-
-			->addText('google_site_verification_id', [
-				'label'	=> 'Google Site Verification ID'
-			])
-
-			->addText('facebook_account_id', [
-				'label'	=> 'Facebook Account ID'
-			])
-
-			->addRepeater('custom_tracking_scripts', [
+			->addRepeater('global_scripts', [
+				'label'         => false,
 				'layout'		=> 'block',
-				'button_label'	=> 'Add Tracking Script'
+				'collapsed'		=> 'type',
+				'button_label'	=> 'Add Script',
+				'acfe_repeater_stylised_button'	=> 1
 			])
 
-				->addText('title', [
-					'label' => 'Title'
+				->addSelect('type', [
+					'label'   => false,
+					'choices' => [
+						'google_tag_manager' => 'Google Tag Manager',
+						'google_site_verification' => 'Google Site Verification',
+						'custom' => 'Custom'
+					],
+					'wrapper'			=> [
+						'width'			=> '30'
+					]
 				])
 
-				->addField('script', 'acfe_code_editor', [
-					'label' 	=> 'Script',
-					'mode'		=> 'javascript',
-					'rows'		=> 4,
-					'max_rows' 	=> 4
-				])
+				// Google Tag Manager
 
-				->addRadio('location', [
+				->addText('google_tag_manager_id', [
+					'label' => false,
+					'placeholder' => 'Tag Manager ID',
+					'wrapper'			=> [
+						'width'			=> '70'
+					]
+				])
+					->conditional('type', '==', 'google_tag_manager')
+
+				// Google Site Verification
+
+				->addText('google_site_verification_id', [
+					'label' => false,
+					'placeholder' => 'Site Verification ID',
+					'wrapper'			=> [
+						'width'			=> '70'
+					]
+				])
+					->conditional('type', '==', 'google_site_verification')
+
+				// Custom
+
+				->addText('custom_script_title', [
+					'label' => false,
+					'placeholder'    => 'Title',
+					'wrapper'			=> [
+						'width'			=> '70'
+					]
+				])
+					->conditional('type', '==', 'custom')
+
+				->addField('custom_script', 'acfe_code_editor', [
+					'label' 	=> 'Custom Script',
+					'rows'		=> 4
+				])
+					->conditional('type', '==', 'custom')
+
+				->addRadio('custom_script_location', [
 					'label' 		=> 'Location',
 					'choices'		=> [
 						'header' 	=> 'Header',
@@ -220,16 +249,16 @@ class BrandSettings {
 					],
 					'layout' 		=> 'horizontal'
 				])
+					->conditional('type', '==', 'custom')
 
 			->endRepeater()
 
 			->setLocation('options_page', '==', 'acf-options-brand-settings');
 
-		// Register Analytics
-		add_action('acf/init', function() use ($analytics) {
-			acf_add_local_field_group($analytics->build());
+		// Register Script Manager
+		add_action('acf/init', function() use ($scriptManager) {
+			acf_add_local_field_group($scriptManager->build());
 		});
-
 
 		/**
 		 * Global Inline Styles
