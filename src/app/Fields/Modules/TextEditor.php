@@ -6,6 +6,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\TextEditor as TextEditorComponent;
 use App\Fields\Options\TextAlignment as TextAlignmentOptions;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class TextEditor {
 
@@ -28,6 +29,8 @@ class TextEditor {
                 ->addFields(TextEditorComponent::getFields( $type = '', $label = '' ))
 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields())
 
                 ->addFields(TextAlignmentOptions::getFields())
 

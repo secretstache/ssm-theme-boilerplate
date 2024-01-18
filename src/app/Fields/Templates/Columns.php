@@ -11,6 +11,7 @@ use App\Fields\Options\MobileSortOrder;
 use App\Fields\Options\ColumnLayout;
 use App\Fields\Options\ColumnAlignment;
 use App\Fields\Options\Admin;
+use App\Fields\Options\TemplateSpacing;
 
 class Columns {
 
@@ -55,6 +56,8 @@ class Columns {
             ->addTab('Options')
 
                 ->addFields(Background::getFields())
+
+                ->addFields(TemplateSpacing::getFields())
 
                 ->addFields(ColumnLayout::getFields())
 

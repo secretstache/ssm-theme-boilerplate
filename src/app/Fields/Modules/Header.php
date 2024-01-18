@@ -6,6 +6,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Header as HeaderComponent;
 use App\Fields\Options\TextAlignment;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class Header {
 
@@ -28,6 +29,8 @@ class Header {
                 ->addFields(HeaderComponent::getFields())
 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields())
 
                 ->addFields(TextAlignment::getFields())
 

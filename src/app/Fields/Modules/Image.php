@@ -6,6 +6,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Image as ImageComponent;
 use App\Fields\Options\ImageLink;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class Image {
 
@@ -28,6 +29,8 @@ class Image {
                 ->addFields(ImageComponent::getFields())
 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields())
 
                 ->addFields(ImageLink::getFields())
 

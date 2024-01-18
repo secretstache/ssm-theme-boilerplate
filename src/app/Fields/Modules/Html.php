@@ -4,6 +4,7 @@ namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class Html {
 
@@ -31,6 +32,8 @@ class Html {
                 ])
 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields()) 
 
                 ->addFields(HtmlAttributes::getFields());
 

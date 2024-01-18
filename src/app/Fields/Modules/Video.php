@@ -5,6 +5,7 @@ namespace App\Fields\Modules;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Video as VideoComponent;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class Video {
 
@@ -27,6 +28,8 @@ class Video {
                 ->addFields(VideoComponent::getFields())
 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields())
 
                 ->addFields(HtmlAttributes::getFields());
                 

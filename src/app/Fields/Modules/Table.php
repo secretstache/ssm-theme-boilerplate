@@ -5,6 +5,7 @@ namespace App\Fields\Modules;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Table as TableComponent;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class Table {
 
@@ -27,6 +28,8 @@ class Table {
                 ->addFields(TableComponent::getFields())
 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields())
 
                 ->addFields(HtmlAttributes::getFields());
 

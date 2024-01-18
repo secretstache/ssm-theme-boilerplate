@@ -6,6 +6,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Button as ButtonComponent;
 use App\Fields\Options\ButtonDefaults;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class Button {
 
@@ -18,7 +19,7 @@ class Button {
          * @todo Link to Team Snippet Code
          */
         $buttonModule = new FieldsBuilder('button', [
-            'title'	=>	'Button'
+            'title'	=> 'Button'
         ]);
         
         $buttonModule
@@ -28,6 +29,8 @@ class Button {
                 ->addFields(ButtonComponent::getFields())
 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields())
 
                 ->addFields(ButtonDefaults::getFields())
 

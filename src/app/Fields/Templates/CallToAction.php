@@ -8,6 +8,7 @@ use App\Fields\Lists\Buttons;
 use App\Fields\Options\Background;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\Admin;
+use App\Fields\Options\TemplateSpacing;
 
 class CallToAction {
 
@@ -34,6 +35,8 @@ class CallToAction {
             ->addTab('Options')
 
                 ->addFields(Background::getFields())
+
+                ->addFields(TemplateSpacing::getFields())
 
                 ->addFields(HtmlAttributes::getFields())
 

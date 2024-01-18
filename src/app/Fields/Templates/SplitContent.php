@@ -8,6 +8,7 @@ use App\Fields\Components\TemplateHeader;
 use App\Fields\Options\Background;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\Admin;
+use App\Fields\Options\TemplateSpacing;
 
 class SplitContent {
 
@@ -61,6 +62,8 @@ class SplitContent {
             ->addTab('Options')
 
                 ->addFields(Background::getFields())
+
+                ->addFields(TemplateSpacing::getFields())
 
                 ->addRadio('media_position', [
                     'label'        => 'Starting Media Position',

@@ -5,6 +5,7 @@ namespace App\Fields\Modules;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Gallery as GalleryComponent;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleMargins;
 
 class Gallery {
 
@@ -27,6 +28,8 @@ class Gallery {
                 ->addFields(GalleryComponent::getFields())
                 
             ->addTab('Options')
+
+                ->addFields(ModuleMargins::getFields())
             
                 ->addFields(HtmlAttributes::getFields());
 

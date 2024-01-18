@@ -4,11 +4,11 @@ namespace App\Fields\Templates;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\TemplateHeader;
-use App\Fields\Components\TextEditor;
 use App\Fields\Components\Button;
 use App\Fields\Options\Background;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\Admin;
+use App\Fields\Options\TemplateSpacing;
 
 class BlockGrid {
 
@@ -59,6 +59,8 @@ class BlockGrid {
             ->addTab('Options')
 
                 ->addFields(Background::getFields())
+
+                ->addFields(TemplateSpacing::getFields())
 
                 ->addFields(HtmlAttributes::getFields())
 

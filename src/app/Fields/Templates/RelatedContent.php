@@ -7,6 +7,7 @@ use App\Fields\Components\TemplateHeader;
 use App\Fields\Options\Background;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\Admin;
+use App\Fields\Options\TemplateSpacing;
 
 class RelatedContent {
 
@@ -46,6 +47,8 @@ class RelatedContent {
             ->addTab('Options')
 
                 ->addFields(Background::getFields())
+
+                ->addFields(TemplateSpacing::getFields())
 
                 ->addFields(HtmlAttributes::getFields())
 
