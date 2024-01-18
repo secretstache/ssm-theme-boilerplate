@@ -4,165 +4,71 @@ namespace App\Fields\Components;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Button {
+class Button
+{
 
-	public static function getFields( $is_conditional = false ) {
+    public static function getFields()
+    {
 
-		/**
+        /**
          * [Component] - Button
-         * @author Rich Staats <rich@secretstache.com>
-         * @since 3.0.0
-         * @todo Link to Team Snippet Code
          */
         $buttonComponent = new FieldsBuilder('button');
 
-        $condition_html = '';
+        $post_types = ['page'];
 
-        if( $is_conditional ) {
+        $buttonComponent
 
-            $buttonComponent
+            ->addRadio('button_source', [
+                'label'        => 'Source',
+                'layout'       => 'horizontal',
+                'choices'      => [
+                    'internal' => 'Internal Page',
+                    'external' => 'External URL',
+                ],
+                'wrapper'      => [
+                    'width'    => 50
+                ]
+            ])
 
-                ->addTrueFalse('include_button', [
-                    'label'		=> false,
-                    'message'	=> 'Include Button',
-                ]);
+            ->addRadio('option_button_target', [
+                'label'        => 'Target',
+                'layout'       => 'horizontal',
+                'choices'      => [
+                    '_self'    => 'Default',
+                    '_blank'   => 'New Tab',
+                ],
+                'wrapper'      => [
+                    'width'    => 50
+                ]
+            ])
+            ->conditional('button_source', '!=', 'form')
 
-        }
+            ->addText('button_label', [
+                'label'        => 'Label',
+                'wrapper'      => [
+                    'width'    => 50
+                ]
+            ])
 
-        if( $is_conditional ) {
+            ->addPostObject('button_page_id', [
+                'label'        => 'Select a Page',
+                'post_type'    => $post_types,
+                'wrapper'      => [
+                    'width'    => 50
+                ],
+                'allow_null'   => 1
+            ])
+            ->conditional('button_source', '==',  'internal')
 
-            $buttonComponent
+            ->addText('button_url', [
+                'label'        => 'URL',
+                'wrapper'      => [
+                    'width'    => 50
+                ]
+            ])
+            ->conditional('button_source', '==', 'external');
 
-                ->addRadio('button_source', [
-                    'label'		=> 'Source',
-                    'layout' 	=> 'horizontal',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                    ->addChoice( 'internal', 'Internal Page')
-                    ->addChoice( 'external', 'External URL')
-                ->conditional('include_button', '==', 1)
-
-                ->addRadio('option_button_target', [
-                    'label'		=> 'Target',
-                    'layout'	=> 'horizontal',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                    ->addChoice('_self', 'Default')
-                    ->addChoice('_blank', 'New Tab')
-                ->conditional('include_button', '==', 1);
-        
-        } else {
-
-            $buttonComponent
-
-                ->addRadio('button_source', [
-                    'label'		=> 'Source',
-                    'layout' 	=> 'horizontal',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                    
-                ])
-                    ->addChoice( 'internal', 'Internal Page')
-                    ->addChoice( 'external', 'External URL')
-
-                ->addRadio('option_button_target', [
-                    'label'		=> 'Target',
-                    'layout'	=> 'horizontal',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                    ->addChoice('_self', 'Default')
-                    ->addChoice('_blank', 'New Tab');
-        }
-
-        if( $is_conditional ) {
-
-            $buttonComponent
-
-                ->addText('button_label', [
-                    'label'		=> 'Label',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                ->conditional('include_button', '==', 1);
-
-        } else {
-
-            $buttonComponent
-
-                ->addText('button_label', [
-                    'label'		=> 'Label',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ]);
-        }
-
-        if( $is_conditional ) {
-
-            $buttonComponent
-
-                ->addPostObject('button_page_id', [
-                    'label'		=> 'Select a Page',
-                    'post_type' => ['page'],
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                    ->conditional('button_source', '==',  'internal')
-                        ->and( 'include_button', '==', 1 );
-
-        } else {
-
-            $buttonComponent
-
-                ->addPostObject('button_page_id', [
-                    'label'		=> 'Select a Page',
-                    'post_type' => ['page'],
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                    ->conditional('button_source', '==',  'internal');
-
-        }
-
-        if( $is_conditional ) {
-
-            $buttonComponent
-
-                ->addText('button_url', [
-                    'label'		=> 'URL',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                    ->conditional('button_source', '==', 'external')
-                        ->and('include_button', '==', 1);
-                    
-        } else {
-
-            $buttonComponent
-
-                ->addText('button_url', [
-                    'label'		=> 'URL',
-                    'wrapper'	=> [
-                        'width'	=> '50'
-                    ]
-                ])
-                    ->conditional('button_source', '==', 'external');
-
-        }
-        
-		return $buttonComponent;
-
-	}
-
+        return $buttonComponent;
+    }
 }

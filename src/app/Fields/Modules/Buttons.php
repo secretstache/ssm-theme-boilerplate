@@ -5,28 +5,41 @@ namespace App\Fields\Modules;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Button as ButtonComponent;
 use App\Fields\Options\ButtonDefaults;
-use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\ModuleMargins;
+use App\Fields\Options\HtmlAttributes;
 
-class Button {
+class Buttons
+{
 
-	public static function getFields() {
+    public static function getFields()
+    {
 
-		/**
+        /**
          * [Module] - Button
          * @author Rich Staats <rich@secretstache.com>
          * @since 3.0.0
          * @todo Link to Team Snippet Code
          */
         $buttonModule = new FieldsBuilder('button', [
-            'title'	=> 'Button'
+            'title'    => 'Button(s)'
         ]);
-        
+
         $buttonModule
 
             ->addTab('Content')
 
-                ->addFields(ButtonComponent::getFields())
+                ->addRepeater('buttons', [
+                    'label'        => false,
+                    'layout'       => 'block', // table, block, row
+                    'min'          => 1,
+                    'max'          => 2,
+                    'button_label' => 'Add Button',
+                    'collapsed'    => 'button_label',
+                ])
+
+                    ->addFields(ButtonComponent::getFields())
+
+                ->endRepeater()
 
             ->addTab('Options')
 
@@ -36,8 +49,6 @@ class Button {
 
                 ->addFields(HtmlAttributes::getFields());
 
-		return $buttonModule;
-
-	}
-
+        return $buttonModule;
+    }
 }

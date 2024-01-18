@@ -4,7 +4,7 @@ namespace App\Fields\Templates;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Header;
-use App\Fields\Lists\Buttons;
+use App\Fields\Components\Button;
 use App\Fields\Options\Background;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\Admin;
@@ -30,7 +30,7 @@ class CallToAction {
 
                 ->addFields(Header::getFields())
 
-                ->addFields(Buttons::getFields())
+                ->addFields(Button::getFields())
 
             ->addTab('Options')
 
