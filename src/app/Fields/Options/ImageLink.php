@@ -29,17 +29,19 @@ class ImageLink {
                 'layout'		=> 'horizontal',
                 'wrapper'		=> [
                     'width'		=> '50'
-                ]	
+                ],
+                'choices'       => [
+                    'internal'  => 'Internal Page',
+                    'external'  => 'External URL',
+                ]
             ])
-                ->addChoice('internal', 'Internal Page')
-                ->addChoice('external', 'External URL')
             ->conditional('option_add_image_link', '==', 1)
 
             ->addPostObject('option_image_link_page_id', [
                 'label'			=> 'Select Page',
                 'post_type'     => ['page'],
                 'wrapper'		=> [
-                    'width'		=> '50'
+                    'width'		=> 50
                 ]	
             ])
                 ->conditional('link_source', '==', 'internal')
@@ -47,7 +49,7 @@ class ImageLink {
             ->addText('option_image_link_url', [
                 'label'			=> 'URL',
                 'wrapper'		=> [
-                    'width'		=> '50'
+                    'width'		=> 50
                 ]	
             ])
                 ->conditional('link_source', '==', 'external');
