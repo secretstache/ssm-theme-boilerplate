@@ -1,30 +1,33 @@
-<picture {!! $id !!} {!! $classes !!} >
+<picture {!! $module_id !!} class="module image{!! $module_classes !!}">
 
-    @if ( $add_image_link )
-
-        @if ( $source == 'internal' && $module['option_image_link_page_id'] )
-
-            <a href="{!! get_permalink( $module['option_image_link_page_id'] ) !!}">
-
-        @elseif( $source == 'external' && $module['option_image_link_url'] )
-
-            <a href="{!! $module['option_image_link_url'] !!}" target="_blank">
-        
-        @endif
-    
-    @endif
+    @if ( $image )
             
-        <source media="(min-width: 768px)" srcset="{!! $src !!}" alt="{!! $alt !!}" />
+        @if (!empty($image_link))
+            <a href="{!! $image_link !!}" target="{!! $image_target !!}">
+        @endif
+                
+            @if (function_exists('ipq_get_theme_image'))
 
-        @if( $src_mobile )
-            <source media="(min-width: 320px)" srcset="{!! $src_mobile !!}" alt="{!! $alt !!}">
+                {!! 
+                    ipq_get_theme_image( $image['ID'], 
+                        [
+                            [ 1200, 9999, true ],
+                            [ 2400, 9999, true ],
+                            [ 4800, 9999, true ],
+                        ],
+                        [                                
+                            'class' => 'default-img',
+                            'alt'   => $image['alt'] ?: 'Default Image'
+                        ]
+                    );                            
+                !!}
+
+            @endif
+
+        @if (!empty($image_link))
+            </a>
         @endif
 
-        <img src="{!! $src !!}" alt="{!! $alt !!}" />
-
-    @if ( $add_image_link )
-        </a>
     @endif
 
 </picture>
-

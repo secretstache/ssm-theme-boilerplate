@@ -1,11 +1,13 @@
-<header {!! $id !!} {!! $classes !!}>
+<header {!! $module_id !!} class="module header{!! $module_classes !!}">
     
-    @if ($headline)
-        <h2 class="headline">{!! $headline !!}</h2>
-    @endif
+    @if ($headline_items)
 
-	@if ($subheadline)
-        <h3 class="subheadline">{!! $subheadline !!}</h3>
+        @foreach ($headline_items as $item)
+            
+            <{{ $item['headline_tag'] }} class="header__headline {!! $item['headline_class'] !!}">{!! $item['headline'] !!}</{{ $item['headline_tag'] }}>
+
+        @endforeach
+
     @endif
 
 </header>

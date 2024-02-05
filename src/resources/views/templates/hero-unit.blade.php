@@ -1,4 +1,4 @@
-<section {!! $id !!} {!! $classes !!} {!! $style !!}>
+<section {!! $id !!} class="content-block hero-unit{!! $classes !!}">
 
     @if ( $template["option_background"] == "image" || $template["option_background"] == "video" )
         <div class="overlay"></div>

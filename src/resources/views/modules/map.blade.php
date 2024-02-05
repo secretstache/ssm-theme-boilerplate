@@ -1,16 +1,12 @@
-<div {!! $id !!} {!! $classes !!} >
+<div {!! $module_id !!} class="module map{!! $module_classes !!}">
 
-    @if ( $physical_address = get_field('physical_address', 'options') )
+    @if ($physical_address)
 
-        @if ($builder)
+        <div id="map">
+            <iframe class="gmap" src="https://www.google.com/maps?q={!! $builder->getMapAddress( $physical_address ) !!}&output=embed"></iframe>
+        </div>
 
-            <div id="map" style="position: relative; overflow: hidden;">
-                <iframe class="gmap" src="https://www.google.com/maps?q=<?php echo $builder->getMapAddress( $physical_address ) ?>&output=embed"></iframe>
-            </div>
-
-            <p><a target="_blank" class="get-directions" href="https://maps.google.com/?q=<?php echo $builder->getMapAddress( $physical_address ) ?>">Get Directions</a></p>
-
-        @endif
+        <a target="_blank" class="get-directions" href="https://maps.google.com/?q={!! $builder->getMapAddress( $physical_address ) !!}">Get Directions</a>
 
     @endif
 

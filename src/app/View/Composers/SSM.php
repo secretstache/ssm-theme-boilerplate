@@ -4,9 +4,12 @@ namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
 use App\Includes\Walker;
+use Roots\Acorn\View\Composers\Concerns\AcfFields;
 
 class SSM extends Composer
 {
+    use AcfFields;
+
     /**
      * List of views served by this composer.
      *
@@ -38,121 +41,99 @@ class SSM extends Composer
         return $this;
     }
 
-    public static function getCustomID( $args )
+    public static function getCustomID($html_id)
     {
-
-        $response = "";
-
-        $inline_id = $args['option_html_id'];
-        $response .= ( $inline_id ) ? " id=\"" . sanitize_html_class( strtolower( $inline_id ) ) . "\"" : "";
-
-        return $response;
-
+        return (!empty($html_id)) ? " id=\"". sanitize_html_class(strtolower($html_id)) ."\"" : "";
     }
 
-    public static function getCustomClasses( $context, $custom_classes = null, $column_index, $args )
+    public static function setSpacingSize($value)
     {
-
-        $response = "";
-
-        $inline_classes = $args['option_html_classes'];
-        $column_index++;
-        $odd = ( !empty( $column_index ) && $column_index % 2 == 0 ) ? "even" : "odd";
-
-        switch ( $context ) {
-
-            case "template":
-                $response .= " class=\"content-block";
+        switch ($value) {
+            case 0:
+                $spacing_size = 'none';
                 break;
-
-            case "hero-unit":
-                $response .= " class=\"hero-unit";
+            case 1:
+                $spacing_size = 'small';
                 break;
-
-            case "module":
-                $response .= " class=\"module " . $args['acf_fc_layout'];
+            case 2:
+                $spacing_size = 'normal';
                 break;
-
-        }
-        switch ( $args['option_background'] ) {
-
-            case "color":
-                $response .= " bg-dark " . sanitize_html_class( $args['option_background_color'] );
+            case 3:
+                $spacing_size = 'large';
                 break;
-
-            case "image":
-                $response .= " bg-image bg-dark";
-                break;
-
-            case "video":
-                $response .= " bg-video";
-                break;
-
         }
 
-        if ( $context == "module" && !is_null( $args['option_text_alignment'] ) ) {
-            $response .= " " . $args['option_text_alignment'];
-        }
-
-        $response .= ( !empty( $custom_classes ) ) ? " " . $custom_classes : "";
-        $response .= ( !empty( $inline_classes ) ) ? " " . $inline_classes : "";
-        $response .= "\"";
-
-        return $response;
-
+        return $spacing_size ?? '';
     }
 
-    public static function getColumnsWidth( $column_index, $template_page_id )
-	{
+    public static function getCustomClasses($custom_classes = null, $args)
+    {
+        $response = "";
 
-        global $post;
+        if (!empty($args['background_color'])) {
+            $response .= ($args['background_color'] == 'black') ? " bg-dark bg-" . $args['background_color'] : " bg-" . $args['background_color'];
+        }
 
-        $post_id = ( $template_page_id ) ? $template_page_id : $post->ID;
+        $response .= (isset($args['option_top_margin']) && $args['option_top_margin'] != 2) ? ' mt-' . self::setSpacingSize($args['option_top_margin']) : '';
+        $response .= (isset($args['option_bottom_margin']) && $args['option_bottom_margin'] != 0) ? ' mb-' . self::setSpacingSize($args['option_bottom_margin']) : '';
+        $response .= (isset($args['option_top_padding']) && $args['option_top_padding'] != 2) ? ' pt-' . self::setSpacingSize($args['option_top_padding']) : '';
+        $response .= (isset($args['option_bottom_padding']) && $args['option_bottom_padding'] != 2) ? ' pb-' . self::setSpacingSize($args['option_bottom_padding']) : '';
 
-        return get_post_meta( $post_id, "custom_columns_width_" . $column_index, true);
+        $response .= (!empty($custom_classes)) ? " " . $custom_classes : "";
+        $response .= (!empty($args['option_html_classes'])) ? " " . $args['option_html_classes'] : "";
 
+        // Module Options
+        if (!empty($args['option_text_alignment'])) {
+            $response .= ($args['option_text_alignment'] != 'align-left') ? ' ' . $args['option_text_alignment'] : '';
+        }
+
+        if (!empty($args['option_button_alignment'])) {
+            $response .= ($args['option_button_alignment'] != 'align-left') ? ' ' . $args['option_button_alignment'] : '';
+        }
+
+        return $response;
     }
 
 	public static function getMenuArgs( $context, $menu_id = null )
 	{
 
-        $response = array();
+        $response = [];
 
         if ( $context == "offcanvas") {
 
-            $response = array(
+            $response = [
                 "theme_location" => "offcanvas_navigation",
-                "container" => FALSE,
-				"items_wrap" => '<ul class="vertical menu accordion-menu" data-accordion-menu>%3$s</ul>',
-                "walker" => new Walker()
-            );
+                "container"      => FALSE,
+				"items_wrap"     => '<ul class="vertical menu accordion-menu" data-accordion-menu>%3$s</ul>',
+                "walker"         => new Walker()
+            ];
 
         } elseif ( $context == "primary_navigation" ) {
 
-            $response = array(
+            $response = [
                 "theme_location" => "primary_navigation",
-                "container" => FALSE,
-                "items_wrap" => '<ul class="dropdown menu show-for-medium" data-dropdown-menu>%3$s</ul>',
-                "walker" => new Walker()
-            );
+                "container"      => FALSE,
+                "items_wrap"     => '<ul class="dropdown menu show-for-medium" data-dropdown-menu>%3$s</ul>',
+                "walker"         => new Walker()
+            ];
 
         } elseif ( $context == "footer_navigation" ) {
 
-            $response = array(
+            $response = [
                 "theme_location" => "footer_navigation",
-                "container" => FALSE,
-                "items_wrap" => '<ul class="menu vertical">%3$s</ul>',
-                "walker" => new Walker()
-            );
+                "container"      => FALSE,
+                "items_wrap"     => '<ul class="menu vertical">%3$s</ul>',
+                "walker"         => new Walker()
+            ];
 
         } elseif ( $menu_id ) {
 
-            $response = array(
-                "menu" => $menu_id,
-                "container" => FALSE,
-                "items_wrap" => '<ul>%3$s</ul>',
-                "walker" => new Walker()
-            );
+            $response = [
+                "menu"           => $menu_id,
+                "container"      => FALSE,
+                "items_wrap"     => '<ul>%3$s</ul>',
+                "walker"         => new Walker()
+            ];
 
         }
 
@@ -204,9 +185,20 @@ class SSM extends Composer
         return $formatted;
     }
 
-    public static function getPageTemplateID( $page_template ) 
+    public static function getPageTemplateID($page_template)
     {
-        if ($page_template) return array_shift( get_posts( [ 'post_type' => 'page', 'meta_key' => '_wp_page_template', 'meta_value' => $page_template ] ) )->ID;
+        $post = get_posts(['post_type' => 'page', 'meta_key' => '_wp_page_template', 'meta_value' => $page_template]);
+        if ($post) return array_shift($post)->ID;
     }
 
+    public static function getColorChoices($colors)
+    {
+        if (!empty($colors)) {
+            foreach ($colors as $color) {
+                $choices[$color] = get_stylesheet_directory_uri(__FILE__) . '/resources/assets/swatches/' . $color . '.png';
+            }
+        }
+
+        return $choices ?? [];
+    }
 }

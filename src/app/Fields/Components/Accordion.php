@@ -26,7 +26,9 @@ class Accordion {
                 'button_label'	=> 'Add Item',
             ])
 
-                ->addText('title')
+                ->addText('title', [
+                    'label'     => 'Title',
+                ])
 
                 ->addWysiwyg('description', [
                     'label'         => 'Description',

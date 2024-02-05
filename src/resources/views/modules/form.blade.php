@@ -1,4 +1,4 @@
-<div {!! $id !!} {!! $classes !!}>
+<div {!! $module_id !!} class="module form{!! $module_classes !!}">
 
     @if ( $form_id )
 

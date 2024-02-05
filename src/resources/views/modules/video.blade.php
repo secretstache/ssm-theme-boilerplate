@@ -1,11 +1,21 @@
-<div {!! $id !!} {!! $classes !!} >
+<div {!! $module_id !!} class="module video{!! $module_classes !!}">
 
-    <div class="responsive-embed widescreen">
+    @if ( $module['type'] == 'oembed' && $module['video_oembed'] )
 
-        @php $oembed = preg_replace('/src="(.+?)"/', 'src="$1&rel=0"', $video); @endphp
+        <div class="video__responsive-wrapper">
 
-        {!! $oembed !!}
+            @php $oembed = preg_replace('/src="(.+?)"/', 'src="$1&rel=0&playsinline=1"', $module['video_oembed']); @endphp
 
-    </div>
+            {!! $oembed !!}
+
+        </div>
+
+    @elseif( $module['type'] == 'external' && $module['video_url'] )
+
+        @php $poster_html = ( $module['fallback_image'] ) ? 'poster="'. $module['fallback_image']['url'] .'"' : ''; @endphp
+
+        <video src="{!! $module['video_url'] !!}" controls {!! $poster_html !!}></video>
+
+    @endif
 
 </div>

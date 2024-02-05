@@ -1,6 +1,6 @@
 @if( $template['option_status'] )
 
-    <section {!! $id !!} {!! $classes !!} {!! $style !!}>
+    <section {!! $id !!} class="content-block template-cta{!! $classes !!}">
 
         @if ( $template["option_background"] == "image" || $template["option_background"] == "video" )
             <div class="overlay"></div>
@@ -16,16 +16,12 @@
 
                         <div class="content">
 
-                            @if ( $headline = $template['headline'] )
-
-                                <h2 class="headline">{!! $headline !!}</h2>
-
+                            @if ($template['headline'])
+                                <h2 class="headline">{!! $template['headline'] !!}</h2>
                             @endif
 
-                            @if ( $subheadline = $template['subheadline'] )
-
-                                <h3 class="subheadline">{!! $subheadline !!}</h3>
-
+                            @if ($template['subheadline'])
+                                <h3 class="subheadline">{!! $template['subheadline'] !!}</h3>
                             @endif
 
                         </div>

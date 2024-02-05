@@ -1,48 +1,33 @@
 @if( $template['option_status'] )
 
-	<section {!! $id !!} {!! $classes !!} {!! $style !!}>
-
-        @if( $template['include_template_header'] )
-
-			@include( 'partials.template-header', [ 'headline' => $template['template_headline'], 'subheadline' => $template['template_subheadline'] ] )
-
-        @endif
-
-        @if( !empty( $template['columns'] ) )
+    <section {!! $id !!} class="content-block template-free-form{!! $classes !!}">
+        
+        @if( $template['columns'] )
 
             <div class="grid-container">
 
-                <div class="grid-x grid-margin-x {!! "align-" . $template['option_x_alignment'] . " align-" . $template['option_y_alignment'] . " has-" . count( $template['columns'] ) . "-cols" !!}">
+                <div class="grid-x{!! $container_width . $container_alignment . $column_alignment_x . $column_alignment_y !!}">
 
                     @foreach( $template['columns'] as $key => $column )
 
-						@php
-							$width = ($columns_width != null) ? explode( '_', $columns_width )[$key] : 12 / count( $template['columns'] );
-							$width = ( count( $template['columns'] ) == 1 && $width == 10 ) ? 12 : $width;
+                        @php
+                            $mobile_order = ($column_mobile_order && isset($column_mobile_order[$key])) ? ' small-order-' . $column_mobile_order[$key] : '';
+                            $medium_width = ($column_width && isset($column_width[$key])) ? ' medium-' . $column_width[$key] : '';
+                        @endphp
 
-							$id = ( $column['option_html_id'] ) ? 'id="' . $column['option_html_id'] . '"' : '';
-							$custom_classes = ( $column['option_html_classes'] ) ? " " . $column['option_html_classes'] : '';
-							$column_i = $key+1;
-							$columns_mobile_order = explode( '_', $template['option_columns_mobile_order'] );
-						@endphp
+                        <div {!! $column_options[$key]['id'] !!} class="cell{!! $mobile_order !!}{!! $medium_width !!}{!! $column_options[$key]['classes'] !!}">
 
-                        <div {!! $id !!} class="cell small-12 medium-{!! $width !!} medium-order-{!! $column_i !!} small-order-{!! $columns_mobile_order[$key] ?: 1 !!}{!! $custom_classes !!}">
+                            <div class="cell__inner">
 
-                            <div class="inner">
+                                @include('modules', [ 'modules' => $column['modules'] ] )
 
-								@if( !empty( $column['modules'] ) )
-
-									@include( 'switches.modules', ['modules' => $column['modules']] )
-
-								@endif
-
-							</div>
+                            </div>
 
                         </div>
 
                     @endforeach
 
-				</div>
+                </div>
 
             </div>
 

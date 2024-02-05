@@ -1,6 +1,6 @@
 @if( $template['option_status'] )
 
-    <section {!! $id !!} {!! $classes !!}>
+    <section {!! $id !!} class="content-block template-related-content{!! $classes !!}">
 
         <div class="grid-container">
 

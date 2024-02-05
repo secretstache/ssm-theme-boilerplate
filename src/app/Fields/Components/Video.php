@@ -4,11 +4,13 @@ namespace App\Fields\Components;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Video {
+class Video
+{
 
-	public static function getFields() {
+    public static function getFields()
+    {
 
-		/**
+        /**
          * [Component] - Video
          * @author Rich Staats <rich@secretstache.com>
          * @since 3.0.0
@@ -18,12 +20,32 @@ class Video {
 
         $videoComponent
 
-            ->addOembed('video', [
-                'label'     => false
-            ]);
+            ->addRadio('type', [
+                'label'        => 'Type',
+                'layout'       => 'horizontal',
+                'choices'      => [
+                    'oembed'   => 'oEmbed',
+                    'external' => 'External File',
+                ],
+            ])
 
-		return $videoComponent;
+            ->addOembed('video_oembed', [
+                'label'        => false,
+            ])
+                ->conditional('type', '==', 'oembed')
 
-	}
+            ->addImage('fallback_image', [
+                'label'        => 'Fallback Image',
+                'preview_size' => 'medium', // thumbnail, medium, large
+            ])
+                ->conditional('type', '==', 'external')
 
+            ->addText('video_url', [
+                'label'     => false,
+                'prepend'   => 'Video URL'
+            ])
+                ->conditional('type', '==', 'external');
+
+        return $videoComponent;
+    }
 }
