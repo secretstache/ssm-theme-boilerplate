@@ -2,39 +2,33 @@
 
 	<div class="grid-container">
 
-		@php $alignment = $is_landing_page ? 'center' : 'justify'; @endphp
+		<div class="grid-x align-middle">
 
-		<div class="grid-x grid-margin-x align-middle align-{{ $alignment }}">
+			<div class="site-header__brand cell shrink">
 
-			<div class="brand cell shrink">
-
-				@php $link = $is_landing_page ? false : true; @endphp
-
-				@if ($link)
-					<a href="{{home_url()}}">
-				@endif
-
-					@if ( $logo = get_field( 'brand_logo', 'options' ) )
-						<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="editable-svg logo">
-					@else
-						<span class="site-title">{{ $siteName }}</span>
-					@endif
-
-				@if($link)
+				@if ( ( $brand_logo = $logo_assets['brand_logo'] ) && $brand_logo['url'] )
+								
+					<a href="{!! home_url() !!}">
+						<img src="{!! $brand_logo['url'] !!}" alt="{!! $brand_logo['alt'] ?: get_bloginfo('name') !!}" class="editable-svg">
 					</a>
+
 				@endif
 
 			</div>
 
-			@if ( !$is_landing_page && has_nav_menu('primary_navigation') )
+			@if ( has_nav_menu('primary_navigation') )
 
-				<nav class="primary-navigation cell shrink">
+				<div class="cell shrink">
 
-					@php wp_nav_menu( $builder->getMenuArgs('primary_navigation') ); @endphp
+					<nav class="site-header__navigation show-for-large">
+
+						@php wp_nav_menu( $builder->getMenuArgs('primary_navigation') ); @endphp
+							
+					</nav>
 					
 					@include( 'partials.hamburger' )
 
-				</nav>
+				</div>
 
 			@endif
 

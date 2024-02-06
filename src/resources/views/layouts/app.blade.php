@@ -1,21 +1,13 @@
-<div class="off-canvas-wrapper">
+@include('partials.offcanvas')
+	
+@include('partials.header')
 
-	@include('partials.offcanvas')
+<div class="container">
 
-	<div class="off-canvas-content" data-off-canvas-content>
-		
-		@include('partials.header')
-
-		<div class="container">
-
-			<main class="content" id="main">
-				@yield('content')
-			</main>
-
-		</div>
-
-		@include('partials.footer')
-
-	</div>
+	<main class="content" id="main">
+		@yield('content')
+	</main>
 
 </div>
+
+@include('partials.footer')
