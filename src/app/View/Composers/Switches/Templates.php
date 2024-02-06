@@ -28,11 +28,11 @@ class Templates extends SSM
         $templateData = [];
         $template = collect($this->data)->toArray()['template'];
 
-        if ($template && $template['acf_fc_layout']) {
+        if (isset($template['context']) && ($template['context'] == 'cb_template' || $template['context'] == 'mb_template')) {
+            return [];
+        }
 
-            if (isset($template['context']) && ($template['context'] == 'cb_template' || $template['context'] == 'mb_template')) {
-                return [];
-            }
+        if ($template && $template['acf_fc_layout']) {
 
             if ($template['acf_fc_layout'] == 'content-block-template') {
                 $template = get_field('templates', $template['template_id']) ? array_shift(get_field('templates', $template['template_id'])) : [];

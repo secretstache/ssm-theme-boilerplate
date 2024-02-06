@@ -25,8 +25,6 @@ class ACF extends Composer
      */
     public function with()
     {
-        return [
-            'data' => collect($this->fields())->toArray()
-        ];
+        return [];
     }
 }
