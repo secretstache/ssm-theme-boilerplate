@@ -32,7 +32,7 @@
 
 			</div>
 
-			@if ( $footer['menus'] && !empty( $footer['menus'] ) )
+			@if ( !empty( $footer['menus'] ) && $footer['menus'] )
 				
 				<div class="site-footer__navigation">
 

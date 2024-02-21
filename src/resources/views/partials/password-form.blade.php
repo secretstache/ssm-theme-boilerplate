@@ -10,14 +10,14 @@
 
                     <div class="component default">
 
-                        <p style="text-align: center;">This content is password protected. To view it please enter your password below:</p>
+                        <p class="text-center">This content is password protected. To view it please enter your password below:</p>
 
                         <p><input name="post_password" type="password" size="20" /></p>
 
                     </div>
 
                     <div class="module buttons align-center">
-                        <input type="submit" class="button slim" name="Submit" value="Enter" />
+                        <input type="submit" class="button" name="Submit" value="Enter" />
                     </div>
 
                 </form>  
