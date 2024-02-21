@@ -48,20 +48,22 @@ class Modules extends SSM
                                 "headline_class"   => ($headline_item['headline_display'] != 'default') ? $headline_item['headline_display'] : $headline_item['headline_tag'],
                             ];
                         }, $module['headlines'] ?: []);
+                        
                         $moduleData['headline_items'] = $headline_items ?? [];
                         break;
 
                     case 'image':
 
-                        if ($module['option_add_image_link']) {
-                            if ($module['image_link']['link_source'] == 'internal' && $module['image_link']['link_page_id']) {
-                                $moduleData['image_link'] = get_permalink($module['image_link']['link_page_id']);
-                            } elseif ($module['image_link']['link_source'] == 'external' && $module['image_link']['link_url']) {
-                                $moduleData['image_link'] = $module['image_link']['link_url'];
+                        if ($module['include_image_link']) {
+                            if ($module['link_source'] == 'internal' && $module['link_page_id']) {
+                                $moduleData['image_link']   = get_permalink($module['link_page_id']);
+                                $moduleData['image_target'] = '_self';
+                            } elseif ($module['link_source'] == 'external' && $module['link_url']) {
+                                $moduleData['image_link']   = $module['link_url'];
+                                $moduleData['image_target'] = '_blank';
                             }
-
-                            $moduleData['image_target'] = ($module['image_link']['link_source'] == 'external') ? '_blank' : '_self';
                         }
+
                         $moduleData['image'] = $module['image'];
                         break;
 

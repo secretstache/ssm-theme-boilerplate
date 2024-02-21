@@ -19,7 +19,7 @@ class ImageLink {
 
         $imageLinkOptions
 
-            ->addTrueFalse('option_add_image_link', [
+            ->addTrueFalse('include_image_link', [
                 'label'         => false,
                 'message'		=> 'Add Image Link',
             ])
@@ -35,9 +35,9 @@ class ImageLink {
                     'external'  => 'External URL',
                 ]
             ])
-            ->conditional('option_add_image_link', '==', 1)
+            ->conditional('include_image_link', '==', 1)
 
-            ->addPostObject('option_image_link_page_id', [
+            ->addPostObject('link_page_id', [
                 'label'			=> 'Select Page',
                 'post_type'     => ['page'],
                 'wrapper'		=> [
@@ -46,7 +46,7 @@ class ImageLink {
             ])
                 ->conditional('link_source', '==', 'internal')
 
-            ->addText('option_image_link_url', [
+            ->addText('link_url', [
                 'label'			=> 'URL',
                 'wrapper'		=> [
                     'width'		=> 50
