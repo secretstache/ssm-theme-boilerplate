@@ -4,6 +4,7 @@ namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Button as ButtonComponent;
+use App\Fields\Options\Admin;
 use App\Fields\Options\ButtonDefaults;
 use App\Fields\Options\ModuleMargins;
 use App\Fields\Options\HtmlAttributes;
@@ -47,7 +48,11 @@ class Buttons
 
                 ->addFields(ButtonDefaults::getFields())
 
-                ->addFields(HtmlAttributes::getFields());
+                ->addFields(HtmlAttributes::getFields())
+
+            ->addTab('Admin')
+
+                ->addFields(Admin::getFields());
 
         return $buttonModule;
     }

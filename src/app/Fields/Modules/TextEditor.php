@@ -4,6 +4,7 @@ namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\TextEditor as TextEditorComponent;
+use App\Fields\Options\Admin;
 use App\Fields\Options\TextAlignment as TextAlignmentOptions;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\ModuleMargins;
@@ -34,7 +35,11 @@ class TextEditor {
 
                 ->addFields(TextAlignmentOptions::getFields())
 
-                ->addFields(HtmlAttributes::getFields());
+                ->addFields(HtmlAttributes::getFields())
+
+            ->addTab('Admin')
+
+                ->addFields(Admin::getFields());
 
 		return $textEditorModule;
 

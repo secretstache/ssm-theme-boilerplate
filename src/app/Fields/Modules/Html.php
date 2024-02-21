@@ -2,6 +2,7 @@
 
 namespace App\Fields\Modules;
 
+use App\Fields\Options\Admin;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\ModuleMargins;
@@ -35,7 +36,11 @@ class Html {
 
                 ->addFields(ModuleMargins::getFields()) 
 
-                ->addFields(HtmlAttributes::getFields());
+                ->addFields(HtmlAttributes::getFields())
+
+            ->addTab('Admin')
+
+                ->addFields(Admin::getFields());
 
 		return $htmlModule;
 

@@ -8,7 +8,11 @@
             
         @else 
 
-            @include( 'modules.' . $module['acf_fc_layout'] )
+            @if ($module['option_status'])
+
+                @include( 'modules.' . $module['acf_fc_layout'] )
+
+            @endif
 
         @endif
 

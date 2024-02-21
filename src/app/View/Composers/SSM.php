@@ -53,13 +53,13 @@ class SSM extends Composer
                 $spacing_size = 'none';
                 break;
             case 1:
-                $spacing_size = 'small';
+                $spacing_size = 'sm';
                 break;
             case 2:
-                $spacing_size = 'normal';
+                $spacing_size = 'md';
                 break;
             case 3:
-                $spacing_size = 'large';
+                $spacing_size = 'lg';
                 break;
         }
 

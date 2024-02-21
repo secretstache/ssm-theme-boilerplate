@@ -163,22 +163,25 @@ function manage_admin_columns( $columns ) {
 
 /**
  * Append the template name to the label of a layout builder template
- */ 
-add_filter('acf/fields/flexible_content/layout_title/name=templates', function( $title, $field, $layout, $i ) {
+ */
+add_filter('acf/fields/flexible_content/layout_title/name=templates', __NAMESPACE__ . '\\flexible_content_label', 999, 4);
+add_filter('acf/fields/flexible_content/layout_title/name=modules', __NAMESPACE__ . '\\flexible_content_label', 999, 4);
+
+function flexible_content_label($title, $field, $layout, $i)
+{
 
     $label = $layout['label'];
 
-    if ( $admin_label = get_sub_field("option_section_label") ) {
-        $label = stripslashes( $admin_label ) . " - " . $label;
+    if ($admin_label = get_sub_field("option_section_label")) {
+        $label = stripslashes($admin_label) . " - " . $label;
     }
 
-    if ( get_sub_field("option_status") == false ) {
+    if (get_sub_field("option_status") == false) {
         $label = "<span class=\"template-inactive\">Inactive</span> - " . $label;
     }
 
     return $label;
-
-}, 999, 4 );
+};
 
 /**
  * Register Objects

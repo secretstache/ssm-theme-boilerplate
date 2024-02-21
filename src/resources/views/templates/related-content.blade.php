@@ -1,115 +1,111 @@
-@if( $template['option_status'] )
+<section {!! $id !!} class="content-block template-related-content{!! $classes !!}">
 
-    <section {!! $id !!} class="content-block template-related-content{!! $classes !!}">
+    <div class="grid-container">
 
-        <div class="grid-container">
+        <div class="grid-x grid-margin-x align-center">
 
-            <div class="grid-x grid-margin-x align-center">
+            <div class="cell small-11 medium-10">
 
-                <div class="cell small-11 medium-10">
+                @php
 
-                    @php
+                    if ( $template['query'] == 'latest' ) {
 
-                        if ( $template['query'] == 'latest' ) {
+                        $args = [
+                            'post_type'      => 'post',
+                            'posts_per_page' => -1,
+                            'status'         => 'publish',
+                            'fields' 	     => 'ids',
+                        ];
 
-                            $args = [
-                                'post_type'      => 'post',
-                                'posts_per_page' => -1,
-                                'status'         => 'publish',
-                                'fields' 	     => 'ids',
-                            ];
+                        $posts = get_posts( $args );
 
-                            $posts = get_posts( $args );
+                    } elseif ( $template['query'] == 'type' && $template['type'] ) {
 
-                        } elseif ( $template['query'] == 'type' && $template['type'] ) {
-
-                            $args = [
-                                'post_type'      => 'post',
-                                'posts_per_page' => -1,
-                                'status'         => 'publish',
-                                'fields' 	     => 'ids',
-                                'tax_query'      => [
-                                    [
-                                        'taxonomy'		=> 'mrm_resource_type',
-                                        'field'         => 'slug',
-                                        'terms'			=> [ $template['type']->slug ],
-                                    ]
+                        $args = [
+                            'post_type'      => 'post',
+                            'posts_per_page' => -1,
+                            'status'         => 'publish',
+                            'fields' 	     => 'ids',
+                            'tax_query'      => [
+                                [
+                                    'taxonomy'		=> 'mrm_resource_type',
+                                    'field'         => 'slug',
+                                    'terms'			=> [ $template['type']->slug ],
                                 ]
+                            ]
+                        ];
+
+                        $posts = get_posts( $args );
+
+                    } elseif ( $template['query'] == 'solution' && $template['resource_solution'] ) {
+
+                        $meta_queries['relation'] = 'OR';
+
+                        foreach( $template['resource_solution'] as $key => $value ) {
+                            $meta_queries[] = [
+                                'key'       => 'resource_solutions',
+                                'value'     => $value,
+                                'compare'   => 'LIKE',
                             ];
-
-                            $posts = get_posts( $args );
-
-                        } elseif ( $template['query'] == 'solution' && $template['resource_solution'] ) {
-
-                            $meta_queries['relation'] = 'OR';
-
-                            foreach( $template['resource_solution'] as $key => $value ) {
-                                $meta_queries[] = [
-                                    'key'       => 'resource_solutions',
-                                    'value'     => $value,
-                                    'compare'   => 'LIKE',
-                                ];
-                            }
-
-                            $args = array(
-                                'post_type'     => 'post',
-                                'posts_per_page' => -1,
-                                'status'        => 'publish',
-                                'fields' 	    => 'ids',
-                                'meta_query'    => $meta_queries
-                            );
-
-                            $posts = get_posts( $args );
-
-                        } elseif ( $template['query'] == 'curated' ) {
-
-                            $args = [
-                                'post_type'     => 'post',
-                                'status'        => 'publish',
-                                'fields'        => 'ids',
-                                'post__in'      => $template['resources_to_show']
-                            ];
-
-                            $posts = get_posts( $args );
-
                         }
 
-                    @endphp
+                        $args = array(
+                            'post_type'     => 'post',
+                            'posts_per_page' => -1,
+                            'status'        => 'publish',
+                            'fields' 	    => 'ids',
+                            'meta_query'    => $meta_queries
+                        );
 
-                    @if ( !empty( $posts ) )
+                        $posts = get_posts( $args );
 
-                        @foreach ( $posts as $post_id )
+                    } elseif ( $template['query'] == 'curated' ) {
 
-                            <div class="grid-x grid-margin-x item">
+                        $args = [
+                            'post_type'     => 'post',
+                            'status'        => 'publish',
+                            'fields'        => 'ids',
+                            'post__in'      => $template['resources_to_show']
+                        ];
 
-                                <div class="cell small-12 medium-6">
+                        $posts = get_posts( $args );
 
-                                    <img src="{!! get_the_post_thumbnail_url( $post_id ) !!}" alt="">
+                    }
 
-                                </div>
-            
-                                <div class="cell small-12 medium-6">
-            
-                                    <h2>{!! get_the_title( $post_id ) !!}</h2>
-            
-                                    {!! get_post_field( 'post_content', $post_id ) !!}
-            
-                                    <a href="{!! get_permalink( $post_id ) !!}" class="button">Read More</a>
+                @endphp
 
-                                </div>
+                @if ( !empty( $posts ) )
+
+                    @foreach ( $posts as $post_id )
+
+                        <div class="grid-x grid-margin-x item">
+
+                            <div class="cell small-12 medium-6">
+
+                                <img src="{!! get_the_post_thumbnail_url( $post_id ) !!}" alt="">
 
                             </div>
-                            
-                        @endforeach
+        
+                            <div class="cell small-12 medium-6">
+        
+                                <h2>{!! get_the_title( $post_id ) !!}</h2>
+        
+                                {!! get_post_field( 'post_content', $post_id ) !!}
+        
+                                <a href="{!! get_permalink( $post_id ) !!}" class="button">Read More</a>
 
-                    @endif
-    
-                </div>
+                            </div>
+
+                        </div>
+                        
+                    @endforeach
+
+                @endif
 
             </div>
 
         </div>
-    
-    </section>
 
-@endif
+    </div>
+
+</section>

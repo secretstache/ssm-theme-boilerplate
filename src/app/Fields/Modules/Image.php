@@ -4,6 +4,7 @@ namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Image as ImageComponent;
+use App\Fields\Options\Admin;
 use App\Fields\Options\ImageLink;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\ModuleMargins;
@@ -34,7 +35,11 @@ class Image {
 
                 ->addFields(ImageLink::getFields())
 
-                ->addFields(HtmlAttributes::getFields());
+                ->addFields(HtmlAttributes::getFields())
+
+            ->addTab('Admin')
+
+                ->addFields(Admin::getFields());
                 
 		return $imageModule;
 

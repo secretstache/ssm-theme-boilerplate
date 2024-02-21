@@ -2,7 +2,11 @@
 
     @foreach ( $modules_template as $module )
 
-        @include( 'modules.' . $module['acf_fc_layout'] )
+        @if ($module['option_status'])
+
+            @include( 'modules.' . $module['acf_fc_layout'] )
+
+        @endif
 
     @endforeach
     

@@ -4,6 +4,7 @@ namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Table as TableComponent;
+use App\Fields\Options\Admin;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\ModuleMargins;
 
@@ -31,7 +32,11 @@ class Table {
 
                 ->addFields(ModuleMargins::getFields())
 
-                ->addFields(HtmlAttributes::getFields());
+                ->addFields(HtmlAttributes::getFields())
+
+            ->addTab('Admin')
+
+                ->addFields(Admin::getFields());
 
 		return $tableModule;
 

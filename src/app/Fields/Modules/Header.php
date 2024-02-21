@@ -3,7 +3,7 @@
 namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use App\Fields\Components\Header as HeaderComponent;
+use App\Fields\Options\Admin;
 use App\Fields\Options\TextAlignment;
 use App\Fields\Options\HtmlAttributes;
 use App\Fields\Options\ModuleMargins;
@@ -79,7 +79,11 @@ class Header {
 
                 ->addFields(TextAlignment::getFields())
 
-                ->addFields(HtmlAttributes::getFields());
+                ->addFields(HtmlAttributes::getFields())
+
+            ->addTab('Admin')
+
+                ->addFields(Admin::getFields());
 
 		return $headerModule;
 
