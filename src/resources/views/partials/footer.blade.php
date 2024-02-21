@@ -1,64 +1,80 @@
 <footer class="site-footer">
 
-	@if( !$is_landing_page )
+	<div class="grid-container">
 
-		<div class="grid-container">
+		<div class="site-footer__top">
 
-			<div class="grid-x grid-margin-x">
+			<div class="site-footer__info">
 
-				<div class="cell small-11 medium-4">
+				<div class="site-footer__socials">
 
-					@if ( $logo = get_field( 'brand_logo', 'options' ) )
+					<ul>
 
-						<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="editable-svg logo">
-						
-					@endif
+						@if ( $twitter = $social_networks['twitter'] )
+							<li><a href="{!! $twitter !!}" target="_blank"><img src="@asset('images/twitter-icon.svg')" alt="Twitter"></a></li>
+						@endif
+
+						@if ( $facebook = $social_networks['facebook'] )
+							<li><a href="{!! $facebook !!}" target="_blank"><img src="@asset('images/facebook-icon.svg')" alt="Facebook"></a></li>
+						@endif
+
+						@if ( $instagram = $social_networks['instagram'] )
+							<li><a href="{!! $instagram !!}" target="_blank"><img src="@asset('images/instagram-icon.svg')" alt="Instagram"></a></li>
+						@endif
+
+						@if ( $linkedin = $social_networks['linkedin'] )
+							<li><a href="{!! $linkedin !!}" target="_blank"><img src="@asset('images/linkedin-icon.svg')" alt="LinkedIn"></a></li>
+						@endif
+
+					</ul>
 
 				</div>
 
 			</div>
 
+			@if ( $footer['menus'] && !empty( $footer['menus'] ) )
+				
+				<div class="site-footer__navigation">
+
+					@foreach ($footer['menus'] as $menu )
+
+						@php wp_nav_menu( $builder->getMenuArgs('menu_id', $menu['nav_menu'] ) ); @endphp
+
+					@endforeach
+
+				</div>
+
+			@endif
+
 		</div>
 
-	@endif
+		<div class="site-footer__bottom">
 
-	<div class="bottom">
+			<div class="site-footer__logo">
 
-		<div class="grid-container">
-
-			<div class="grid-x grid-margin-x align-justify align-center">
-
-				@if ( $copyright = get_field('footer_copyright', 'options') )
-
-					<div class="cell shrink">{!! wpautop( $copyright ) !!}</div>
+				@if ( ( $brand_logo = $logo_assets['brand_logo'] ) && $brand_logo['url'] )
+								
+					<a href="{!! home_url() !!}">
+						<img src="{!! $brand_logo['url'] !!}" class="editable-svg" alt="{!! $brand_logo['alt'] ?: get_bloginfo('name') !!}">
+					</a>
 
 				@endif
 
-				@if ( !$is_landing_page )
+			</div>
 
-					<div class="cell shrink">
+			<div class="site-footer__terms">
 
-						<div class="socials">
+				@if ( $footer['copyright'] )
+					{!! $footer['copyright'] !!}
+				@endif
 
-							<ul>
+				@if ( has_nav_menu('legal_navigation') )
 
-								@if ( $facebook = get_field('facebook', 'options') )
-									<li><a target="_blank" class="facebook" href="{{ $facebook }}"></a></li>
-								@endif
+					<nav class="site-footer__terms__navigation">
 
-								@if ( $twitter = get_field('twitter', 'options') )
-									<li><a target="_blank" class="twitter" href="{{ $twitter }}"></a></li>
-								@endif
-
-								@if ( $instagram = get_field('instagram', 'options') )
-									<li><a target="_blank" class="instagram" href="{{ $instagram }}"><i class="fab fa-instagram"></i></a></li>
-								@endif
-
-							</ul>
-
-						</div>
-
-					</div>
+						@php wp_nav_menu( $builder->getMenuArgs('legal_navigation') ); @endphp
+								
+					</nav>
 
 				@endif
 

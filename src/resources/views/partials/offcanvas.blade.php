@@ -1,9 +1,23 @@
-<div class="off-canvas offcanvas-scale align-center-middle" id="offCanvas" data-off-canvas data-transition="overlap">
+<div class="offcanvas" id="offcanvas">
 
-    @php wp_nav_menu( $builder->getMenuArgs('offcanvas') ); @endphp
+    <div class="offcanvas__inner">
 
-	<button class="close-button off-canvas-close" data-toggle="offCanvas">
-		<img src="@asset('images/x.svg')" alt="close">
-    </button>
+        <div class="grid-container">
+
+            <button data-dismiss="offcanvas" class="offcanvas__close-btn">✕<span class="show-for-sr">Close</span></button>
+
+            @if ( has_nav_menu('primary_navigation') )
+
+                <nav class="offcanvas__navigation">
+
+                    @php wp_nav_menu( $builder->getMenuArgs('offcanvas') ); @endphp
+
+                </nav>
+
+            @endif
+
+        </div>
+
+    </div>
 
 </div>

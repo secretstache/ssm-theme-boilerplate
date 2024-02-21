@@ -1,5 +1,6 @@
-<button class="hamburger hide-for-medium" type="button" data-toggle="offCanvas" aria-expanded="false" aria-controls="offCanvas">
-    <span class="hamburger-line hamburger-line1"></span>
-    <span class="hamburger-line hamburger-line2"></span>
-    <span class="hamburger-line hamburger-line3"></span>
+<button class="hamburger hide-for-large" aria-controls="offcanvas">
+    <span class="show-for-sr">Menu toggle</span>
+    <span class="hamburger__line hamburger__line--1"></span>
+    <span class="hamburger__line hamburger__line--2"></span>
+    <span class="hamburger__line hamburger__line--3"></span>
 </button>
