@@ -4,8 +4,8 @@ namespace App\Fields\Modules;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Options\Admin;
-use App\Fields\Options\TextAlignment;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleAlignment;
 use App\Fields\Options\ModuleMargins;
 
 class Header {
@@ -77,7 +77,7 @@ class Header {
 
                 ->addFields(ModuleMargins::getFields())
 
-                ->addFields(TextAlignment::getFields())
+                ->addFields(ModuleAlignment::getFields())
 
                 ->addFields(HtmlAttributes::getFields())
 

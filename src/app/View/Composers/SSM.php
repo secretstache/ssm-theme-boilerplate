@@ -82,13 +82,9 @@ class SSM extends Composer
         $response .= (!empty($custom_classes)) ? " " . $custom_classes : "";
         $response .= (!empty($args['option_html_classes'])) ? " " . $args['option_html_classes'] : "";
 
-        // Module Options
-        if (!empty($args['option_text_alignment'])) {
-            $response .= ($args['option_text_alignment'] != 'align-left') ? ' ' . $args['option_text_alignment'] : '';
-        }
-
-        if (!empty($args['option_button_alignment'])) {
-            $response .= ($args['option_button_alignment'] != 'align-left') ? ' ' . $args['option_button_alignment'] : '';
+        // Module Alignment
+        if (!empty($args['option_module_alignment'])) {
+            $response .= ($args['option_module_alignment'] != 'align-left') ? ' ' . $args['option_module_alignment'] : '';
         }
 
         return $response;

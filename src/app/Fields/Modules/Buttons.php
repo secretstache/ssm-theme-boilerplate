@@ -5,9 +5,9 @@ namespace App\Fields\Modules;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Button as ButtonComponent;
 use App\Fields\Options\Admin;
-use App\Fields\Options\ButtonDefaults;
 use App\Fields\Options\ModuleMargins;
 use App\Fields\Options\HtmlAttributes;
+use App\Fields\Options\ModuleAlignment;
 
 class Buttons
 {
@@ -46,7 +46,7 @@ class Buttons
 
                 ->addFields(ModuleMargins::getFields())
 
-                ->addFields(ButtonDefaults::getFields())
+                ->addFields(ModuleAlignment::getFields())
 
                 ->addFields(HtmlAttributes::getFields())
 
