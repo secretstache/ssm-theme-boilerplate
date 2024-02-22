@@ -127,13 +127,12 @@ class SSM extends Composer
 
     public static function getColorChoices($colors)
     {
-
         if ( !empty( $colors ) ) {
 
             foreach ( $colors as $color ) {
                 $choices[$color] = get_stylesheet_directory_uri(__FILE__) . '/resources/assets/swatches/' . $color . '.png';
             }
-            
+
         }
 
         return $choices ?? [];
@@ -152,7 +151,7 @@ class SSM extends Composer
         $response .= ( isset( $args['option_top_padding'] ) && $args['option_top_padding'] != 2 ) ? ' pt-' . self::setSpacingSize( $args['option_top_padding'] ) : '';
         $response .= ( isset( $args['option_bottom_padding'] ) && $args['option_bottom_padding'] != 2 ) ? ' pb-' . self::setSpacingSize( $args['option_bottom_padding'] ) : '';
 
-        $response .= ( !empty( $custom_classes ) ) ? " " . $custom_classes : "";
+        $response .= (!empty( $custom_classes )) ? " " . $custom_classes : "";
         $response .= (!empty( $args['option_html_classes'] ) ) ? " " . $args['option_html_classes'] : "";
 
         // Module Alignment

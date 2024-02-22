@@ -2,6 +2,7 @@
 
 namespace App\Fields\Options;
 
+use App\View\Composers\SSM;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class Background {
@@ -20,35 +21,29 @@ class Background {
         $backgroundOptions
 
             ->addRadio('option_background', [
-                'label'		=> 'Background Options',
-                'layout'	=> 'horizontal'
-            ])
-                ->addChoice('color', 'Color')
-                ->addChoice('image', 'Image')
-                ->addChoice('video', 'Video')
-
-            ->addRadio('option_background_color', [
-                'label'     => 'Background Color',
-                'layout'    => 'horizontal',
-                'wrapper'   => [
-                    'class' => 'swatches'
+                'label'		    => 'Background Options',
+                'layout'	    => 'horizontal',
+                'choices'       => [
+                    'color'     => 'Color',
+                    'image'     => 'Image',
                 ]
             ])
-                ->addChoice('bg-white', 'White')
-                ->addChoice('bg-grey-light', 'Light Grey')
-                ->addChoice('bg-grey-dark', 'Dark Grey')
+
+            ->addField('background_color', 'acfe_image_selector', [
+                'label'         => 'Background Color',
+                'image_size'    => 'thumbnail',
+                'choices'       => SSM::getColorChoices(['white', 'blue']),
+                'wrapper'       => [
+                    'class'     => 'ssm-background-color-img',
+                ],
+            ])
                 ->conditional('option_background', '==', 'color')
 
-            ->addImage('option_background_image', [
+            ->addImage('background_image', [
                 'label'         => 'Background Image',
                 'preview_size'  => 'medium',
             ])
-                ->conditional('option_background', '==', 'image')
-
-            ->addFile('option_background_video', [
-                'label'         => 'Background Video',
-            ])
-                ->conditional('option_background', '==', 'video');
+                ->conditional('option_background', '==', 'image');
 
 		return $backgroundOptions;
 
