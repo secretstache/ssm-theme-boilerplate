@@ -49,13 +49,13 @@
                             ];
                         }
 
-                        $args = array(
+                        $args = [
                             'post_type'     => 'post',
                             'posts_per_page' => -1,
                             'status'        => 'publish',
                             'fields' 	    => 'ids',
                             'meta_query'    => $meta_queries
-                        );
+                        ];
 
                         $posts = get_posts( $args );
 
