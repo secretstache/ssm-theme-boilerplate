@@ -7,13 +7,6 @@
 namespace App;
 
 /**
- * Add Required Plugins
- */
-add_filter( 'sober/bundle/file', function () {
-    return get_template_directory( __FILE__ ) . '/config/json/required-plugins.json';
-});
-
-/**
  * Add SSM menu item
  */
 add_action( 'admin_menu', function () {
@@ -58,7 +51,7 @@ add_action( 'init', function() {
         ));
 
     }
-    
+
 });
 
 /**
@@ -119,7 +112,7 @@ add_action( 'admin_bar_menu', function( $wp_admin_bar ) {
 }, 999 );
 
 /**
- * Modified Sitemap - Yoast SEO 
+ * Modified Sitemap - Yoast SEO
  */
 add_filter( 'wpseo_sitemap_exclude_taxonomy', function( $value, $taxonomy ) {
 
@@ -186,7 +179,7 @@ function flexible_content_label($title, $field, $layout, $i)
 /**
  * Register Objects
  */
-foreach ( glob( get_template_directory( __FILE__ ) . '/app/Objects/*.php') as $file) {    
+foreach ( glob( get_template_directory( __FILE__ ) . '/app/Objects/*.php') as $file) {
 	require_once( $file );
 }
 
@@ -203,11 +196,11 @@ foreach( glob( get_template_directory( __FILE__ ) . '/app/Fields/*', GLOB_ONLYDI
 
 			$filename = basename( $file, '.php' ); // "Team"
 			$class = "App\\Fields\\{$namespace}\\{$filename}"; // "App\Fields\Objects\Team"
-			
+
 			$$filename = new $class(); // $Team = new App\Fields\Objects\Team
-		
+
 		}
-	
+
 	}
 
 }
