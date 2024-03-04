@@ -15,9 +15,6 @@ class RelatedContent {
 
         /**
          * [Template] - Related Content
-         * @author Rich Staats <rich@secretstache.com>
-         * @since 3.0.0
-         * @todo Link to Team Snippet Code
          */
         $relatedContentTemplate = new FieldsBuilder('related-content', [
             'title'	=> 'Related Content'

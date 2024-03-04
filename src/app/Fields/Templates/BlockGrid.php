@@ -16,9 +16,6 @@ class BlockGrid {
 
         /**
          * [Template] - Block Grid
-         * @author Rich Staats <rich@secretstache.com>
-         * @since 3.0.0
-         * @todo Link to Team Snippet Code
          */
         $blockGridTemplate = new FieldsBuilder('block-grid', [
             'label'	=> 'Block Grid'

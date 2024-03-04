@@ -10,9 +10,6 @@ class BrandSettings {
 
 		/**
 		 * Logo Assets
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
 		 */
 		$logoAssets = new FieldsBuilder('logo_assets', [
 			'title'			=> 'Logo Assets',
@@ -42,9 +39,6 @@ class BrandSettings {
 
 		/**
 		 * Business Information
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
 		 */
 		$businessInformation = new FieldsBuilder('business_information', [
 			'title'			=> 'Business Information',
@@ -106,9 +100,6 @@ class BrandSettings {
 
 		/**
 		 * Social Networks
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
 		 */
 		$socialNetworks = new FieldsBuilder('social_networks', [
 			'title'			=> 'Social Networks',
@@ -146,9 +137,6 @@ class BrandSettings {
 
 		/**
 		 * Global Footer
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
 		 */
 		$globalFooter = new FieldsBuilder('global_footer', [
 			'title'			=> 'Footer',
@@ -262,9 +250,6 @@ class BrandSettings {
 
 		/**
 		 * Global Inline Styles
-		 * @author Rich Staats <rich@secretstache.com>
-		 * @since 3.0.0
-		 * @todo Link to Team Snippet Code
 		 */
 		$globalInlineStyles = new FieldsBuilder('global_inline_styles', [
 			'title'			=> 'Global Inline Styles',

@@ -9,7 +9,7 @@ class TemplateHeader {
 	public static function getFields() {
 
 		/**
-         * [Option] - Template Header
+         * [Component] - Template Header
          */
         $templateHeaderOptions = new FieldsBuilder('template-header');
 

@@ -16,9 +16,6 @@ class SplitContent {
 
         /**
          * [Template] - Split Content
-         * @author Rich Staats <rich@secretstache.com>
-         * @since 3.0.0
-         * @todo Link to Team Snippet Code
          */
         $splitContentTemplate = new FieldsBuilder('split-content', [
             'label'	=> 'Split Content'
