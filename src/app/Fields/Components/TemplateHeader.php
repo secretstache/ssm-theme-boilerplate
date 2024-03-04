@@ -10,10 +10,6 @@ class TemplateHeader {
 
 		/**
          * [Option] - Template Header
-         * @author Rich Staats <rich@secretstache.com>
-         * @since 3.0.0
-         * @todo Extract Headline / Subheadline into a Header Snippet
-         * @todo Link to Team Snippet Code
          */
         $templateHeaderOptions = new FieldsBuilder('template-header');
 
