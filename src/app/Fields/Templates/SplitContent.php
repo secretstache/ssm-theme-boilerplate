@@ -35,11 +35,13 @@ class SplitContent {
                 ])
 
                     ->addRadio('media_type', [
-                        'label'     => 'Media Type',
-                        'layout'    => 'horizontal'
+                        'label'        => 'Media Type',
+                        'layout'       => 'horizontal',
+                        'choices'      => [
+                            'image'    => 'Image',
+                            'video'    => 'Video',
+                        ],
                     ])
-                        ->addChoice('image','Image')
-                        ->addChoice('video','Video')
 
                     ->addImage('image', [
                         'label'         => false,

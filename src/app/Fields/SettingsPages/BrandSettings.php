@@ -171,30 +171,30 @@ class BrandSettings {
 		$scriptManager
 
 			->addRepeater('global_scripts', [
-				'label'         => false,
-				'layout'		=> 'block',
-				'collapsed'		=> 'type',
-				'button_label'	=> 'Add Script',
+				'label'         				=> false,
+				'layout'						=> 'block',
+				'collapsed'						=> 'type',
+				'button_label'					=> 'Add Script',
 				'acfe_repeater_stylised_button'	=> 1
 			])
 
 				->addSelect('type', [
-					'label'   => false,
-					'choices' => [
-						'google_tag_manager' => 'Google Tag Manager',
-						'google_site_verification' => 'Google Site Verification',
-						'custom' => 'Custom'
+					'label'   						=> false,
+					'choices' 						=> [
+						'google_tag_manager' 		=> 'Google Tag Manager',
+						'google_site_verification'  => 'Google Site Verification',
+						'custom' 					=> 'Custom'
 					],
-					'wrapper'			=> [
-						'width'			=> '30'
+					'wrapper'						=> [
+						'width'						=> '30'
 					]
 				])
 
 				// Google Tag Manager
 
 				->addText('google_tag_manager_id', [
-					'label' => false,
-					'placeholder' => 'Tag Manager ID',
+					'label' 			=> false,
+					'placeholder' 		=> 'Tag Manager ID',
 					'wrapper'			=> [
 						'width'			=> '70'
 					]
@@ -204,8 +204,8 @@ class BrandSettings {
 				// Google Site Verification
 
 				->addText('google_site_verification_id', [
-					'label' => false,
-					'placeholder' => 'Site Verification ID',
+					'label' 			=> false,
+					'placeholder' 		=> 'Site Verification ID',
 					'wrapper'			=> [
 						'width'			=> '70'
 					]
@@ -215,8 +215,8 @@ class BrandSettings {
 				// Custom
 
 				->addText('custom_script_title', [
-					'label' => false,
-					'placeholder'    => 'Title',
+					'label' 			=> false,
+					'placeholder'    	=> 'Title',
 					'wrapper'			=> [
 						'width'			=> '70'
 					]

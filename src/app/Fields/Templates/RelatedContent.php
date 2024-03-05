@@ -27,17 +27,21 @@ class RelatedContent {
                 ->addFields(TemplateHeader::getFields())
 
                 ->addRadio('query', [
-                    'label'     => 'Query',
-                    'layout'	=> 'horizontal',
+                    'label'         => 'Query',
+                    'layout'	    => 'horizontal',
+                    'choices'       => [
+                        'latest'    => 'Latest',
+                        'curated'   => 'Curated'
+                    ]
                 ])
-                    ->addChoice('latest', 'Latest')
-                    ->addChoice('curated', 'Curated')
 
                 ->addRelationship('posts_to_show', [
-                    'label'         => 'Posts to show',
-                    'post_type'     => ['post'],
-                    'filters'       => ['search'],
-                    'return_format' => 'id',
+                    'label'          => 'Posts to show',
+                    'post_type'      => ['post'],
+                    'filters'        => ['search'],
+                    'return_format'  => 'id',
+                    'acfe_add_post'  => 1,
+                    'acfe_edit_post' => 1,
                 ])
                     ->conditional('query', '==', 'curated')
 

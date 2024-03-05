@@ -23,8 +23,8 @@ class LayoutBuilder {
         $layoutBuilder
         
 			->addFlexibleContent('templates', [
-				'label'			=> 'Layout Builder',
-				'button_label'	=> 'Add Template',
+				'label'						=> 'Layout Builder',
+				'button_label'				=> 'Add Template',
 				'acfe_flexible_advanced' 	=> 1,
 				'acfe_flexible_add_actions' => ['copy'],
 				'acfe_flexible_async' 		=> ['layout'],
