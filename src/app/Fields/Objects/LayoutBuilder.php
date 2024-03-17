@@ -8,6 +8,7 @@ use App\Fields\Templates\CallToAction;
 use App\Fields\Templates\BlockGrid;
 use App\Fields\Templates\SplitContent;
 use App\Fields\Templates\ContentBlockTemplate;
+use App\Fields\Templates\RelatedContent;
 
 class LayoutBuilder {
 
@@ -38,6 +39,8 @@ class LayoutBuilder {
                 ->addLayout(CallToAction::getFields())
 
 				->addLayout(ContentBlockTemplate::getFields())
+
+				->addLayout(RelatedContent::getFields())
                 
 			->setLocation('post_type', '==', 'page')
 				->or('post_type', '==', 'post')
