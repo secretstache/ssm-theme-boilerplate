@@ -32,13 +32,13 @@
 
 			</div>
 
-			@if ( !empty( $footer['menus'] ) && $footer['menus'] )
+			@if ( is_array( $navigation['footer'] ) && !empty( $navigation['footer'] ) )
 				
 				<div class="site-footer__navigation">
 
-					@foreach ($footer['menus'] as $menu )
+					@foreach ($navigation['footer'] as $key => $menu_column)
 
-						@php wp_nav_menu( $builder->getMenuArgs('menu_id', $menu['nav_menu'] ) ); @endphp
+						@include( 'partials.navigation', ['menu_items' => $menu_column['nav_menu'] ] )
 
 					@endforeach
 
@@ -72,7 +72,7 @@
 
 					<nav class="site-footer__terms__navigation">
 
-						@php wp_nav_menu( $builder->getMenuArgs('legal_navigation') ); @endphp
+						@include( 'partials.navigation', ['menu_items' => $navigation['primary'] ] )
 								
 					</nav>
 
