@@ -39,11 +39,7 @@ class LayoutBuilder {
 
 				->addLayout(ContentBlockTemplate::getFields())
                 
-			->setLocation('post_type', '==', 'page')
-				->or('post_type', '==', 'post')
-				->or('post_type', '==', 'ssm_design_system')
-					->and('page_template', '!=', 'template-design-system-archive-page.blade.php')
-				->or('post_type', '==', 'cb_template');
+			->setLocation('post_type', '==', 'cb_template');
 
 		// Register Layout Builder
 		add_action('acf/init', function() use ($layoutBuilder) {
