@@ -83,31 +83,6 @@ class SSM extends Composer
         return ( !empty( $html_id ) ) ? " id=\"". sanitize_html_class( strtolower( $html_id ) ) ."\"" : "";
     }
 
-    public static function setSpacingSize( $value )
-    {
-        switch ( $value ) {
-
-            case 0:
-                $spacing_size = 'none';
-                break;
-
-            case 1:
-                $spacing_size = 'sm';
-                break;
-
-            case 2:
-                $spacing_size = 'md';
-                break;
-
-            case 3:
-                $spacing_size = 'lg';
-                break;
-
-        }
-
-        return $spacing_size ?? '';
-    }
-
     public static function getColorChoices($colors)
     {
 
@@ -120,30 +95,6 @@ class SSM extends Composer
         }
 
         return $choices ?? [];
-    }
-
-    public static function getCustomClasses($custom_classes = null, $args)
-    {
-        $response = "";
-
-        if ( !empty( $args['background_color'] ) ) {
-            $response .= ( $args['background_color'] == 'black' ) ? " bg-dark bg-" . $args['background_color'] : " bg-" . $args['background_color'];
-        }
-
-        $response .= ( isset( $args['option_top_margin'] ) && $args['option_top_margin'] != 2 ) ? ' mt-' . self::setSpacingSize( $args['option_top_margin'] ) : '';
-        $response .= ( isset( $args['option_bottom_margin'] ) && $args['option_bottom_margin'] != 0 ) ? ' mb-' . self::setSpacingSize( $args['option_bottom_margin'] ) : '';
-        $response .= ( isset( $args['option_top_padding'] ) && $args['option_top_padding'] != 2 ) ? ' pt-' . self::setSpacingSize( $args['option_top_padding'] ) : '';
-        $response .= ( isset( $args['option_bottom_padding'] ) && $args['option_bottom_padding'] != 2 ) ? ' pb-' . self::setSpacingSize( $args['option_bottom_padding'] ) : '';
-
-        $response .= ( !empty( $custom_classes ) ) ? " " . $custom_classes : "";
-        $response .= (!empty( $args['option_html_classes'] ) ) ? " " . $args['option_html_classes'] : "";
-
-        // Module Alignment
-        if (!empty($args['option_module_alignment'])) {
-            $response .= ($args['option_module_alignment'] != 'align-left') ? ' ' . $args['option_module_alignment'] : '';
-        }
-
-        return $response;
     }
 
     public static function getAddress( $address )

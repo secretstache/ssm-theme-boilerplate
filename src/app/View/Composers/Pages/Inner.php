@@ -13,8 +13,6 @@ class Inner extends SSM
      * @var array
      */
     protected static $views = [
-        'front-page',
-        'page',
         'single-ssm_design_system'
     ];
 
