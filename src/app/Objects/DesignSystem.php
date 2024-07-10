@@ -9,16 +9,17 @@ add_action( 'init', function() {
 
     register_extended_post_type( "ssm_design_system", [
 
-        "capability_type"   => "page",
-        "menu_icon"         => "dashicons-welcome-widgets-menus",
-        "menu_position"		=> 5,
-        "supports" 			=> [ "title" ],
-        "show_in_menu"      => true,
-        "has_archive"       => false,
-        "public"            => true,
-        "show_ui"           => true,
-        "exclude_from_search" => false,
-        "show_in_nav_menus"   => false,
+        "capability_type"       => "page",
+        "menu_icon"             => "dashicons-welcome-widgets-menus",
+        "menu_position"		    => 5,
+        "supports" 			    => [ "title", "editor", "revisions" ],
+        "show_in_menu"          => true,
+        "has_archive"           => false,
+        "public"                => true,
+        "show_ui"               => true,
+        "exclude_from_search"   => false,
+        "show_in_nav_menus"     => false,
+        "show_in_rest"          => true,
 
         "labels"            => [
             "all_items"     => "Design System",

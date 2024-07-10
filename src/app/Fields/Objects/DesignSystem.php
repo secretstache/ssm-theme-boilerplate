@@ -13,7 +13,7 @@ class DesignSystem {
 		 */
 		$designSystemInfo = new FieldsBuilder('ds_info', [
 			'title'     => 'Design System Info',
-			'position'  => 'acf_after_title',
+			'position'  => 'side',
 			'style'		=> 'seamless'
 		]);
 

@@ -2,6 +2,6 @@
 
 @section('content')
 	
-	@include('page-builder')
+	{!! the_content() !!}
 
 @endsection
