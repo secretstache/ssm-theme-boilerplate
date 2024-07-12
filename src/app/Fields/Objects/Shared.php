@@ -4,8 +4,6 @@ namespace App\Fields\Objects;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Components\Header;
-use App\Fields\Options\Background;
-use App\Fields\Options\HtmlAttributes;
 
 class Shared {
 
